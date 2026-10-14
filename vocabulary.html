@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Полный список лексики по всем 12 юнитам учебника Get ready for Movers (2nd Edition). 484 слова с переводом.">
+<title>Vocabulary · Movers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --c-bg: #f4f9e8;
+    --c-card: #ffffff;
+    --c-section: #e8f5d8;
+    --c-card-bg: #eaf3d6;
+    --c-table-stripe: #f0f7e1;
+    --c-header: #4a6b3a;
+    --c-border: #b8d090;
+    --c-accent: #2E5CB8;
+    --c-text: #1a2818;
+    --c-text-muted: #5a6b50;
+    --c-shadow: rgba(46, 92, 184, 0.10);
+    --radius: 8px;
+    --radius-sm: 4px;
+    --container: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top toolbar (hidden on print) ── */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-header);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .toolbar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .toolbar-brand {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .toolbar-brand .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--c-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .toolbar-actions { display: flex; gap: 8px; }
+  .toolbar-actions a, .toolbar-actions button {
+    background: var(--c-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #2E5CB8; }
+  .toolbar-actions a.secondary, .toolbar-actions button.secondary {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── Header ── */
+  .hw-header {
+    background: linear-gradient(135deg, #4a6b3a 0%, #5a7a4a 50%, #4a6b3a 100%);
+    color: #fff;
+    padding: 36px 24px 30px;
+  }
+  .hw-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .hw-kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 12px;
+  }
+  .hw-title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .hw-title .accent { color: var(--c-accent); }
+  .hw-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .hw-meta {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .hw-meta-item {
+    border-left: 2px solid rgba(255,255,255,0.25);
+    padding-left: 12px;
+  }
+  .hw-meta-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2px;
+  }
+  .hw-meta-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ── Intro ── */
+  .hw-intro {
+    background: var(--c-card-bg);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 0 0 24px;
+  }
+  .hw-intro p { margin: 0 0 8px; }
+  .hw-intro p:last-child { margin: 0; }
+  .hw-intro b { color: var(--c-header); }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 0;
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--c-header);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-top: 1px solid var(--c-border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+  .vocab-table td:first-child {
+    background: var(--c-section);
+    font-weight: 600;
+    color: var(--c-header);
+    white-space: nowrap;
+  }
+
+  .callout {
+    background: #fff;
+    border-left: 4px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13.5px;
+    color: var(--c-text-muted);
+  }
+  .callout strong { color: var(--c-text); }
+
+  /* ── Exercise ── */
+  .exercise {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px var(--c-shadow);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .exercise-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--c-header);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Noto Serif', serif;
+  }
+  .exercise-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-header);
+    margin: 0;
+  }
+  .exercise-instr {
+    font-style: italic;
+    color: var(--c-text-muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+
+  /* Exercise 1: matching */
+  .match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+    max-width: 480px;
+    margin: 12px 0;
+  }
+  .match-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: var(--c-section);
+    border-radius: 4px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+  }
+  .match-row .num {
+    font-weight: 700;
+    color: var(--c-accent);
+    min-width: 38px;
+  }
+  .match-line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    border-bottom: 1px dashed var(--c-border);
+    margin: 0 6px;
+  }
+
+  /* Exercise 2: door numbers */
+  .door-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .door-item {
+    background: var(--c-section);
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .door-item .word { display: block; margin-bottom: 8px; font-family: 'Noto Serif', serif; }
+  .door-blank {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-bottom: 2px solid var(--c-header);
+  }
+
+  /* Exercise 3: building */
+  .building {
+    display: inline-block;
+    border: 2px solid var(--c-header);
+    border-radius: 4px 4px 0 0;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  .floor {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .floor:last-child { border-bottom: none; }
+  .floor .floor-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 44px;
+    background: var(--c-card-bg);
+    color: var(--c-accent);
+    font-weight: 700;
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--c-border);
+  }
+  .floor .floor-input {
+    flex: 1;
+    padding: 0 14px;
+    font-size: 14px;
+    min-height: 28px;
+    border-bottom: 1px dashed var(--c-border);
+  }
+  .floor.basement .floor-input { color: var(--c-text-muted); font-style: italic; border-bottom: none; }
+  .word-bank {
+    background: var(--c-section);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--c-header);
+    margin: 8px 0;
+  }
+  .word-bank b { color: var(--c-accent); }
+
+  /* Exercise 4: address */
+  .addr-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .addr-list li {
+    padding: 12px 14px;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: var(--c-section);
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+  .addr-list .example { background: #fff; border-color: var(--c-accent); }
+  .addr-list .example .answer { color: var(--c-accent); font-weight: 700; }
+  .addr-blank {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    margin-top: 6px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 5: there is/are */
+  .fill-blank-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .fill-blank-list li {
+    counter-increment: q;
+    padding: 8px 0 8px 28px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    border-bottom: 1px dotted var(--c-border);
+    position: relative;
+  }
+  .fill-blank-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .fill-blank-list li:last-child { border-bottom: none; }
+  .blank-line {
+    display: inline-block;
+    min-width: 140px;
+    border-bottom: 2px solid var(--c-accent);
+    margin: 0 4px;
+  }
+
+  /* Exercise 6: writing */
+  .q-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .q-list li {
+    counter-increment: q;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--c-border);
+    position: relative;
+  }
+  .q-list li:last-child { border-bottom: none; }
+  .q-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .q-list .question {
+    display: block;
+    font-weight: 600;
+    color: var(--c-header);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .write-blank {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 7: speaking */
+  .speaking-plan {
+    background: var(--c-section);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .speaking-plan h5 {
+    margin: 0 0 10px;
+    color: var(--c-header);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .speaking-plan ul { margin: 0; padding-left: 20px; }
+  .speaking-example {
+    background: #fff;
+    border-left: 3px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+
+  /* Stars note */
+  .stars-note {
+    background: #eaf3d6;
+    border: 1px solid var(--c-accent);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .stars-note b { color: var(--c-accent); }
+
+  .footer {
+    background: var(--c-header);
+    color: rgba(255,255,255,0.85);
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .footer a { color: var(--c-accent); text-decoration: none; }
+
+  /* ── Print styles ── */
+  @media print {
+    .toolbar, .footer { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    .hw-header {
+      background: #fff !important;
+      color: #000 !important;
+      border-bottom: 3px solid #000;
+      padding: 0 0 12px 0;
+    }
+    .hw-kicker, .hw-subtitle, .hw-meta-label { color: #555 !important; }
+    .hw-title { color: #000 !important; font-size: 22pt; }
+    .hw-title .accent { color: #2E5CB8 !important; }
+    .hw-meta-item { border-left-color: #999 !important; }
+    .hw-meta-value { color: #000 !important; }
+    .container { padding: 16px 0; max-width: 100%; }
+    .exercise {
+      box-shadow: none;
+      border: 1px solid #999;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .exercise-num {
+      background: #4a6b3a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .word-bank, .match-row, .door-item, .floor .floor-num, .floor .floor-input,
+    .addr-list li, .speaking-plan, .speaking-example, .hw-intro, .vocab-table td:first-child {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .stars-note { background: #eaf3d6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .door-grid, .match-grid { grid-template-columns: 1fr 1fr; }
+    .exercise { padding: 16px; }
+  }
+
+
+.iv-stats {{
+  background: var(--c-card-bg);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}}
+.iv-stats b {{ color: var(--c-accent); }}
+
+.iv-search {{
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius);
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}}
+.iv-search:focus {{
+  outline: none;
+  border-color: var(--c-accent);
+}}
+
+.unit-block {{
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 20px 0;
+  box-shadow: 0 2px 6px var(--c-shadow);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}}
+.unit-header {{
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--c-accent);
+}}
+.unit-num {{
+  font-family: 'Noto Serif', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--c-accent);
+  line-height: 1;
+}}
+.unit-title {{
+  font-family: 'Noto Serif', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--c-header);
+  margin: 0;
+}}
+.unit-pages {{
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--c-text-muted);
+  font-style: italic;
+}}
+.cat-row {{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--c-border);
+}}
+.cat-row:last-child {{ border-bottom: none; }}
+.cat-name {{
+  font-weight: 600;
+  color: var(--c-header);
+  font-size: 14px;
+  font-family: 'Noto Serif', serif;
+}}
+</style>
+</head>
+<body>
+
+<!-- ── Toolbar ── -->
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-brand"><span class="dot"></span>Vocabulary · Movers</div>
+    <div class="toolbar-actions">
+      <button onclick="window.print()">🖨 Печать / PDF</button>
+      <a href="index.html" class="secondary">← К плану</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Header ── -->
+<header class="hw-header">
+  <div class="hw-header-inner">
+    <p class="hw-kicker">Reference · Get ready for Movers · All Vocabulary</p>
+    <h1 class="hw-title">Vocabulary <span class="accent">— all units</span></h1>
+    <p class="hw-subtitle">Полный список лексики по всем 12 юнитам + Intro — 484 слов</p>
+    <div class="hw-meta">
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Учебник</div>
+        <div class="hw-meta-value">Get ready for Movers (2nd ed.)</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Слов</div>
+        <div class="hw-meta-value">484</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Юнитов</div>
+        <div class="hw-meta-value">13</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Уровень</div>
+        <div class="hw-meta-value">Pre-A1 → A1</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <input type="text" class="iv-search" placeholder="🔍 Поиск слова (например: hop, library, monday)..." oninput="filterWords(this.value)">
+
+
+  <div class="callout">
+    <strong>Как пользоваться:</strong> это полный список слов по всем 12 юнитам учебника Get ready for Movers (2nd Edition). Используй его для повторения перед каждым мини-тестом и финальным mock-exam. Слова сгруппированы по категориям внутри каждого юнита. Английское слово — русский перевод.
+  </div>
+
+  <div class="callout">
+    <strong>Совет для печати:</strong> нажми кнопку «🖨 Печать / Сохранить в PDF» в верхней панели. В настройках печати выбери «Сохранить как PDF» — получится файл, который можно распечатать или открыть на телефоне.
+  </div>
+
+  <div class="iv-stats" style="margin-top: 16px;">
+    📊 Всего в таблице: <b>484 слов</b> · 🎯 13 юнитов + Intro · 💡 Используй Ctrl+F для поиска слова
+  </div>
+
+  <!-- ── Intro: Where do you live? ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">I</div>
+      <h3 class="unit-title">Where do you live?</h3>
+      <div class="unit-pages">26 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">address</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">адрес</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">basement</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">подвал</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dress up</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">наряжаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">flat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">квартира</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">floor</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">этаж</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ground floor</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">цокольный этаж</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">live</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">road</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дорога</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">street</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">улица</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">upstairs</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">наверху</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">town</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">городок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">first</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">первый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">second</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">второй</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">third</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">третий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fourth</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">четвёртый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fifth</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пятый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ten</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">десять</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">twenty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">двадцать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">thirty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тридцать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">forty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сорок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fifty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пятьдесят</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sixty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">шестьдесят</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">seventy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">семьдесят</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">eighty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">восемьдесят</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ninety</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">девяносто</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">one hundred</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сто</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 1: At the park ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U1</div>
+      <h3 class="unit-title">At the park</h3>
+      <div class="unit-pages">39 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">basketball</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">баскетбол</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">brown</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">коричневый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">climb</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лезть, взбираться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">coat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пальто</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cry</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">плакать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dance</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">танцевать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">drawing</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рисунок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fast</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">быстрый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">film</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">фильм</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fish</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ловить рыбу</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">glasses</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">очки</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">good at</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">хороший в</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">green</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зелёный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">grey</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">серый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hide</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прятаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hop</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прыгать на одной ноге</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">jacket</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">куртка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">laugh</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">смеяться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">let's</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">давай</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">orange</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">оранжевый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pink</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">розовый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">purple</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">фиолетовый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">red</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">красный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">roller skate</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кататься на роликах</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">scarf</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">шарф</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">shoe</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ботинок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">skip</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">скакать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">small</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">маленький</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tall</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">высокий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tennis</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">теннис</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">T-shirt</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">футболка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">walk</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гулять</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">well done</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">молодец</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">yellow</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жёлтый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">black</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чёрный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">blue</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">синий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">than</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чем</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">who</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кто</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">swimsuit</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">купальник</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 2: A busy week ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U2</div>
+      <h3 class="unit-title">A busy week</h3>
+      <div class="unit-pages">28 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">always</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">всегда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">at (time)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">в (время)</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">call</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">звонить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">CD</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">компакт-диск</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cook</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">готовить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">drive (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поездка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">DVD</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">DVD-диск</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">every day</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">каждый день</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name"> Geography</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">география</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">History</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">история</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Maths</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">математика</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Music</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">музыка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">never</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">никогда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">PE</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">физкультура</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Science</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">естествознание</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sometimes</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">иногда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Art</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ИЗО</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">subject</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">предмет</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Sunday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">воскресенье</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Thursday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">четверг</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Tuesday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вторник</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">usually</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">обычно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Wednesday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">среда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">week</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">неделя</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Monday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">понедельник</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Friday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пятница</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Saturday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">суббота</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">English</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">английский</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 3: In the town ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U3</div>
+      <h3 class="unit-title">In the town</h3>
+      <div class="unit-pages">34 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">bank</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">банк</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bookshop</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">книжный магазин</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bus</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">автобус</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bus station</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">автовокзал</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">café</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кафе</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">catch</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ловить (транспорт)</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cinema</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кино</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">corner</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">угол</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cross (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">переходить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hospital</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">больница</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">library</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">библиотека</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">map</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">карта</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">market</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рынок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">must</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">должен</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mustn't</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">нельзя</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">next to</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рядом с</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">opposite</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">напротив</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">park (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">парк</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pool</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бассейн</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">post office</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">почта</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">river</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">река</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">road (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дорога</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">shop</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">магазин</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">station</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">станция</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">straight on</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прямо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">supermarket</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">супермаркет</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">theatre</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">театр</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">turn</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поворачивать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">zoo</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зоопарк</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">between</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">между</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">behind</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">за, позади</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">in front of</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">перед</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">left</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">левый, налево</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">right</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">правый, направо</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 4: At home ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U4</div>
+      <h3 class="unit-title">At home</h3>
+      <div class="unit-pages">30 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">circus</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">цирк</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cold</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">холодный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">Excuse me</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">извините</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fun</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">веселье</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hall</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прихожая</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hot</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">горячий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">how many</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сколько</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">kitchen</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кухня</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">lamp</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лампа</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">living room</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гостиная</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">plant</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">растение</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">plant (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сажать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">shower</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">душ</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sofa</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">диван</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">stairs</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лестница</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">table</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">стол</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bathroom</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ванная</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bed</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кровать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bedroom</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">спальня</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bigger</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">больше</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">chair</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">стул</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cupboard</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">шкаф</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dining room</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">столовая</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">door</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дверь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">garden</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сад</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">garage</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гараж</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">window</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">окно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">room</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">комната</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wardrobe</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гардероб</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wall</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">стена</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 5: Let's go on holiday! ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U5</div>
+      <h3 class="unit-title">Let's go on holiday!</h3>
+      <div class="unit-pages">30 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">airport</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">аэропорт</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">backpack</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рюкзак</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">beach</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пляж</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bike</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">велосипед</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">boat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лодка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">camping</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кемпинг</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">car</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">машина</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">city</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">город</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">clown</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">клоун</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cook (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">повар</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">daughter</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дочь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">drive (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вести машину</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fly (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">летать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">grow</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">расти</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">holiday</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">отпуск</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hungry</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">голодный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">leave</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">уезжать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mountain</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гора</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">plane</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">самолёт</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ship</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">корабль</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">suitcase</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чемодан</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">taxi</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">такси</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ticket</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">билет</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">train</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поезд</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">upstairs</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">наверху</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wake (up)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">просыпаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">world</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мир</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">building</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">здание</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">helicopter</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вертолёт</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bus stop</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">автобусная остановка</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 6: My favourite book ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U6</div>
+      <h3 class="unit-title">My favourite book</h3>
+      <div class="unit-pages">87 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">after</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">после</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">asleep</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">спящий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">awake</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бодрствующий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">begin</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">начинать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">beginning</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">начало</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bored</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">скучающий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">book</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">книга</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bring</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">приносить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">buy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">покупать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">careful</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">осторожный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">carry</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">нести</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">character</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">персонаж</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">climb up</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">взбираться вверх</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">comic</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">комикс</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cry (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">плач</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cut</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">резать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dolphin</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дельфин</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">doorway</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дверной проём</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">end (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">конец</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">enjoy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">наслаждаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fall</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">падать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">толстый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">field</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поле</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">find out</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">узнавать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">find (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">находить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">finish</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">заканчивать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fly (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">муха</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">forest</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лес</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">growl</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рычать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">happy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">счастливый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hard</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">трудный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hero</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">герой</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hole</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дыра</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hot</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жаркий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">jump</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прыгать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">key</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ключ</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">king</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">король</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">kiss</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">целовать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">leaf</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лист</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">loudly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">громко</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">love</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">любить</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">map (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">карта</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">middle</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">середина</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">monster</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">монстр</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">moon</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">луна</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">narrator</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рассказчик</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">page</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">страница</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">picture</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">картинка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pirate</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пират</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">princess</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">принцесса</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">queen</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">королева</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">quickly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">быстро</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">rabbit</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кролик</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ride (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кататься</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">run away</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">убегать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sad</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">грустный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">scared</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">испуганный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">shout</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кричать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">slowly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">медленно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">smile</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">улыбаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">snow</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">снег</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">star</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">звезда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">stay</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">оставаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">story</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">история</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">suddenly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вдруг</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sun</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">солнце</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">surprised</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">удивлённый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">swim</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">плавать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">take</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">брать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">that</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тот, что</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">think</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">думать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">thirsty</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жаждущий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tired</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">уставший</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">today</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сегодня</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tree</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дерево</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">unhappy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">несчастный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">villain</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">злодей</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wake up</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">просыпаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">water (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вода</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wizard</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">волшебник</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dragon</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дракон</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fairy tale</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сказка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">adventure</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">приключение</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fantasy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">фэнтези</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dictionary</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">словарь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">excited</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">взволнованный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">angry</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">злой</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 7: This is my family ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U7</div>
+      <h3 class="unit-title">This is my family</h3>
+      <div class="unit-pages">38 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">age</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">возраст</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">aunt</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тётя</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">badly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">плохо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">beard</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">борода</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">blond(e)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">блондин(ка)</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">body</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тело</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">brother</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">брат</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">child</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ребёнок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">children</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дети</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cousin</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">двоюродный брат/сестра</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dad</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">папа</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">daughter</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дочь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">family</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">семья</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">father</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">отец</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">friend</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">друг</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">grandfather</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дедушка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">grandmother</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бабушка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hair</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">волосы</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">happy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">счастливый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hard</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">усердно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">kind</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">добрый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">loud</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">громкий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">loudly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">громко</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">love (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">любовь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mum</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мама</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mother</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">parents</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">родители</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">people</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">люди</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">photo</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">фото</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">quiet</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тихий</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">quietly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тихо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sister</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сестра</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">son</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сын</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">strong</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сильный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">uncle</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дядя</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">well</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">хорошо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">young</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">молодой</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">baby</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">малыш</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 8: What's for lunch? ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U8</div>
+      <h3 class="unit-title">What's for lunch?</h3>
+      <div class="unit-pages">36 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">cheese</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сыр</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">chicken</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">курица</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">milk</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">молоко</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pasta</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">паста</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">coffee</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кофе</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">salad</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">салат</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tea</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чай</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">water</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вода</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">soup</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">суп</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sandwich</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сэндвич</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">vegetables</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">овощи</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">noodles</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лапша</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bowl</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">миска</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">glass</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">стакан</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bottle</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бутылка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cup</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чашка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">plate</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тарелка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">juice</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">burger</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бургер</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bread</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">хлеб</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pineapple</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ананас</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">carrots</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">морковь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">apple</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">яблоко</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">banana</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">банан</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">meat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мясо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fish</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рыба</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">rice</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рис</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">egg</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">яйцо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cake</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">торт</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pizza</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пицца</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">breakfast</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">завтрак</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">lunch</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">обед</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dinner</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ужин</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">would like</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">хотел бы</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">some</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">немного</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">any</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">какой-нибудь</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 9: Do you like animals? ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U9</div>
+      <h3 class="unit-title">Do you like animals?</h3>
+      <div class="unit-pages">37 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">bat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">летучая мышь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bear</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">медведь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">change (v)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">менять</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">difference</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">разница</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dolphin</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дельфин</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">elephant</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">слон</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">frog</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лягушка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">giraffe</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жираф</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hippo</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бегемот</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">horse</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лошадь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">kind (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вид, род</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">lion</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лев</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">monkey</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">обезьяна</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mouse</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мышь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sheep</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">овца</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">snake</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">змея</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">spider</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">паук</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tail</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">хвост</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tiger</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тигр</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">crocodile</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">крокодил</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cow</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">корова</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pig</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">свинья</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">duck</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">утка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">rabbit</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кролик</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dog</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">собака</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кошка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bird</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">птица</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">butterfly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бабочка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">bee</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пчела</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ant</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">муравей</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">paw</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лапа</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wing</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">крыло</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">beak</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">клюв</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fur</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">шерсть</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">feathers</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">перья</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">claws</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">когти</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">horn</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рог</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 10: The weather ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U10</div>
+      <h3 class="unit-title">The weather</h3>
+      <div class="unit-pages">28 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">autumn</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">осень</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cloudy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">облачно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cold</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">холодно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">country</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">страна</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">down</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вниз</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fine</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прекрасный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hot</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жарко</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ice cream</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мороженое</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">inside</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">внутри</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">lake</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">озеро</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">rain (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дождь</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">rainy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дождливо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sea</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">море</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">season</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">время года</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sky</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">небо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">snowy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">снежно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">spring</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">весна</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">storm</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гроза</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">stormy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">грозовой</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">summer</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лето</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sun</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">солнце</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sunny</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">солнечно</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">warm</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">тепло</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">weather</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">погода</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wind</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ветер</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">windy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ветрено</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">winter</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зима</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">foggy</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">туманно</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 11: What's the matter? ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U11</div>
+      <h3 class="unit-title">What's the matter?</h3>
+      <div class="unit-pages">40 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">back</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">спина</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">backache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">боль в спине</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">better</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лучше</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cold (illness)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">простуда</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cough</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кашель</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cut (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">порез</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dad</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">папа</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ear</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ухо</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">earache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">боль в ухе</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">eye</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">глаз</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">feel</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">чувствовать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">foot</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">стопа</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">get better</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поправляться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hair</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">волосы</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hand</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кисть</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">head</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">голова</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">headache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">головная боль</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">leg</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">нога</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">matter</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дело, проблема</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mouth</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рот</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">nose</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">нос</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">stomach</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">живот</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">stomach ache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">боль в животе</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sun cream</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">солнцезащитный крем</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">take (medicine)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">принимать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">teeth</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зубы</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">temperature</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">температура</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tooth</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зуб</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">toothache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">зубная боль</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">arm</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">рука</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fever</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">жар</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sore throat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">ангина</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">ill</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">больной</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">sick</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">больной</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">well</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">здоровый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">should</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">следует</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">shouldn't</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">не следует</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">medicine</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лекарство</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">doctor</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">врач</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hospital</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">больница</div>
+      </div>
+  </div>
+
+  <!-- ── Unit 12: In the countryside ── -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">U12</div>
+      <h3 class="unit-title">In the countryside</h3>
+      <div class="unit-pages">31 слов</div>
+    </div>
+      <div class="cat-row">
+        <div class="cat-name">bone</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">кость</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">butterfly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">бабочка</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">cave</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">пещера</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">chase</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гнаться</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">countryside</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сельская местность</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">dry</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">сухой</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">earache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">боль в ухе</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fat</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">толстый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fine</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">прекрасный</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">headache</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">головная боль</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hurt</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">болеть</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">lake</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">озеро</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">leaf</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лист</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">map (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">карта</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">pick (flowers)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">собирать</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">plant (n)</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">растение</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">river</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">река</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">suddenly</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">вдруг</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tired</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">уставший</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tomato</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">помидор</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">tree</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">дерево</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">wet</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">мокрый</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">field</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">поле</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">forest</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лес</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">hill</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">холм</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">mountain</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">гора</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">flower</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">цветок</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">grass</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">трава</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">waterfall</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">водопад</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">deer</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">олень</div>
+      </div>
+      <div class="cat-row">
+        <div class="cat-name">fox</div>
+        <div class="cat-words" style="font-family: 'Inter', sans-serif; color: var(--c-text-muted);">лиса</div>
+      </div>
+  </div>
+
+
+</main>
+
+<footer class="footer">
+  <p>Vocabulary · Get ready for Movers (2nd ed.) · Cambridge YLE Movers</p>
+  <p><a href="index.html">← Вернуться к годовому плану</a></p>
+</footer>
+
+<script>
+function filterWords(q) {{
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.cat-row').forEach(row => {{
+    const text = row.textContent.toLowerCase();
+    row.style.display = text.includes(q) ? '' : 'none';
+  }});
+  // Hide empty unit blocks
+  document.querySelectorAll('.unit-block').forEach(block => {{
+    const visible = Array.from(block.querySelectorAll('.cat-row')).filter(r => r.style.display !== 'none');
+    block.style.display = visible.length > 0 ? '' : 'none';
+  }});
+}}
+</script>
+
+</body>
+</html>

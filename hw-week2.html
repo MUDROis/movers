@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Домашнее задание Movers — неделя 2, Unit 1. Park actions and colours — 7 упражнений, ~25 минут">
+<title>ДЗ Неделя 2 · Unit 1 · Movers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --c-bg: #f4f9e8;
+    --c-card: #ffffff;
+    --c-section: #e8f5d8;
+    --c-card-bg: #eaf3d6;
+    --c-table-stripe: #f0f7e1;
+    --c-header: #4a6b3a;
+    --c-border: #b8d090;
+    --c-accent: #2E5CB8;
+    --c-text: #1a2818;
+    --c-text-muted: #5a6b50;
+    --c-shadow: rgba(46, 92, 184, 0.10);
+    --radius: 8px;
+    --radius-sm: 4px;
+    --container: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top toolbar (hidden on print) ── */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-header);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .toolbar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .toolbar-brand {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .toolbar-brand .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--c-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .toolbar-actions { display: flex; gap: 8px; }
+  .toolbar-actions a, .toolbar-actions button {
+    background: var(--c-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #2E5CB8; }
+  .toolbar-actions a.secondary, .toolbar-actions button.secondary {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── Header ── */
+  .hw-header {
+    background: linear-gradient(135deg, #4a6b3a 0%, #5a7a4a 50%, #4a6b3a 100%);
+    color: #fff;
+    padding: 36px 24px 30px;
+  }
+  .hw-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .hw-kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 12px;
+  }
+  .hw-title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .hw-title .accent { color: var(--c-accent); }
+  .hw-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .hw-meta {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .hw-meta-item {
+    border-left: 2px solid rgba(255,255,255,0.25);
+    padding-left: 12px;
+  }
+  .hw-meta-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2px;
+  }
+  .hw-meta-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ── Intro ── */
+  .hw-intro {
+    background: var(--c-card-bg);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 0 0 24px;
+  }
+  .hw-intro p { margin: 0 0 8px; }
+  .hw-intro p:last-child { margin: 0; }
+  .hw-intro b { color: var(--c-header); }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 0;
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--c-header);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-top: 1px solid var(--c-border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+  .vocab-table td:first-child {
+    background: var(--c-section);
+    font-weight: 600;
+    color: var(--c-header);
+    white-space: nowrap;
+  }
+
+  .callout {
+    background: #fff;
+    border-left: 4px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13.5px;
+    color: var(--c-text-muted);
+  }
+  .callout strong { color: var(--c-text); }
+
+  /* ── Exercise ── */
+  .exercise {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px var(--c-shadow);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .exercise-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--c-header);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Noto Serif', serif;
+  }
+  .exercise-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-header);
+    margin: 0;
+  }
+  .exercise-instr {
+    font-style: italic;
+    color: var(--c-text-muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+
+  /* Exercise 1: matching */
+  .match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+    max-width: 480px;
+    margin: 12px 0;
+  }
+  .match-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: var(--c-section);
+    border-radius: 4px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+  }
+  .match-row .num {
+    font-weight: 700;
+    color: var(--c-accent);
+    min-width: 38px;
+  }
+  .match-line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    border-bottom: 1px dashed var(--c-border);
+    margin: 0 6px;
+  }
+
+  /* Exercise 2: door numbers */
+  .door-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .door-item {
+    background: var(--c-section);
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .door-item .word { display: block; margin-bottom: 8px; font-family: 'Noto Serif', serif; }
+  .door-blank {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-bottom: 2px solid var(--c-header);
+  }
+
+  /* Exercise 3: building */
+  .building {
+    display: inline-block;
+    border: 2px solid var(--c-header);
+    border-radius: 4px 4px 0 0;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  .floor {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .floor:last-child { border-bottom: none; }
+  .floor .floor-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 44px;
+    background: var(--c-card-bg);
+    color: var(--c-accent);
+    font-weight: 700;
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--c-border);
+  }
+  .floor .floor-input {
+    flex: 1;
+    padding: 0 14px;
+    font-size: 14px;
+    min-height: 28px;
+    border-bottom: 1px dashed var(--c-border);
+  }
+  .floor.basement .floor-input { color: var(--c-text-muted); font-style: italic; border-bottom: none; }
+  .word-bank {
+    background: var(--c-section);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--c-header);
+    margin: 8px 0;
+  }
+  .word-bank b { color: var(--c-accent); }
+
+  /* Exercise 4: address */
+  .addr-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .addr-list li {
+    padding: 12px 14px;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: var(--c-section);
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+  .addr-list .example { background: #fff; border-color: var(--c-accent); }
+  .addr-list .example .answer { color: var(--c-accent); font-weight: 700; }
+  .addr-blank {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    margin-top: 6px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 5: there is/are */
+  .fill-blank-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .fill-blank-list li {
+    counter-increment: q;
+    padding: 8px 0 8px 28px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    border-bottom: 1px dotted var(--c-border);
+    position: relative;
+  }
+  .fill-blank-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .fill-blank-list li:last-child { border-bottom: none; }
+  .blank-line {
+    display: inline-block;
+    min-width: 140px;
+    border-bottom: 2px solid var(--c-accent);
+    margin: 0 4px;
+  }
+
+  /* Exercise 6: writing */
+  .q-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .q-list li {
+    counter-increment: q;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--c-border);
+    position: relative;
+  }
+  .q-list li:last-child { border-bottom: none; }
+  .q-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .q-list .question {
+    display: block;
+    font-weight: 600;
+    color: var(--c-header);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .write-blank {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 7: speaking */
+  .speaking-plan {
+    background: var(--c-section);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .speaking-plan h5 {
+    margin: 0 0 10px;
+    color: var(--c-header);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .speaking-plan ul { margin: 0; padding-left: 20px; }
+  .speaking-example {
+    background: #fff;
+    border-left: 3px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+
+  /* Stars note */
+  .stars-note {
+    background: #eaf3d6;
+    border: 1px solid var(--c-accent);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .stars-note b { color: var(--c-accent); }
+
+  .footer {
+    background: var(--c-header);
+    color: rgba(255,255,255,0.85);
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .footer a { color: var(--c-accent); text-decoration: none; }
+
+  /* ── Print styles ── */
+  @media print {
+    .toolbar, .footer { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    .hw-header {
+      background: #fff !important;
+      color: #000 !important;
+      border-bottom: 3px solid #000;
+      padding: 0 0 12px 0;
+    }
+    .hw-kicker, .hw-subtitle, .hw-meta-label { color: #555 !important; }
+    .hw-title { color: #000 !important; font-size: 22pt; }
+    .hw-title .accent { color: #2E5CB8 !important; }
+    .hw-meta-item { border-left-color: #999 !important; }
+    .hw-meta-value { color: #000 !important; }
+    .container { padding: 16px 0; max-width: 100%; }
+    .exercise {
+      box-shadow: none;
+      border: 1px solid #999;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .exercise-num {
+      background: #4a6b3a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .word-bank, .match-row, .door-item, .floor .floor-num, .floor .floor-input,
+    .addr-list li, .speaking-plan, .speaking-example, .hw-intro, .vocab-table td:first-child {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .stars-note { background: #eaf3d6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .door-grid, .match-grid { grid-template-columns: 1fr 1fr; }
+    .exercise { padding: 16px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ── Toolbar ── -->
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-brand"><span class="dot"></span>Неделя 2 · Unit 1</div>
+    <div class="toolbar-actions">
+      <button onclick="window.print()">🖨 Печать</button>
+      <a href="index.html#plan" class="secondary">← К плану</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Header ── -->
+<header class="hw-header">
+  <div class="hw-header-inner">
+    <p class="hw-kicker">Homework · Get ready for Movers · Unit 1, Lesson 1</p>
+    <h1 class="hw-title">At the <span class="accent">park</span></h1>
+    <p class="hw-subtitle">Park actions and colours — 7 упражнений, ~25 минут</p>
+    <div class="hw-meta">
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Неделя</div>
+        <div class="hw-meta-value">2 из 34</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Юнит</div>
+        <div class="hw-meta-value">Unit 1</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Страницы</div>
+        <div class="hw-meta-value">SB стр. 4–5</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Время</div>
+        <div class="hw-meta-value">20–25 минут</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="hw-intro">
+    <p>На уроке ты выучил 10 глаголов действия в парке и 10 цветов одежды. Цель домашки — закрепить новые слова и подготовиться к рассказу о том, что ты делаешь в парке.</p>
+    <div class="table-wrap">
+      <table class="vocab-table">
+        <thead><tr><th>Категория</th><th>Слова и выражения</th></tr></thead>
+        <tbody>
+                    <tr><td>Park actions</td><td>hop, skip, walk, climb, laugh, roller skate, dance, cry, fish, hide</td></tr>
+          <tr><td>Colours</td><td>orange, pink, yellow, black, green, purple, brown, blue, red, grey</td></tr>
+          <tr><td>Clothes</td><td>coat, sweater, scarf, T-shirt, trousers, shoes, glasses, jacket, swimsuit</td></tr>
+          <tr><td>Structures</td><td>I'm wearing... / What colour is...? / It's...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Инструкция для родителей:</strong> помогите ребёнку прочитать задания, но не подсказывайте ответы. Если ребёнок не помнит слово — пусть посмотрит в учебнике на указанной странице. На выполнение отведите 20–25 минут в один подход. Speaking-задание запишите на телефон и пришлите преподавателю.
+  </div>
+
+    <!-- ── Exercise 1 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <h3 class="exercise-title">Park actions. Match the verb with the correct picture.</h3>
+    </div>
+    <p class="exercise-instr">Соедини глагол с правильным описанием действия (проведи линию).</p>
+    <div class="match-grid">
+  <div class="match-row"><span class="num">hop</span> <span class="match-line"></span> <span>a) двигаться на роликах</span></div>
+  <div class="match-row"><span class="num">skip</span> <span class="match-line"></span> <span>b) прыгать на одной ноге</span></div>
+  <div class="match-row"><span class="num">climb</span> <span class="match-line"></span> <span>c) ловить рыбу</span></div>
+  <div class="match-row"><span class="num">laugh</span> <span class="match-line"></span> <span>d) танцевать</span></div>
+  <div class="match-row"><span class="num">roller skate</span> <span class="match-line"></span> <span>e) прыгать (на двух ногах)</span></div>
+  <div class="match-row"><span class="num">dance</span> <span class="match-line"></span> <span>f) смеяться</span></div>
+  <div class="match-row"><span class="num">cry</span> <span class="match-line"></span> <span>g) плакать</span></div>
+  <div class="match-row"><span class="num">fish</span> <span class="match-line"></span> <span>h) лезть / взбираться</span></div>
+  <div class="match-row"><span class="num">hide</span> <span class="match-line"></span> <span>i) прятаться</span></div>
+  <div class="match-row"><span class="num">walk</span> <span class="match-line"></span> <span>j) гулять</span></div>
+</div>
+  </div>
+
+  <!-- ── Exercise 2 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <h3 class="exercise-title">Unscramble the verbs. Write the correct word.</h3>
+    </div>
+    <p class="exercise-instr">Расставь буквы в правильном порядке и напиши слово.</p>
+    <ul class="addr-list">
+  <li><strong>1.</strong> m b i c l → <span class="addr-blank" style="display:inline-block;width:140px;min-height:28px;border-bottom:1px solid #d8d4c5;"></span></li>
+  <li><strong>2.</strong> a p h u l → <span class="addr-blank" style="display:inline-block;width:140px;min-height:28px;border-bottom:1px solid #d8d4c5;"></span></li>
+  <li><strong>3.</strong> e r o d o s k t e l r a → <span class="addr-blank" style="display:inline-block;width:180px;min-height:28px;border-bottom:1px solid #d8d4c5;"></span></li>
+  <li><strong>4.</strong> s i f h → <span class="addr-blank" style="display:inline-block;width:140px;min-height:28px;border-bottom:1px solid #d8d4c5;"></span></li>
+  <li><strong>5.</strong> i d e h → <span class="addr-blank" style="display:inline-block;width:140px;min-height:28px;border-bottom:1px solid #d8d4c5;"></span></li>
+</ul>
+  </div>
+
+  <!-- ── Exercise 3 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <h3 class="exercise-title">Colours. Write the colour under each item.</h3>
+    </div>
+    <p class="exercise-instr">Посмотри на одежду. Подпиши цвет каждого предмета словом из рамки.</p>
+    <div class="word-bank">
+  <b>Word bank:</b> orange · pink · yellow · black · green · purple · brown · blue · red · grey
+</div>
+<div class="door-grid">
+  <div class="door-item"><span class="word">a T-shirt 🟦</span><span class="door-blank" style="width:90px;"></span></div>
+  <div class="door-item"><span class="word">a coat 🟥</span><span class="door-blank" style="width:90px;"></span></div>
+  <div class="door-item"><span class="word">a scarf 🟨</span><span class="door-blank" style="width:90px;"></span></div>
+  <div class="door-item"><span class="word">trousers ⬛</span><span class="door-blank" style="width:90px;"></span></div>
+  <div class="door-item"><span class="word">a sweater 🟩</span><span class="door-blank" style="width:90px;"></span></div>
+  <div class="door-item"><span class="word">shoes 🟫</span><span class="door-blank" style="width:90px;"></span></div>
+</div>
+  </div>
+
+  <!-- ── Exercise 4 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <h3 class="exercise-title">Complete the sentences with the correct verb.</h3>
+    </div>
+    <p class="exercise-instr">Вставь подходящий глагол из рамки в нужной форме.</p>
+    <div class="word-bank">
+  <b>Word bank:</b> hop · skip · walk · climb · laugh · dance · cry · fish · hide
+</div>
+<ol class="fill-blank-list">
+  <li>The children are happy. They <span class="blank-line"></span> in the park.</li>
+  <li>I can't swim, but I can <span class="blank-line"></span> very well.</li>
+  <li>Don't <span class="blank-line"></span>! The story is funny.</li>
+  <li>Look! The boy is <span class="blank-line"></span> the tree.</li>
+  <li>The little girl is sad. She is <span class="blank-line"></span>.</li>
+  <li>My dad and I <span class="blank-line"></span> in the river on Sundays.</li>
+</ol>
+  </div>
+
+  <!-- ── Exercise 5 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <h3 class="exercise-title">What are you wearing today? Write 5 sentences.</h3>
+    </div>
+    <p class="exercise-instr">Опиши свою одежду сегодня. Используй структуру: I'm wearing a + цвет + предмет.</p>
+    <ul class="q-list">
+  <li><span class="question">Example: I'm wearing a blue T-shirt and black trousers.</span></li>
+  <li><span class="question">1. I'm wearing <span class="write-blank" style="display:inline-block;width:300px;"></span></span></li>
+  <li><span class="question">2. I'm wearing <span class="write-blank" style="display:inline-block;width:300px;"></span></span></li>
+  <li><span class="question">3. I'm wearing <span class="write-blank" style="display:inline-block;width:300px;"></span></span></li>
+  <li><span class="question">4. My shoes are <span class="write-blank" style="display:inline-block;width:300px;"></span></span></li>
+  <li><span class="question">5. My favourite colour is <span class="write-blank" style="display:inline-block;width:300px;"></span></span></li>
+</ul>
+  </div>
+
+  <!-- ── Exercise 6 ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <h3 class="exercise-title">Reading. Read the text and answer the questions.</h3>
+    </div>
+    <p class="exercise-instr">Прочитай короткий текст про парк и ответь на вопросы.</p>
+    <div class="speaking-example">
+  <strong>Text:</strong> "It's Saturday. Jack and Daisy are in the park. Jack is wearing a green sweater and blue trousers. He is roller skating. Daisy is wearing a pink T-shirt and a purple scarf. She is skipping. They are happy. There are some children fishing by the river. A little boy is crying because he can't find his mum."
+</div>
+<ol class="fill-blank-list">
+  <li>Where are Jack and Daisy? <span class="blank-line" style="min-width:200px;"></span></li>
+  <li>What is Jack wearing? <span class="blank-line" style="min-width:240px;"></span></li>
+  <li>What is Daisy doing? <span class="blank-line" style="min-width:200px;"></span></li>
+  <li>Why is the little boy crying? <span class="blank-line" style="min-width:240px;"></span></li>
+</ol>
+  </div>
+
+
+  <!-- ── Speaking ── -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="exercise-num">7</div>
+      <h3 class="exercise-title">Speaking task. Describe your clothes today.</h3>
+    </div>
+    <p class="exercise-instr">Запиши аудио на 30–40 секунд. Опиши свою одежду и скажи, что ты любишь делать в парке.</p>
+    <div class="speaking-plan">
+      <h5>Plan for your speaking:</h5>
+      <ul>
+  <li>What are you wearing today? (3–4 предмета с цветами)</li>
+  <li>What is your favourite thing to do in the park?</li>
+  <li>Why do you like it?</li>
+</ul>
+    </div>
+    <div class="speaking-example"><strong>Example:</strong> "Hello! Today I'm wearing a ___ T-shirt and ___ trousers. My shoes are ___. My favourite thing to do in the park is ___. I like it because ___."</div>
+  </div>
+
+  <div class="stars-note">
+    <b>Звёздочки за выполнение:</b> ⭐⭐ за упр. 1–3 (лексика) · ⭐⭐ за упр. 4–5 (грамматика) · ⭐⭐ за упр. 6 (reading) · ⭐⭐⭐ за speaking. <b>Максимум: 9 звёзд.</b>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>Домашнее задание · Неделя 2 · Unit 1 · Get ready for Movers (2nd ed.)</p>
+  <p><a href="index.html#plan">← Вернуться к годовому плану</a></p>
+</footer>
+
+</body>
+</html>

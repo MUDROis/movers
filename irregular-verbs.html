@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Таблица всех неправильных глаголов для подготовки к Cambridge Movers. Базовая форма, Past Simple, Past Participle, перевод, пример.">
+<title>Irregular Verbs · Movers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --c-bg: #f4f9e8;
+    --c-card: #ffffff;
+    --c-section: #e8f5d8;
+    --c-card-bg: #eaf3d6;
+    --c-table-stripe: #f0f7e1;
+    --c-header: #4a6b3a;
+    --c-border: #b8d090;
+    --c-accent: #2E5CB8;
+    --c-text: #1a2818;
+    --c-text-muted: #5a6b50;
+    --c-shadow: rgba(46, 92, 184, 0.10);
+    --radius: 8px;
+    --radius-sm: 4px;
+    --container: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top toolbar (hidden on print) ── */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-header);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .toolbar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .toolbar-brand {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .toolbar-brand .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--c-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .toolbar-actions { display: flex; gap: 8px; }
+  .toolbar-actions a, .toolbar-actions button {
+    background: var(--c-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #2E5CB8; }
+  .toolbar-actions a.secondary, .toolbar-actions button.secondary {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── Header ── */
+  .hw-header {
+    background: linear-gradient(135deg, #4a6b3a 0%, #5a7a4a 50%, #4a6b3a 100%);
+    color: #fff;
+    padding: 36px 24px 30px;
+  }
+  .hw-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .hw-kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 12px;
+  }
+  .hw-title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .hw-title .accent { color: var(--c-accent); }
+  .hw-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .hw-meta {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .hw-meta-item {
+    border-left: 2px solid rgba(255,255,255,0.25);
+    padding-left: 12px;
+  }
+  .hw-meta-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2px;
+  }
+  .hw-meta-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ── Intro ── */
+  .hw-intro {
+    background: var(--c-card-bg);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 0 0 24px;
+  }
+  .hw-intro p { margin: 0 0 8px; }
+  .hw-intro p:last-child { margin: 0; }
+  .hw-intro b { color: var(--c-header); }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 0;
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--c-header);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-top: 1px solid var(--c-border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+  .vocab-table td:first-child {
+    background: var(--c-section);
+    font-weight: 600;
+    color: var(--c-header);
+    white-space: nowrap;
+  }
+
+  .callout {
+    background: #fff;
+    border-left: 4px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13.5px;
+    color: var(--c-text-muted);
+  }
+  .callout strong { color: var(--c-text); }
+
+  /* ── Exercise ── */
+  .exercise {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px var(--c-shadow);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .exercise-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--c-header);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Noto Serif', serif;
+  }
+  .exercise-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-header);
+    margin: 0;
+  }
+  .exercise-instr {
+    font-style: italic;
+    color: var(--c-text-muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+
+  /* Exercise 1: matching */
+  .match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+    max-width: 480px;
+    margin: 12px 0;
+  }
+  .match-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: var(--c-section);
+    border-radius: 4px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+  }
+  .match-row .num {
+    font-weight: 700;
+    color: var(--c-accent);
+    min-width: 38px;
+  }
+  .match-line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    border-bottom: 1px dashed var(--c-border);
+    margin: 0 6px;
+  }
+
+  /* Exercise 2: door numbers */
+  .door-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .door-item {
+    background: var(--c-section);
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .door-item .word { display: block; margin-bottom: 8px; font-family: 'Noto Serif', serif; }
+  .door-blank {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-bottom: 2px solid var(--c-header);
+  }
+
+  /* Exercise 3: building */
+  .building {
+    display: inline-block;
+    border: 2px solid var(--c-header);
+    border-radius: 4px 4px 0 0;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  .floor {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .floor:last-child { border-bottom: none; }
+  .floor .floor-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 44px;
+    background: var(--c-card-bg);
+    color: var(--c-accent);
+    font-weight: 700;
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--c-border);
+  }
+  .floor .floor-input {
+    flex: 1;
+    padding: 0 14px;
+    font-size: 14px;
+    min-height: 28px;
+    border-bottom: 1px dashed var(--c-border);
+  }
+  .floor.basement .floor-input { color: var(--c-text-muted); font-style: italic; border-bottom: none; }
+  .word-bank {
+    background: var(--c-section);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--c-header);
+    margin: 8px 0;
+  }
+  .word-bank b { color: var(--c-accent); }
+
+  /* Exercise 4: address */
+  .addr-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .addr-list li {
+    padding: 12px 14px;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: var(--c-section);
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+  .addr-list .example { background: #fff; border-color: var(--c-accent); }
+  .addr-list .example .answer { color: var(--c-accent); font-weight: 700; }
+  .addr-blank {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    margin-top: 6px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 5: there is/are */
+  .fill-blank-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .fill-blank-list li {
+    counter-increment: q;
+    padding: 8px 0 8px 28px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    border-bottom: 1px dotted var(--c-border);
+    position: relative;
+  }
+  .fill-blank-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .fill-blank-list li:last-child { border-bottom: none; }
+  .blank-line {
+    display: inline-block;
+    min-width: 140px;
+    border-bottom: 2px solid var(--c-accent);
+    margin: 0 4px;
+  }
+
+  /* Exercise 6: writing */
+  .q-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .q-list li {
+    counter-increment: q;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--c-border);
+    position: relative;
+  }
+  .q-list li:last-child { border-bottom: none; }
+  .q-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .q-list .question {
+    display: block;
+    font-weight: 600;
+    color: var(--c-header);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .write-blank {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 7: speaking */
+  .speaking-plan {
+    background: var(--c-section);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .speaking-plan h5 {
+    margin: 0 0 10px;
+    color: var(--c-header);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .speaking-plan ul { margin: 0; padding-left: 20px; }
+  .speaking-example {
+    background: #fff;
+    border-left: 3px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+
+  /* Stars note */
+  .stars-note {
+    background: #eaf3d6;
+    border: 1px solid var(--c-accent);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .stars-note b { color: var(--c-accent); }
+
+  .footer {
+    background: var(--c-header);
+    color: rgba(255,255,255,0.85);
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .footer a { color: var(--c-accent); text-decoration: none; }
+
+  /* ── Print styles ── */
+  @media print {
+    .toolbar, .footer { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    .hw-header {
+      background: #fff !important;
+      color: #000 !important;
+      border-bottom: 3px solid #000;
+      padding: 0 0 12px 0;
+    }
+    .hw-kicker, .hw-subtitle, .hw-meta-label { color: #555 !important; }
+    .hw-title { color: #000 !important; font-size: 22pt; }
+    .hw-title .accent { color: #2E5CB8 !important; }
+    .hw-meta-item { border-left-color: #999 !important; }
+    .hw-meta-value { color: #000 !important; }
+    .container { padding: 16px 0; max-width: 100%; }
+    .exercise {
+      box-shadow: none;
+      border: 1px solid #999;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .exercise-num {
+      background: #4a6b3a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .word-bank, .match-row, .door-item, .floor .floor-num, .floor .floor-input,
+    .addr-list li, .speaking-plan, .speaking-example, .hw-intro, .vocab-table td:first-child {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .stars-note { background: #eaf3d6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .door-grid, .match-grid { grid-template-columns: 1fr 1fr; }
+    .exercise { padding: 16px; }
+  }
+
+
+/* Irregular verbs page styles */
+.iv-search {{
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius);
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 16px;
+}}
+.iv-search:focus {{ outline: none; border-color: var(--c-accent); }}
+
+.iv-table {{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+  box-shadow: 0 1px 4px var(--c-shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}}
+.iv-table thead th {{
+  background: var(--c-header);
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 600;
+  font-size: 13px;
+}}
+.iv-table tbody td {{
+  padding: 10px 14px;
+  border-top: 1px solid var(--c-border);
+  vertical-align: top;
+}}
+.iv-table tbody tr:nth-child(even) {{ background: var(--c-table-stripe); }}
+.iv-table .base {{ font-weight: 600; color: var(--c-accent); font-family: 'Noto Serif', serif; }}
+.iv-table .past {{ color: var(--c-header); font-family: 'Noto Serif', serif; }}
+.iv-table .past-part {{ color: var(--c-text-muted); font-family: 'Noto Serif', serif; font-style: italic; }}
+.iv-table .ru {{ color: var(--c-text-muted); font-size: 13px; }}
+.iv-table .example {{ font-size: 13px; color: var(--c-text); font-style: italic; }}
+.iv-table .example b {{ color: var(--c-accent); font-style: normal; }}
+
+.iv-mode-buttons {{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}}
+.iv-mode-btn {{
+  padding: 8px 16px;
+  border: 2px solid var(--c-border);
+  background: #fff;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--c-text);
+  transition: all 0.2s;
+}}
+.iv-mode-btn.active {{
+  background: var(--c-accent);
+  color: #fff;
+  border-color: var(--c-accent);
+}}
+
+.iv-cards {{
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}}
+.iv-cards.active {{ display: grid; }}
+.iv-card {{
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 1px 4px var(--c-shadow);
+  transition: transform 0.15s;
+}}
+.iv-card:hover {{ transform: translateY(-2px); border-color: var(--c-accent); }}
+.iv-card .base {{ font-size: 18px; font-weight: 700; color: var(--c-accent); font-family: 'Noto Serif', serif; }}
+.iv-card .forms {{ margin: 8px 0; font-family: 'Noto Serif', serif; font-size: 14px; }}
+.iv-card .forms div {{ margin: 4px 0; }}
+.iv-card .past {{ color: var(--c-header); }}
+.iv-card .past-part {{ color: var(--c-text-muted); font-style: italic; }}
+.iv-card .ru {{ color: var(--c-text-muted); font-size: 13px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--c-border); }}
+.iv-card .example {{ font-size: 12px; color: var(--c-text); margin-top: 6px; font-style: italic; }}
+
+.iv-table-wrap {{ display: block; }}
+.iv-table-wrap.hidden {{ display: none; }}
+
+.iv-stats {{
+  background: var(--c-card-bg);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}}
+.iv-stats b {{ color: var(--c-accent); }}
+
+@media print {{
+  .toolbar, .iv-search, .iv-mode-buttons, .iv-cards {{ display: none !important; }}
+  .iv-table-wrap {{ display: block !important; }}
+}}
+</style>
+</head>
+<body>
+
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-brand"><span class="dot"></span>Irregular Verbs · Movers</div>
+    <div class="toolbar-actions">
+      <button onclick="window.print()">🖨 Печать / PDF</button>
+      <a href="index.html" class="secondary">← К плану</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hw-header">
+  <div class="hw-header-inner">
+    <p class="hw-kicker">Reference · Get ready for Movers · Irregular Verbs</p>
+    <h1 class="hw-title">Irregular <span class="accent">Verbs</span></h1>
+    <p class="hw-subtitle">Полная таблица неправильных глаголов для Movers и базового A1</p>
+    <div class="hw-meta">
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Всего глаголов</div>
+        <div class="hw-meta-value">71</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Уровень</div>
+        <div class="hw-meta-value">Pre-A1 → A1+</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Формат</div>
+        <div class="hw-meta-value">Таблица / Карточки</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Поиск</div>
+        <div class="hw-meta-value">✓ Да</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="callout">
+    <strong>Как пользоваться:</strong> это полная таблица неправильных глаголов английского языка, нужных для экзамена Cambridge Movers. Можно переключаться между табличным и карточным режимом, искать глагол по слову. Перед мини-тестами повторяй по 10–15 глаголов за раз.
+  </div>
+
+  <div class="callout">
+    <strong>Совет для печати:</strong> нажми «🖨 Печать / PDF» в верхней панели, выбери «Сохранить как PDF». Получится компактный справочник.
+  </div>
+
+  <div class="iv-stats">
+    📊 Всего в таблице: <b>71 глаголов</b> · 🎯 Все 3 формы + перевод + пример · 💡 Используй поиск для быстрого нахождения
+  </div>
+
+  <div class="iv-mode-buttons">
+    <button class="iv-mode-btn active" id="tableBtn" onclick="showTable()">📋 Таблица</button>
+    <button class="iv-mode-btn" id="cardsBtn" onclick="showCards()">🃏 Карточки</button>
+  </div>
+
+  <input type="text" class="iv-search" placeholder="🔍 Поиск глагола (например: go, eat, see)..." oninput="filterVerbs(this.value)">
+
+  <div class="iv-table-wrap" id="tableWrap">
+    <table class="iv-table">
+      <thead>
+        <tr>
+          <th>Base form</th>
+          <th>Past Simple</th>
+          <th>Past Participle</th>
+          <th>Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody id="ivBody">
+        <tr>
+          <td class="base">be</td>
+          <td class="past">was/were</td>
+          <td class="past-part">been</td>
+          <td class="ru">быть</td>
+          <td class="example">I was at home. / They were happy.</td>
+        </tr>
+        <tr>
+          <td class="base">have</td>
+          <td class="past">had</td>
+          <td class="past-part">had</td>
+          <td class="ru">иметь</td>
+          <td class="example">She had a cat.</td>
+        </tr>
+        <tr>
+          <td class="base">do</td>
+          <td class="past">did</td>
+          <td class="past-part">done</td>
+          <td class="ru">делать</td>
+          <td class="example">He did his homework.</td>
+        </tr>
+        <tr>
+          <td class="base">go</td>
+          <td class="past">went</td>
+          <td class="past-part">gone</td>
+          <td class="ru">идти, ехать</td>
+          <td class="example">We went to the park.</td>
+        </tr>
+        <tr>
+          <td class="base">come</td>
+          <td class="past">came</td>
+          <td class="past-part">come</td>
+          <td class="ru">приходить</td>
+          <td class="example">She came to my house.</td>
+        </tr>
+        <tr>
+          <td class="base">see</td>
+          <td class="past">saw</td>
+          <td class="past-part">seen</td>
+          <td class="ru">видеть</td>
+          <td class="example">I saw a bird.</td>
+        </tr>
+        <tr>
+          <td class="base">take</td>
+          <td class="past">took</td>
+          <td class="past-part">taken</td>
+          <td class="ru">брать</td>
+          <td class="example">He took a photo.</td>
+        </tr>
+        <tr>
+          <td class="base">give</td>
+          <td class="past">gave</td>
+          <td class="past-part">given</td>
+          <td class="ru">давать</td>
+          <td class="example">Mum gave me an apple.</td>
+        </tr>
+        <tr>
+          <td class="base">make</td>
+          <td class="past">made</td>
+          <td class="past-part">made</td>
+          <td class="ru">делать (создавать)</td>
+          <td class="example">I made a cake.</td>
+        </tr>
+        <tr>
+          <td class="base">say</td>
+          <td class="past">said</td>
+          <td class="past-part">said</td>
+          <td class="ru">говорить</td>
+          <td class="example">He said hello.</td>
+        </tr>
+        <tr>
+          <td class="base">find</td>
+          <td class="past">found</td>
+          <td class="past-part">found</td>
+          <td class="ru">находить</td>
+          <td class="example">I found a coin.</td>
+        </tr>
+        <tr>
+          <td class="base">get</td>
+          <td class="past">got</td>
+          <td class="past-part">got</td>
+          <td class="ru">получать, становиться</td>
+          <td class="example">She got a present.</td>
+        </tr>
+        <tr>
+          <td class="base">know</td>
+          <td class="past">knew</td>
+          <td class="past-part">known</td>
+          <td class="ru">знать</td>
+          <td class="example">He knew the answer.</td>
+        </tr>
+        <tr>
+          <td class="base">think</td>
+          <td class="past">thought</td>
+          <td class="past-part">thought</td>
+          <td class="ru">думать</td>
+          <td class="example">I thought about you.</td>
+        </tr>
+        <tr>
+          <td class="base">tell</td>
+          <td class="past">told</td>
+          <td class="past-part">told</td>
+          <td class="ru">говорить, рассказывать</td>
+          <td class="example">She told a story.</td>
+        </tr>
+        <tr>
+          <td class="base">feel</td>
+          <td class="past">felt</td>
+          <td class="past-part">felt</td>
+          <td class="ru">чувствовать</td>
+          <td class="example">He felt happy.</td>
+        </tr>
+        <tr>
+          <td class="base">put</td>
+          <td class="past">put</td>
+          <td class="past-part">put</td>
+          <td class="ru">класть</td>
+          <td class="example">I <b>put</b> the book on the table.</td>
+        </tr>
+        <tr>
+          <td class="base">bring</td>
+          <td class="past">brought</td>
+          <td class="past-part">brought</td>
+          <td class="ru">приносить</td>
+          <td class="example">She brought a cake.</td>
+        </tr>
+        <tr>
+          <td class="base">begin</td>
+          <td class="past">began</td>
+          <td class="past-part">begun</td>
+          <td class="ru">начинать</td>
+          <td class="example">The film began at 7.</td>
+        </tr>
+        <tr>
+          <td class="base">eat</td>
+          <td class="past">ate</td>
+          <td class="past-part">eaten</td>
+          <td class="ru">есть</td>
+          <td class="example">I ate an apple.</td>
+        </tr>
+        <tr>
+          <td class="base">run</td>
+          <td class="past">ran</td>
+          <td class="past-part">run</td>
+          <td class="ru">бегать</td>
+          <td class="example">He ran fast.</td>
+        </tr>
+        <tr>
+          <td class="base">drink</td>
+          <td class="past">drank</td>
+          <td class="past-part">drunk</td>
+          <td class="ru">пить</td>
+          <td class="example">She drank water.</td>
+        </tr>
+        <tr>
+          <td class="base">swim</td>
+          <td class="past">swam</td>
+          <td class="past-part">swum</td>
+          <td class="ru">плавать</td>
+          <td class="example">We swam in the sea.</td>
+        </tr>
+        <tr>
+          <td class="base">sing</td>
+          <td class="past">sang</td>
+          <td class="past-part">sung</td>
+          <td class="ru">петь</td>
+          <td class="example">She sang a song.</td>
+        </tr>
+        <tr>
+          <td class="base">sit</td>
+          <td class="past">sat</td>
+          <td class="past-part">sat</td>
+          <td class="ru">сидеть</td>
+          <td class="example">I sat on the chair.</td>
+        </tr>
+        <tr>
+          <td class="base">stand</td>
+          <td class="past">stood</td>
+          <td class="past-part">stood</td>
+          <td class="ru">стоять</td>
+          <td class="example">He stood up.</td>
+        </tr>
+        <tr>
+          <td class="base">fall</td>
+          <td class="past">fell</td>
+          <td class="past-part">fallen</td>
+          <td class="ru">падать</td>
+          <td class="example">The boy fell down.</td>
+        </tr>
+        <tr>
+          <td class="base">hold</td>
+          <td class="past">held</td>
+          <td class="past-part">held</td>
+          <td class="ru">держать</td>
+          <td class="example">She held my hand.</td>
+        </tr>
+        <tr>
+          <td class="base">write</td>
+          <td class="past">wrote</td>
+          <td class="past-part">written</td>
+          <td class="ru">писать</td>
+          <td class="example">I wrote a letter.</td>
+        </tr>
+        <tr>
+          <td class="base">read</td>
+          <td class="past">read</td>
+          <td class="past-part">read</td>
+          <td class="ru">читать (одинак., но произн. иначе)</td>
+          <td class="example">She <b>read</b> a book.</td>
+        </tr>
+        <tr>
+          <td class="base">speak</td>
+          <td class="past">spoke</td>
+          <td class="past-part">spoken</td>
+          <td class="ru">говорить (на языке)</td>
+          <td class="example">He spoke English.</td>
+        </tr>
+        <tr>
+          <td class="base">break</td>
+          <td class="past">broke</td>
+          <td class="past-part">broken</td>
+          <td class="ru">ломать</td>
+          <td class="example">I broke my toy.</td>
+        </tr>
+        <tr>
+          <td class="base">wear</td>
+          <td class="past">wore</td>
+          <td class="past-part">worn</td>
+          <td class="ru">носить (одежду)</td>
+          <td class="example">She wore a red dress.</td>
+        </tr>
+        <tr>
+          <td class="base">buy</td>
+          <td class="past">bought</td>
+          <td class="past-part">bought</td>
+          <td class="ru">покупать</td>
+          <td class="example">Mum bought bread.</td>
+        </tr>
+        <tr>
+          <td class="base">catch</td>
+          <td class="past">caught</td>
+          <td class="past-part">caught</td>
+          <td class="ru">ловить (транспорт)</td>
+          <td class="example">I caught the ball.</td>
+        </tr>
+        <tr>
+          <td class="base">teach</td>
+          <td class="past">taught</td>
+          <td class="past-part">taught</td>
+          <td class="ru">учить</td>
+          <td class="example">She taught me English.</td>
+        </tr>
+        <tr>
+          <td class="base">draw</td>
+          <td class="past">drew</td>
+          <td class="past-part">drawn</td>
+          <td class="ru">рисовать</td>
+          <td class="example">He drew a picture.</td>
+        </tr>
+        <tr>
+          <td class="base">fly</td>
+          <td class="past">flew</td>
+          <td class="past-part">flown</td>
+          <td class="ru">летать</td>
+          <td class="example">The bird flew away.</td>
+        </tr>
+        <tr>
+          <td class="base">grow</td>
+          <td class="past">grew</td>
+          <td class="past-part">grown</td>
+          <td class="ru">расти</td>
+          <td class="example">The plant grew tall.</td>
+        </tr>
+        <tr>
+          <td class="base">hear</td>
+          <td class="past">heard</td>
+          <td class="past-part">heard</td>
+          <td class="ru">слышать</td>
+          <td class="example">I <b>hear</b>d a noise.</td>
+        </tr>
+        <tr>
+          <td class="base">hurt</td>
+          <td class="past">hurt</td>
+          <td class="past-part">hurt</td>
+          <td class="ru">болеть, причинять боль</td>
+          <td class="example">My head <b>hurt</b>s.</td>
+        </tr>
+        <tr>
+          <td class="base">let</td>
+          <td class="past">let</td>
+          <td class="past-part">let</td>
+          <td class="ru">позволять</td>
+          <td class="example">Mum <b>let</b> me play.</td>
+        </tr>
+        <tr>
+          <td class="base">lose</td>
+          <td class="past">lost</td>
+          <td class="past-part">lost</td>
+          <td class="ru">терять</td>
+          <td class="example">I lost my keys.</td>
+        </tr>
+        <tr>
+          <td class="base">meet</td>
+          <td class="past">met</td>
+          <td class="past-part">met</td>
+          <td class="ru">встречать</td>
+          <td class="example">We met at school.</td>
+        </tr>
+        <tr>
+          <td class="base">pay</td>
+          <td class="past">paid</td>
+          <td class="past-part">paid</td>
+          <td class="ru">платить</td>
+          <td class="example">Dad paid for the tickets.</td>
+        </tr>
+        <tr>
+          <td class="base">ride</td>
+          <td class="past">rode</td>
+          <td class="past-part">ridden</td>
+          <td class="ru">ездить (на чём-то)</td>
+          <td class="example">She rode a bike.</td>
+        </tr>
+        <tr>
+          <td class="base">ring</td>
+          <td class="past">rang</td>
+          <td class="past-part">rung</td>
+          <td class="ru">звонить</td>
+          <td class="example">The phone rang.</td>
+        </tr>
+        <tr>
+          <td class="base">send</td>
+          <td class="past">sent</td>
+          <td class="past-part">sent</td>
+          <td class="ru">посылать</td>
+          <td class="example">I sent a letter.</td>
+        </tr>
+        <tr>
+          <td class="base">show</td>
+          <td class="past">showed</td>
+          <td class="past-part">shown</td>
+          <td class="ru">показывать</td>
+          <td class="example">She <b>show</b>ed me a photo.</td>
+        </tr>
+        <tr>
+          <td class="base">sleep</td>
+          <td class="past">slept</td>
+          <td class="past-part">slept</td>
+          <td class="ru">спать</td>
+          <td class="example">I slept well.</td>
+        </tr>
+        <tr>
+          <td class="base">spend</td>
+          <td class="past">spent</td>
+          <td class="past-part">spent</td>
+          <td class="ru">тратить</td>
+          <td class="example">I spent my money.</td>
+        </tr>
+        <tr>
+          <td class="base">sweep</td>
+          <td class="past">swept</td>
+          <td class="past-part">swept</td>
+          <td class="ru">подметать</td>
+          <td class="example">Mum swept the floor.</td>
+        </tr>
+        <tr>
+          <td class="base">swing</td>
+          <td class="past">swung</td>
+          <td class="past-part">swung</td>
+          <td class="ru">качаться</td>
+          <td class="example">The girl swung high.</td>
+        </tr>
+        <tr>
+          <td class="base">understand</td>
+          <td class="past">understood</td>
+          <td class="past-part">understood</td>
+          <td class="ru">понимать</td>
+          <td class="example">I understood the lesson.</td>
+        </tr>
+        <tr>
+          <td class="base">wake</td>
+          <td class="past">woke</td>
+          <td class="past-part">woken</td>
+          <td class="ru">просыпаться</td>
+          <td class="example">I woke up at 7.</td>
+        </tr>
+        <tr>
+          <td class="base">win</td>
+          <td class="past">won</td>
+          <td class="past-part">won</td>
+          <td class="ru">выигрывать</td>
+          <td class="example">Our team won the game.</td>
+        </tr>
+        <tr>
+          <td class="base">blow</td>
+          <td class="past">blew</td>
+          <td class="past-part">blown</td>
+          <td class="ru">дуть</td>
+          <td class="example">The wind blew hard.</td>
+        </tr>
+        <tr>
+          <td class="base">build</td>
+          <td class="past">built</td>
+          <td class="past-part">built</td>
+          <td class="ru">строить</td>
+          <td class="example">They built a house.</td>
+        </tr>
+        <tr>
+          <td class="base">burn</td>
+          <td class="past">burnt</td>
+          <td class="past-part">burnt</td>
+          <td class="ru">гореть, жечь</td>
+          <td class="example">The cake <b>burn</b>t.</td>
+        </tr>
+        <tr>
+          <td class="base">dig</td>
+          <td class="past">dug</td>
+          <td class="past-part">dug</td>
+          <td class="ru">копать</td>
+          <td class="example">The dog dug a hole.</td>
+        </tr>
+        <tr>
+          <td class="base">dream</td>
+          <td class="past">dreamt</td>
+          <td class="past-part">dreamt</td>
+          <td class="ru">мечтать, сниться</td>
+          <td class="example">I <b>dream</b>t of the sea.</td>
+        </tr>
+        <tr>
+          <td class="base">feed</td>
+          <td class="past">fed</td>
+          <td class="past-part">fed</td>
+          <td class="ru">кормить</td>
+          <td class="example">I fed the cat.</td>
+        </tr>
+        <tr>
+          <td class="base">fight</td>
+          <td class="past">fought</td>
+          <td class="past-part">fought</td>
+          <td class="ru">драться</td>
+          <td class="example">The boys fought.</td>
+        </tr>
+        <tr>
+          <td class="base">forget</td>
+          <td class="past">forgot</td>
+          <td class="past-part">forgotten</td>
+          <td class="ru">забывать</td>
+          <td class="example">I forgot my book.</td>
+        </tr>
+        <tr>
+          <td class="base">keep</td>
+          <td class="past">kept</td>
+          <td class="past-part">kept</td>
+          <td class="ru">хранить, держать</td>
+          <td class="example">He kept the secret.</td>
+        </tr>
+        <tr>
+          <td class="base">mean</td>
+          <td class="past">meant</td>
+          <td class="past-part">meant</td>
+          <td class="ru">значить</td>
+          <td class="example">What does it <b>mean</b>?</td>
+        </tr>
+        <tr>
+          <td class="base">cut</td>
+          <td class="past">cut</td>
+          <td class="past-part">cut</td>
+          <td class="ru">резать</td>
+          <td class="example">He <b>cut</b> the bread.</td>
+        </tr>
+        <tr>
+          <td class="base">leave</td>
+          <td class="past">left</td>
+          <td class="past-part">left</td>
+          <td class="ru">уезжать, оставлять</td>
+          <td class="example">We left home at 8.</td>
+        </tr>
+        <tr>
+          <td class="base">drive</td>
+          <td class="past">drove</td>
+          <td class="past-part">driven</td>
+          <td class="ru">вести машину</td>
+          <td class="example">Dad drove the car.</td>
+        </tr>
+        <tr>
+          <td class="base">awake</td>
+          <td class="past">awoke</td>
+          <td class="past-part">awoken</td>
+          <td class="ru">бодрствовать</td>
+          <td class="example">The baby awoke.</td>
+        </tr>
+        <tr>
+          <td class="base">hide</td>
+          <td class="past">hid</td>
+          <td class="past-part">hidden</td>
+          <td class="ru">прятаться</td>
+          <td class="example">The cat hid under the bed.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="iv-cards" id="cardsWrap">
+    <div class="iv-card" data-text="be was/were been быть">
+      <div class="base">be</div>
+      <div class="forms">
+        <div class="past">→ was/were</div>
+        <div class="past-part">→ been</div>
+      </div>
+      <div class="ru">быть</div>
+      <div class="example">"I was at home. / They were happy."</div>
+    </div>
+    <div class="iv-card" data-text="have had had иметь">
+      <div class="base">have</div>
+      <div class="forms">
+        <div class="past">→ had</div>
+        <div class="past-part">→ had</div>
+      </div>
+      <div class="ru">иметь</div>
+      <div class="example">"She had a cat."</div>
+    </div>
+    <div class="iv-card" data-text="do did done делать">
+      <div class="base">do</div>
+      <div class="forms">
+        <div class="past">→ did</div>
+        <div class="past-part">→ done</div>
+      </div>
+      <div class="ru">делать</div>
+      <div class="example">"He did his homework."</div>
+    </div>
+    <div class="iv-card" data-text="go went gone идти, ехать">
+      <div class="base">go</div>
+      <div class="forms">
+        <div class="past">→ went</div>
+        <div class="past-part">→ gone</div>
+      </div>
+      <div class="ru">идти, ехать</div>
+      <div class="example">"We went to the park."</div>
+    </div>
+    <div class="iv-card" data-text="come came come приходить">
+      <div class="base">come</div>
+      <div class="forms">
+        <div class="past">→ came</div>
+        <div class="past-part">→ come</div>
+      </div>
+      <div class="ru">приходить</div>
+      <div class="example">"She came to my house."</div>
+    </div>
+    <div class="iv-card" data-text="see saw seen видеть">
+      <div class="base">see</div>
+      <div class="forms">
+        <div class="past">→ saw</div>
+        <div class="past-part">→ seen</div>
+      </div>
+      <div class="ru">видеть</div>
+      <div class="example">"I saw a bird."</div>
+    </div>
+    <div class="iv-card" data-text="take took taken брать">
+      <div class="base">take</div>
+      <div class="forms">
+        <div class="past">→ took</div>
+        <div class="past-part">→ taken</div>
+      </div>
+      <div class="ru">брать</div>
+      <div class="example">"He took a photo."</div>
+    </div>
+    <div class="iv-card" data-text="give gave given давать">
+      <div class="base">give</div>
+      <div class="forms">
+        <div class="past">→ gave</div>
+        <div class="past-part">→ given</div>
+      </div>
+      <div class="ru">давать</div>
+      <div class="example">"Mum gave me an apple."</div>
+    </div>
+    <div class="iv-card" data-text="make made made делать (создавать)">
+      <div class="base">make</div>
+      <div class="forms">
+        <div class="past">→ made</div>
+        <div class="past-part">→ made</div>
+      </div>
+      <div class="ru">делать (создавать)</div>
+      <div class="example">"I made a cake."</div>
+    </div>
+    <div class="iv-card" data-text="say said said говорить">
+      <div class="base">say</div>
+      <div class="forms">
+        <div class="past">→ said</div>
+        <div class="past-part">→ said</div>
+      </div>
+      <div class="ru">говорить</div>
+      <div class="example">"He said hello."</div>
+    </div>
+    <div class="iv-card" data-text="find found found находить">
+      <div class="base">find</div>
+      <div class="forms">
+        <div class="past">→ found</div>
+        <div class="past-part">→ found</div>
+      </div>
+      <div class="ru">находить</div>
+      <div class="example">"I found a coin."</div>
+    </div>
+    <div class="iv-card" data-text="get got got получать, становиться">
+      <div class="base">get</div>
+      <div class="forms">
+        <div class="past">→ got</div>
+        <div class="past-part">→ got</div>
+      </div>
+      <div class="ru">получать, становиться</div>
+      <div class="example">"She got a present."</div>
+    </div>
+    <div class="iv-card" data-text="know knew known знать">
+      <div class="base">know</div>
+      <div class="forms">
+        <div class="past">→ knew</div>
+        <div class="past-part">→ known</div>
+      </div>
+      <div class="ru">знать</div>
+      <div class="example">"He knew the answer."</div>
+    </div>
+    <div class="iv-card" data-text="think thought thought думать">
+      <div class="base">think</div>
+      <div class="forms">
+        <div class="past">→ thought</div>
+        <div class="past-part">→ thought</div>
+      </div>
+      <div class="ru">думать</div>
+      <div class="example">"I thought about you."</div>
+    </div>
+    <div class="iv-card" data-text="tell told told говорить, рассказывать">
+      <div class="base">tell</div>
+      <div class="forms">
+        <div class="past">→ told</div>
+        <div class="past-part">→ told</div>
+      </div>
+      <div class="ru">говорить, рассказывать</div>
+      <div class="example">"She told a story."</div>
+    </div>
+    <div class="iv-card" data-text="feel felt felt чувствовать">
+      <div class="base">feel</div>
+      <div class="forms">
+        <div class="past">→ felt</div>
+        <div class="past-part">→ felt</div>
+      </div>
+      <div class="ru">чувствовать</div>
+      <div class="example">"He felt happy."</div>
+    </div>
+    <div class="iv-card" data-text="put put put класть">
+      <div class="base">put</div>
+      <div class="forms">
+        <div class="past">→ put</div>
+        <div class="past-part">→ put</div>
+      </div>
+      <div class="ru">класть</div>
+      <div class="example">"I put the book on the table."</div>
+    </div>
+    <div class="iv-card" data-text="bring brought brought приносить">
+      <div class="base">bring</div>
+      <div class="forms">
+        <div class="past">→ brought</div>
+        <div class="past-part">→ brought</div>
+      </div>
+      <div class="ru">приносить</div>
+      <div class="example">"She brought a cake."</div>
+    </div>
+    <div class="iv-card" data-text="begin began begun начинать">
+      <div class="base">begin</div>
+      <div class="forms">
+        <div class="past">→ began</div>
+        <div class="past-part">→ begun</div>
+      </div>
+      <div class="ru">начинать</div>
+      <div class="example">"The film began at 7."</div>
+    </div>
+    <div class="iv-card" data-text="eat ate eaten есть">
+      <div class="base">eat</div>
+      <div class="forms">
+        <div class="past">→ ate</div>
+        <div class="past-part">→ eaten</div>
+      </div>
+      <div class="ru">есть</div>
+      <div class="example">"I ate an apple."</div>
+    </div>
+    <div class="iv-card" data-text="run ran run бегать">
+      <div class="base">run</div>
+      <div class="forms">
+        <div class="past">→ ran</div>
+        <div class="past-part">→ run</div>
+      </div>
+      <div class="ru">бегать</div>
+      <div class="example">"He ran fast."</div>
+    </div>
+    <div class="iv-card" data-text="drink drank drunk пить">
+      <div class="base">drink</div>
+      <div class="forms">
+        <div class="past">→ drank</div>
+        <div class="past-part">→ drunk</div>
+      </div>
+      <div class="ru">пить</div>
+      <div class="example">"She drank water."</div>
+    </div>
+    <div class="iv-card" data-text="swim swam swum плавать">
+      <div class="base">swim</div>
+      <div class="forms">
+        <div class="past">→ swam</div>
+        <div class="past-part">→ swum</div>
+      </div>
+      <div class="ru">плавать</div>
+      <div class="example">"We swam in the sea."</div>
+    </div>
+    <div class="iv-card" data-text="sing sang sung петь">
+      <div class="base">sing</div>
+      <div class="forms">
+        <div class="past">→ sang</div>
+        <div class="past-part">→ sung</div>
+      </div>
+      <div class="ru">петь</div>
+      <div class="example">"She sang a song."</div>
+    </div>
+    <div class="iv-card" data-text="sit sat sat сидеть">
+      <div class="base">sit</div>
+      <div class="forms">
+        <div class="past">→ sat</div>
+        <div class="past-part">→ sat</div>
+      </div>
+      <div class="ru">сидеть</div>
+      <div class="example">"I sat on the chair."</div>
+    </div>
+    <div class="iv-card" data-text="stand stood stood стоять">
+      <div class="base">stand</div>
+      <div class="forms">
+        <div class="past">→ stood</div>
+        <div class="past-part">→ stood</div>
+      </div>
+      <div class="ru">стоять</div>
+      <div class="example">"He stood up."</div>
+    </div>
+    <div class="iv-card" data-text="fall fell fallen падать">
+      <div class="base">fall</div>
+      <div class="forms">
+        <div class="past">→ fell</div>
+        <div class="past-part">→ fallen</div>
+      </div>
+      <div class="ru">падать</div>
+      <div class="example">"The boy fell down."</div>
+    </div>
+    <div class="iv-card" data-text="hold held held держать">
+      <div class="base">hold</div>
+      <div class="forms">
+        <div class="past">→ held</div>
+        <div class="past-part">→ held</div>
+      </div>
+      <div class="ru">держать</div>
+      <div class="example">"She held my hand."</div>
+    </div>
+    <div class="iv-card" data-text="write wrote written писать">
+      <div class="base">write</div>
+      <div class="forms">
+        <div class="past">→ wrote</div>
+        <div class="past-part">→ written</div>
+      </div>
+      <div class="ru">писать</div>
+      <div class="example">"I wrote a letter."</div>
+    </div>
+    <div class="iv-card" data-text="read read read читать (одинак., но произн. иначе)">
+      <div class="base">read</div>
+      <div class="forms">
+        <div class="past">→ read</div>
+        <div class="past-part">→ read</div>
+      </div>
+      <div class="ru">читать (одинак., но произн. иначе)</div>
+      <div class="example">"She read a book."</div>
+    </div>
+    <div class="iv-card" data-text="speak spoke spoken говорить (на языке)">
+      <div class="base">speak</div>
+      <div class="forms">
+        <div class="past">→ spoke</div>
+        <div class="past-part">→ spoken</div>
+      </div>
+      <div class="ru">говорить (на языке)</div>
+      <div class="example">"He spoke English."</div>
+    </div>
+    <div class="iv-card" data-text="break broke broken ломать">
+      <div class="base">break</div>
+      <div class="forms">
+        <div class="past">→ broke</div>
+        <div class="past-part">→ broken</div>
+      </div>
+      <div class="ru">ломать</div>
+      <div class="example">"I broke my toy."</div>
+    </div>
+    <div class="iv-card" data-text="wear wore worn носить (одежду)">
+      <div class="base">wear</div>
+      <div class="forms">
+        <div class="past">→ wore</div>
+        <div class="past-part">→ worn</div>
+      </div>
+      <div class="ru">носить (одежду)</div>
+      <div class="example">"She wore a red dress."</div>
+    </div>
+    <div class="iv-card" data-text="buy bought bought покупать">
+      <div class="base">buy</div>
+      <div class="forms">
+        <div class="past">→ bought</div>
+        <div class="past-part">→ bought</div>
+      </div>
+      <div class="ru">покупать</div>
+      <div class="example">"Mum bought bread."</div>
+    </div>
+    <div class="iv-card" data-text="catch caught caught ловить (транспорт)">
+      <div class="base">catch</div>
+      <div class="forms">
+        <div class="past">→ caught</div>
+        <div class="past-part">→ caught</div>
+      </div>
+      <div class="ru">ловить (транспорт)</div>
+      <div class="example">"I caught the ball."</div>
+    </div>
+    <div class="iv-card" data-text="teach taught taught учить">
+      <div class="base">teach</div>
+      <div class="forms">
+        <div class="past">→ taught</div>
+        <div class="past-part">→ taught</div>
+      </div>
+      <div class="ru">учить</div>
+      <div class="example">"She taught me English."</div>
+    </div>
+    <div class="iv-card" data-text="draw drew drawn рисовать">
+      <div class="base">draw</div>
+      <div class="forms">
+        <div class="past">→ drew</div>
+        <div class="past-part">→ drawn</div>
+      </div>
+      <div class="ru">рисовать</div>
+      <div class="example">"He drew a picture."</div>
+    </div>
+    <div class="iv-card" data-text="fly flew flown летать">
+      <div class="base">fly</div>
+      <div class="forms">
+        <div class="past">→ flew</div>
+        <div class="past-part">→ flown</div>
+      </div>
+      <div class="ru">летать</div>
+      <div class="example">"The bird flew away."</div>
+    </div>
+    <div class="iv-card" data-text="grow grew grown расти">
+      <div class="base">grow</div>
+      <div class="forms">
+        <div class="past">→ grew</div>
+        <div class="past-part">→ grown</div>
+      </div>
+      <div class="ru">расти</div>
+      <div class="example">"The plant grew tall."</div>
+    </div>
+    <div class="iv-card" data-text="hear heard heard слышать">
+      <div class="base">hear</div>
+      <div class="forms">
+        <div class="past">→ heard</div>
+        <div class="past-part">→ heard</div>
+      </div>
+      <div class="ru">слышать</div>
+      <div class="example">"I heard a noise."</div>
+    </div>
+    <div class="iv-card" data-text="hurt hurt hurt болеть, причинять боль">
+      <div class="base">hurt</div>
+      <div class="forms">
+        <div class="past">→ hurt</div>
+        <div class="past-part">→ hurt</div>
+      </div>
+      <div class="ru">болеть, причинять боль</div>
+      <div class="example">"My head hurts."</div>
+    </div>
+    <div class="iv-card" data-text="let let let позволять">
+      <div class="base">let</div>
+      <div class="forms">
+        <div class="past">→ let</div>
+        <div class="past-part">→ let</div>
+      </div>
+      <div class="ru">позволять</div>
+      <div class="example">"Mum let me play."</div>
+    </div>
+    <div class="iv-card" data-text="lose lost lost терять">
+      <div class="base">lose</div>
+      <div class="forms">
+        <div class="past">→ lost</div>
+        <div class="past-part">→ lost</div>
+      </div>
+      <div class="ru">терять</div>
+      <div class="example">"I lost my keys."</div>
+    </div>
+    <div class="iv-card" data-text="meet met met встречать">
+      <div class="base">meet</div>
+      <div class="forms">
+        <div class="past">→ met</div>
+        <div class="past-part">→ met</div>
+      </div>
+      <div class="ru">встречать</div>
+      <div class="example">"We met at school."</div>
+    </div>
+    <div class="iv-card" data-text="pay paid paid платить">
+      <div class="base">pay</div>
+      <div class="forms">
+        <div class="past">→ paid</div>
+        <div class="past-part">→ paid</div>
+      </div>
+      <div class="ru">платить</div>
+      <div class="example">"Dad paid for the tickets."</div>
+    </div>
+    <div class="iv-card" data-text="ride rode ridden ездить (на чём-то)">
+      <div class="base">ride</div>
+      <div class="forms">
+        <div class="past">→ rode</div>
+        <div class="past-part">→ ridden</div>
+      </div>
+      <div class="ru">ездить (на чём-то)</div>
+      <div class="example">"She rode a bike."</div>
+    </div>
+    <div class="iv-card" data-text="ring rang rung звонить">
+      <div class="base">ring</div>
+      <div class="forms">
+        <div class="past">→ rang</div>
+        <div class="past-part">→ rung</div>
+      </div>
+      <div class="ru">звонить</div>
+      <div class="example">"The phone rang."</div>
+    </div>
+    <div class="iv-card" data-text="send sent sent посылать">
+      <div class="base">send</div>
+      <div class="forms">
+        <div class="past">→ sent</div>
+        <div class="past-part">→ sent</div>
+      </div>
+      <div class="ru">посылать</div>
+      <div class="example">"I sent a letter."</div>
+    </div>
+    <div class="iv-card" data-text="show showed shown показывать">
+      <div class="base">show</div>
+      <div class="forms">
+        <div class="past">→ showed</div>
+        <div class="past-part">→ shown</div>
+      </div>
+      <div class="ru">показывать</div>
+      <div class="example">"She showed me a photo."</div>
+    </div>
+    <div class="iv-card" data-text="sleep slept slept спать">
+      <div class="base">sleep</div>
+      <div class="forms">
+        <div class="past">→ slept</div>
+        <div class="past-part">→ slept</div>
+      </div>
+      <div class="ru">спать</div>
+      <div class="example">"I slept well."</div>
+    </div>
+    <div class="iv-card" data-text="spend spent spent тратить">
+      <div class="base">spend</div>
+      <div class="forms">
+        <div class="past">→ spent</div>
+        <div class="past-part">→ spent</div>
+      </div>
+      <div class="ru">тратить</div>
+      <div class="example">"I spent my money."</div>
+    </div>
+    <div class="iv-card" data-text="sweep swept swept подметать">
+      <div class="base">sweep</div>
+      <div class="forms">
+        <div class="past">→ swept</div>
+        <div class="past-part">→ swept</div>
+      </div>
+      <div class="ru">подметать</div>
+      <div class="example">"Mum swept the floor."</div>
+    </div>
+    <div class="iv-card" data-text="swing swung swung качаться">
+      <div class="base">swing</div>
+      <div class="forms">
+        <div class="past">→ swung</div>
+        <div class="past-part">→ swung</div>
+      </div>
+      <div class="ru">качаться</div>
+      <div class="example">"The girl swung high."</div>
+    </div>
+    <div class="iv-card" data-text="understand understood understood понимать">
+      <div class="base">understand</div>
+      <div class="forms">
+        <div class="past">→ understood</div>
+        <div class="past-part">→ understood</div>
+      </div>
+      <div class="ru">понимать</div>
+      <div class="example">"I understood the lesson."</div>
+    </div>
+    <div class="iv-card" data-text="wake woke woken просыпаться">
+      <div class="base">wake</div>
+      <div class="forms">
+        <div class="past">→ woke</div>
+        <div class="past-part">→ woken</div>
+      </div>
+      <div class="ru">просыпаться</div>
+      <div class="example">"I woke up at 7."</div>
+    </div>
+    <div class="iv-card" data-text="win won won выигрывать">
+      <div class="base">win</div>
+      <div class="forms">
+        <div class="past">→ won</div>
+        <div class="past-part">→ won</div>
+      </div>
+      <div class="ru">выигрывать</div>
+      <div class="example">"Our team won the game."</div>
+    </div>
+    <div class="iv-card" data-text="blow blew blown дуть">
+      <div class="base">blow</div>
+      <div class="forms">
+        <div class="past">→ blew</div>
+        <div class="past-part">→ blown</div>
+      </div>
+      <div class="ru">дуть</div>
+      <div class="example">"The wind blew hard."</div>
+    </div>
+    <div class="iv-card" data-text="build built built строить">
+      <div class="base">build</div>
+      <div class="forms">
+        <div class="past">→ built</div>
+        <div class="past-part">→ built</div>
+      </div>
+      <div class="ru">строить</div>
+      <div class="example">"They built a house."</div>
+    </div>
+    <div class="iv-card" data-text="burn burnt burnt гореть, жечь">
+      <div class="base">burn</div>
+      <div class="forms">
+        <div class="past">→ burnt</div>
+        <div class="past-part">→ burnt</div>
+      </div>
+      <div class="ru">гореть, жечь</div>
+      <div class="example">"The cake burnt."</div>
+    </div>
+    <div class="iv-card" data-text="dig dug dug копать">
+      <div class="base">dig</div>
+      <div class="forms">
+        <div class="past">→ dug</div>
+        <div class="past-part">→ dug</div>
+      </div>
+      <div class="ru">копать</div>
+      <div class="example">"The dog dug a hole."</div>
+    </div>
+    <div class="iv-card" data-text="dream dreamt dreamt мечтать, сниться">
+      <div class="base">dream</div>
+      <div class="forms">
+        <div class="past">→ dreamt</div>
+        <div class="past-part">→ dreamt</div>
+      </div>
+      <div class="ru">мечтать, сниться</div>
+      <div class="example">"I dreamt of the sea."</div>
+    </div>
+    <div class="iv-card" data-text="feed fed fed кормить">
+      <div class="base">feed</div>
+      <div class="forms">
+        <div class="past">→ fed</div>
+        <div class="past-part">→ fed</div>
+      </div>
+      <div class="ru">кормить</div>
+      <div class="example">"I fed the cat."</div>
+    </div>
+    <div class="iv-card" data-text="fight fought fought драться">
+      <div class="base">fight</div>
+      <div class="forms">
+        <div class="past">→ fought</div>
+        <div class="past-part">→ fought</div>
+      </div>
+      <div class="ru">драться</div>
+      <div class="example">"The boys fought."</div>
+    </div>
+    <div class="iv-card" data-text="forget forgot forgotten забывать">
+      <div class="base">forget</div>
+      <div class="forms">
+        <div class="past">→ forgot</div>
+        <div class="past-part">→ forgotten</div>
+      </div>
+      <div class="ru">забывать</div>
+      <div class="example">"I forgot my book."</div>
+    </div>
+    <div class="iv-card" data-text="keep kept kept хранить, держать">
+      <div class="base">keep</div>
+      <div class="forms">
+        <div class="past">→ kept</div>
+        <div class="past-part">→ kept</div>
+      </div>
+      <div class="ru">хранить, держать</div>
+      <div class="example">"He kept the secret."</div>
+    </div>
+    <div class="iv-card" data-text="mean meant meant значить">
+      <div class="base">mean</div>
+      <div class="forms">
+        <div class="past">→ meant</div>
+        <div class="past-part">→ meant</div>
+      </div>
+      <div class="ru">значить</div>
+      <div class="example">"What does it mean?"</div>
+    </div>
+    <div class="iv-card" data-text="cut cut cut резать">
+      <div class="base">cut</div>
+      <div class="forms">
+        <div class="past">→ cut</div>
+        <div class="past-part">→ cut</div>
+      </div>
+      <div class="ru">резать</div>
+      <div class="example">"He cut the bread."</div>
+    </div>
+    <div class="iv-card" data-text="leave left left уезжать, оставлять">
+      <div class="base">leave</div>
+      <div class="forms">
+        <div class="past">→ left</div>
+        <div class="past-part">→ left</div>
+      </div>
+      <div class="ru">уезжать, оставлять</div>
+      <div class="example">"We left home at 8."</div>
+    </div>
+    <div class="iv-card" data-text="drive drove driven вести машину">
+      <div class="base">drive</div>
+      <div class="forms">
+        <div class="past">→ drove</div>
+        <div class="past-part">→ driven</div>
+      </div>
+      <div class="ru">вести машину</div>
+      <div class="example">"Dad drove the car."</div>
+    </div>
+    <div class="iv-card" data-text="awake awoke awoken бодрствовать">
+      <div class="base">awake</div>
+      <div class="forms">
+        <div class="past">→ awoke</div>
+        <div class="past-part">→ awoken</div>
+      </div>
+      <div class="ru">бодрствовать</div>
+      <div class="example">"The baby awoke."</div>
+    </div>
+    <div class="iv-card" data-text="hide hid hidden прятаться">
+      <div class="base">hide</div>
+      <div class="forms">
+        <div class="past">→ hid</div>
+        <div class="past-part">→ hidden</div>
+      </div>
+      <div class="ru">прятаться</div>
+      <div class="example">"The cat hid under the bed."</div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>Irregular Verbs · Get ready for Movers · Cambridge YLE Movers</p>
+  <p><a href="index.html">← Вернуться к годовому плану</a></p>
+</footer>
+
+<script>
+function showTable() {{
+  document.getElementById('tableWrap').classList.remove('hidden');
+  document.getElementById('cardsWrap').classList.remove('active');
+  document.getElementById('tableBtn').classList.add('active');
+  document.getElementById('cardsBtn').classList.remove('active');
+}}
+
+function showCards() {{
+  document.getElementById('tableWrap').classList.add('hidden');
+  document.getElementById('cardsWrap').classList.add('active');
+  document.getElementById('cardsBtn').classList.add('active');
+  document.getElementById('tableBtn').classList.remove('active');
+}}
+
+function filterVerbs(q) {{
+  q = q.toLowerCase().trim();
+  // Filter table rows
+  var rows = document.querySelectorAll('#ivBody tr');
+  for (var i = 0; i < rows.length; i++) {{
+    var text = rows[i].textContent.toLowerCase();
+    rows[i].style.display = text.indexOf(q) !== -1 ? '' : 'none';
+  }}
+  // Filter cards
+  var cards = document.querySelectorAll('#cardsWrap .iv-card');
+  for (var j = 0; j < cards.length; j++) {{
+    var cardText = cards[j].textContent.toLowerCase();
+    cards[j].style.display = cardText.indexOf(q) !== -1 ? '' : 'none';
+  }}
+}}
+</script>
+
+</body>
+</html>

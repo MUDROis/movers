@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Интерактивные флеш-карточки Cambridge Movers с эмодзи-иллюстрациями, режимом теста и сохранением прогресса.">
+<title>Flashcards · Movers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --c-bg: #f4f9e8;
+    --c-card: #ffffff;
+    --c-section: #e8f5d8;
+    --c-card-bg: #eaf3d6;
+    --c-table-stripe: #f0f7e1;
+    --c-header: #4a6b3a;
+    --c-border: #b8d090;
+    --c-accent: #2E5CB8;
+    --c-text: #1a2818;
+    --c-text-muted: #5a6b50;
+    --c-shadow: rgba(46, 92, 184, 0.10);
+    --radius: 8px;
+    --radius-sm: 4px;
+    --container: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top toolbar (hidden on print) ── */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-header);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .toolbar-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .toolbar-brand {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .toolbar-brand .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--c-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .toolbar-actions { display: flex; gap: 8px; }
+  .toolbar-actions a, .toolbar-actions button {
+    background: var(--c-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #2E5CB8; }
+  .toolbar-actions a.secondary, .toolbar-actions button.secondary {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── Header ── */
+  .hw-header {
+    background: linear-gradient(135deg, #4a6b3a 0%, #5a7a4a 50%, #4a6b3a 100%);
+    color: #fff;
+    padding: 36px 24px 30px;
+  }
+  .hw-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .hw-kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 12px;
+  }
+  .hw-title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .hw-title .accent { color: var(--c-accent); }
+  .hw-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .hw-meta {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .hw-meta-item {
+    border-left: 2px solid rgba(255,255,255,0.25);
+    padding-left: 12px;
+  }
+  .hw-meta-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2px;
+  }
+  .hw-meta-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ── Intro ── */
+  .hw-intro {
+    background: var(--c-card-bg);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 0 0 24px;
+  }
+  .hw-intro p { margin: 0 0 8px; }
+  .hw-intro p:last-child { margin: 0; }
+  .hw-intro b { color: var(--c-header); }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 0;
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--c-header);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-top: 1px solid var(--c-border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+  .vocab-table td:first-child {
+    background: var(--c-section);
+    font-weight: 600;
+    color: var(--c-header);
+    white-space: nowrap;
+  }
+
+  .callout {
+    background: #fff;
+    border-left: 4px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13.5px;
+    color: var(--c-text-muted);
+  }
+  .callout strong { color: var(--c-text); }
+
+  /* ── Exercise ── */
+  .exercise {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px var(--c-shadow);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .exercise-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--c-header);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Noto Serif', serif;
+  }
+  .exercise-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-header);
+    margin: 0;
+  }
+  .exercise-instr {
+    font-style: italic;
+    color: var(--c-text-muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+
+  /* Exercise 1: matching */
+  .match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+    max-width: 480px;
+    margin: 12px 0;
+  }
+  .match-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: var(--c-section);
+    border-radius: 4px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+  }
+  .match-row .num {
+    font-weight: 700;
+    color: var(--c-accent);
+    min-width: 38px;
+  }
+  .match-line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    border-bottom: 1px dashed var(--c-border);
+    margin: 0 6px;
+  }
+
+  /* Exercise 2: door numbers */
+  .door-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .door-item {
+    background: var(--c-section);
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .door-item .word { display: block; margin-bottom: 8px; font-family: 'Noto Serif', serif; }
+  .door-blank {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-bottom: 2px solid var(--c-header);
+  }
+
+  /* Exercise 3: building */
+  .building {
+    display: inline-block;
+    border: 2px solid var(--c-header);
+    border-radius: 4px 4px 0 0;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  .floor {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .floor:last-child { border-bottom: none; }
+  .floor .floor-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 44px;
+    background: var(--c-card-bg);
+    color: var(--c-accent);
+    font-weight: 700;
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--c-border);
+  }
+  .floor .floor-input {
+    flex: 1;
+    padding: 0 14px;
+    font-size: 14px;
+    min-height: 28px;
+    border-bottom: 1px dashed var(--c-border);
+  }
+  .floor.basement .floor-input { color: var(--c-text-muted); font-style: italic; border-bottom: none; }
+  .word-bank {
+    background: var(--c-section);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--c-header);
+    margin: 8px 0;
+  }
+  .word-bank b { color: var(--c-accent); }
+
+  /* Exercise 4: address */
+  .addr-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .addr-list li {
+    padding: 12px 14px;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: var(--c-section);
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+  .addr-list .example { background: #fff; border-color: var(--c-accent); }
+  .addr-list .example .answer { color: var(--c-accent); font-weight: 700; }
+  .addr-blank {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    margin-top: 6px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 5: there is/are */
+  .fill-blank-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .fill-blank-list li {
+    counter-increment: q;
+    padding: 8px 0 8px 28px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    border-bottom: 1px dotted var(--c-border);
+    position: relative;
+  }
+  .fill-blank-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .fill-blank-list li:last-child { border-bottom: none; }
+  .blank-line {
+    display: inline-block;
+    min-width: 140px;
+    border-bottom: 2px solid var(--c-accent);
+    margin: 0 4px;
+  }
+
+  /* Exercise 6: writing */
+  .q-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    counter-reset: q;
+  }
+  .q-list li {
+    counter-increment: q;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--c-border);
+    position: relative;
+  }
+  .q-list li:last-child { border-bottom: none; }
+  .q-list li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+  .q-list .question {
+    display: block;
+    font-weight: 600;
+    color: var(--c-header);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .write-blank {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  /* Exercise 7: speaking */
+  .speaking-plan {
+    background: var(--c-section);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .speaking-plan h5 {
+    margin: 0 0 10px;
+    color: var(--c-header);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .speaking-plan ul { margin: 0; padding-left: 20px; }
+  .speaking-example {
+    background: #fff;
+    border-left: 3px solid var(--c-accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+  }
+
+  /* Stars note */
+  .stars-note {
+    background: #eaf3d6;
+    border: 1px solid var(--c-accent);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .stars-note b { color: var(--c-accent); }
+
+  .footer {
+    background: var(--c-header);
+    color: rgba(255,255,255,0.85);
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .footer a { color: var(--c-accent); text-decoration: none; }
+
+  /* ── Print styles ── */
+  @media print {
+    .toolbar, .footer { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    .hw-header {
+      background: #fff !important;
+      color: #000 !important;
+      border-bottom: 3px solid #000;
+      padding: 0 0 12px 0;
+    }
+    .hw-kicker, .hw-subtitle, .hw-meta-label { color: #555 !important; }
+    .hw-title { color: #000 !important; font-size: 22pt; }
+    .hw-title .accent { color: #2E5CB8 !important; }
+    .hw-meta-item { border-left-color: #999 !important; }
+    .hw-meta-value { color: #000 !important; }
+    .container { padding: 16px 0; max-width: 100%; }
+    .exercise {
+      box-shadow: none;
+      border: 1px solid #999;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .exercise-num {
+      background: #4a6b3a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .word-bank, .match-row, .door-item, .floor .floor-num, .floor .floor-input,
+    .addr-list li, .speaking-plan, .speaking-example, .hw-intro, .vocab-table td:first-child {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .stars-note { background: #eaf3d6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .door-grid, .match-grid { grid-template-columns: 1fr 1fr; }
+    .exercise { padding: 16px; }
+  }
+
+
+/* Mode tabs */
+.fc-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: var(--c-card-bg);
+  padding: 4px;
+  border-radius: var(--radius);
+}
+.fc-tab {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--c-text-muted);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.fc-tab.active {
+  background: var(--c-accent);
+  color: #fff;
+  box-shadow: 0 2px 6px var(--c-shadow);
+}
+
+.fc-mode-content { display: none; }
+.fc-mode-content.active { display: block; }
+
+/* Controls */
+.fc-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.fc-select {
+  padding: 8px 12px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+.fc-select:focus { outline: none; border-color: var(--c-accent); }
+.fc-btn {
+  padding: 8px 16px;
+  background: var(--c-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+.fc-btn:hover { background: var(--c-header); }
+.fc-btn.secondary {
+  background: var(--c-card);
+  color: var(--c-text);
+  border: 1.5px solid var(--c-border);
+}
+.fc-progress {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--c-text-muted);
+}
+.fc-progress b { color: var(--c-accent); }
+
+/* Card */
+.fc-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  margin: 30px auto;
+  min-height: 360px;
+  max-width: 600px;
+}
+.fc-card {
+  width: 100%;
+  max-width: 480px;
+  height: 340px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+}
+.fc-card.flipped { transform: rotateY(180deg); }
+.fc-card-face {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 24px var(--c-shadow);
+  border: 2px solid var(--c-border);
+}
+.fc-card-front { background: linear-gradient(135deg, #fff 0%, var(--c-section) 100%); }
+.fc-card-back {
+  background: linear-gradient(135deg, var(--c-card-bg) 0%, var(--c-section) 100%);
+  transform: rotateY(180deg);
+}
+.fc-card-emoji {
+  font-size: 80px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.fc-card-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: 12px;
+}
+.fc-card-word {
+  font-family: 'Noto Serif', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--c-header);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.fc-card-translation {
+  font-size: 24px;
+  color: var(--c-text);
+  margin: 0 0 12px;
+}
+.fc-card-meta {
+  font-size: 12px;
+  color: var(--c-text-muted);
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: rgba(46, 92, 184, 0.08);
+  border-radius: 12px;
+}
+.fc-card-hint {
+  position: absolute;
+  bottom: 14px;
+  font-size: 11px;
+  color: var(--c-text-muted);
+  opacity: 0.7;
+}
+
+.fc-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+.fc-nav-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+.fc-nav-btn:hover { background: var(--c-header); transform: scale(1.05); }
+.fc-nav-btn:disabled {
+  background: var(--c-border);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.fc-nav-flip {
+  background: var(--c-card);
+  color: var(--c-text);
+  border: 2px solid var(--c-accent);
+  width: 80px;
+  height: 56px;
+  border-radius: 28px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+.fc-nav-flip:hover { background: var(--c-section); }
+
+/* Stats */
+.fc-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.fc-stat {
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+}
+.fc-stat-num {
+  font-family: 'Noto Serif', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-accent);
+  display: block;
+}
+.fc-stat-label {
+  font-size: 12px;
+  color: var(--c-text-muted);
+  margin-top: 4px;
+}
+
+/* Test mode */
+.fc-test-question {
+  background: var(--c-card);
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 16px var(--c-shadow);
+}
+.fc-test-emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.fc-test-word {
+  font-family: 'Noto Serif', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--c-header);
+  margin-bottom: 8px;
+}
+.fc-test-prompt {
+  font-size: 14px;
+  color: var(--c-text-muted);
+  margin-bottom: 24px;
+}
+.fc-test-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.fc-test-option {
+  padding: 16px 20px;
+  background: var(--c-card-bg);
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: 'Noto Serif', serif;
+  font-size: 16px;
+  color: var(--c-text);
+  transition: all 0.2s;
+  text-align: center;
+}
+.fc-test-option:hover {
+  border-color: var(--c-accent);
+  background: var(--c-section);
+  transform: translateY(-2px);
+}
+.fc-test-option.correct {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+.fc-test-option.wrong {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+.fc-test-option.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+.fc-test-option.disabled:hover {
+  transform: none;
+}
+
+.fc-test-result {
+  margin-top: 20px;
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  background: var(--c-card-bg);
+  font-size: 16px;
+  text-align: center;
+  display: none;
+}
+.fc-test-result.show { display: block; }
+.fc-test-result.correct-result {
+  background: #d4edda;
+  color: #155724;
+  border: 2px solid #28a745;
+}
+.fc-test-result.wrong-result {
+  background: #f8d7da;
+  color: #721c24;
+  border: 2px solid #dc3545;
+}
+
+.fc-test-final {
+  background: var(--c-card);
+  border: 2px solid var(--c-accent);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  display: none;
+}
+.fc-test-final.show { display: block; }
+.fc-test-final-score {
+  font-family: 'Noto Serif', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--c-accent);
+  margin: 16px 0;
+}
+.fc-test-final-stars {
+  font-size: 32px;
+  margin: 16px 0;
+}
+
+.fc-instructions {
+  background: var(--c-card-bg);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.fc-instructions b { color: var(--c-header); }
+.fc-instructions kbd {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-family: 'SarasaMonoSC', monospace;
+  font-size: 12px;
+  color: var(--c-text);
+}
+
+/* Saved indicator */
+.fc-saved {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--c-header);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 100;
+}
+.fc-saved.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- ── Toolbar ── -->
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-brand"><span class="dot"></span>Flashcards · Movers</div>
+    <div class="toolbar-actions">
+      <a href="index.html" class="secondary">← К плану</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Header ── -->
+<header class="hw-header">
+  <div class="hw-header-inner">
+    <p class="hw-kicker">Interactive · Get ready for Movers · Flashcards</p>
+    <h1 class="hw-title">Flash<span class="accent">cards</span></h1>
+    <p class="hw-subtitle">Эмодзи-иллюстрации + режим теста + автосохранение прогресса</p>
+    <div class="hw-meta">
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Всего карточек</div>
+        <div class="hw-meta-value">179</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Юнитов</div>
+        <div class="hw-meta-value">13</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Режимы</div>
+        <div class="hw-meta-value">Карточки / Тест</div>
+      </div>
+      <div class="hw-meta-item">
+        <div class="hw-meta-label">Прогресс</div>
+        <div class="hw-meta-value">💾 localStorage</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="callout">
+    <strong>Как пользоваться:</strong> выбери режим — 🃏 <b>Карточки</b> для классического повторения (клик — перевернуть, клавиши ← → Space S) или 📝 <b>Тест</b> для проверки знаний (выбери правильный перевод из 4 вариантов). Прогресс сохраняется автоматически — при следующем открытии страницы продолжишь с того же места.
+  </div>
+
+  <!-- Mode tabs -->
+  <div class="fc-tabs">
+    <button class="fc-tab active" onclick="setMode('cards', event)">🃏 Карточки</button>
+    <button class="fc-tab" onclick="setMode('test', event)">📝 Тест</button>
+  </div>
+
+  <!-- ─── CARDS MODE ─── -->
+  <div class="fc-mode-content active" id="cardsMode">
+
+    <div class="fc-controls">
+      <label>📚 Юнит:</label>
+      <select class="fc-select" id="unitSelect" onchange="filterUnit()">
+        <option value="all">Все юниты (179 карт)</option>
+        <option value="Intro">Intro (17 карт)</option>
+        <option value="Unit 1">Unit 1 (16 карт)</option>
+        <option value="Unit 10">Unit 10 (12 карт)</option>
+        <option value="Unit 11">Unit 11 (14 карт)</option>
+        <option value="Unit 12">Unit 12 (13 карт)</option>
+        <option value="Unit 2">Unit 2 (17 карт)</option>
+        <option value="Unit 3">Unit 3 (13 карт)</option>
+        <option value="Unit 4">Unit 4 (12 карт)</option>
+        <option value="Unit 5">Unit 5 (12 карт)</option>
+        <option value="Unit 6">Unit 6 (12 карт)</option>
+        <option value="Unit 7">Unit 7 (10 карт)</option>
+        <option value="Unit 8">Unit 8 (17 карт)</option>
+        <option value="Unit 9">Unit 9 (14 карт)</option>
+      </select>
+
+      <label>🔄 Сторона:</label>
+      <select class="fc-select" id="modeSelect" onchange="changeMode()">
+        <option value="en-ru">EN → RU (англ → рус)</option>
+        <option value="ru-en">RU → EN (рус → англ)</option>
+      </select>
+
+      <button class="fc-btn" onclick="shuffleCards()">🔀 Перемешать</button>
+      <button class="fc-btn secondary" onclick="resetProgress()">♻️ Сбросить прогресс</button>
+
+      <div class="fc-progress">
+        Карточка <b id="curIdx">1</b> / <b id="totalIdx">179</b>
+      </div>
+    </div>
+
+    <div class="fc-stats">
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="knownCount">0</span>
+        <span class="fc-stat-label">✓ Знаю</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="unknownCount">0</span>
+        <span class="fc-stat-label">❓ Учу</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="seenCount">0</span>
+        <span class="fc-stat-label">👁 Просмотрено</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="progressPct">0%</span>
+        <span class="fc-stat-label">📊 Прогресс</span>
+      </div>
+    </div>
+
+    <div class="fc-card-container">
+      <div class="fc-card" id="card" onclick="flipCard()">
+        <div class="fc-card-face fc-card-front">
+          <div class="fc-card-emoji" id="frontEmoji">—</div>
+          <div class="fc-card-label" id="frontLabel">English</div>
+          <h2 class="fc-card-word" id="frontWord">—</h2>
+          <div class="fc-card-meta" id="frontMeta">—</div>
+          <div class="fc-card-hint">Нажми, чтобы перевернуть</div>
+        </div>
+        <div class="fc-card-face fc-card-back">
+          <div class="fc-card-emoji" id="backEmoji">—</div>
+          <div class="fc-card-label" id="backLabel">Перевод</div>
+          <h2 class="fc-card-translation" id="backWord">—</h2>
+          <div class="fc-card-meta" id="backMeta">—</div>
+          <div class="fc-card-hint">Нажми, чтобы перевернуть</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-nav">
+      <button class="fc-nav-btn" id="prevBtn" onclick="prevCard()">←</button>
+      <button class="fc-nav-flip" onclick="flipCard()">🔄 Перевернуть</button>
+      <button class="fc-nav-btn" id="speakBtn" onclick="speakCurrentCard()" title="Озвучить слово">🔊</button>
+      <button class="fc-nav-btn" id="nextBtn" onclick="nextCard()">→</button>
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+      <button class="fc-btn" onclick="markKnown()">✓ Знаю это слово</button>
+      <button class="fc-btn secondary" onclick="markUnknown()">❓ Нужно повторить</button>
+      <button class="fc-btn secondary" id="autoSpeakBtn" onclick="toggleAutoSpeak()">🔊 Авто-озвучка: ВКЛ</button>
+    </div>
+
+    <div class="fc-instructions">
+      <b>Подсказки:</b>
+      <ul style="margin: 8px 0 0; padding-left: 18px;">
+        <li><kbd>Space</kbd> или <kbd>Enter</kbd> — перевернуть карточку</li>
+        <li><kbd>←</kbd> / <kbd>→</kbd> — листать влево / вправо</li>
+        <li><kbd>S</kbd> — перемешать карточки</li>
+        <li><kbd>T</kbd> — переключиться в режим теста</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── TEST MODE ─── -->
+  <div class="fc-mode-content" id="testMode">
+
+    <div class="fc-controls">
+      <label>📚 Юнит:</label>
+      <select class="fc-select" id="testUnitSelect" onchange="startTest()">
+        <option value="all">Все юниты</option>
+        <option value="Intro">Intro</option>
+        <option value="Unit 1">Unit 1</option>
+        <option value="Unit 10">Unit 10</option>
+        <option value="Unit 11">Unit 11</option>
+        <option value="Unit 12">Unit 12</option>
+        <option value="Unit 2">Unit 2</option>
+        <option value="Unit 3">Unit 3</option>
+        <option value="Unit 4">Unit 4</option>
+        <option value="Unit 5">Unit 5</option>
+        <option value="Unit 6">Unit 6</option>
+        <option value="Unit 7">Unit 7</option>
+        <option value="Unit 8">Unit 8</option>
+        <option value="Unit 9">Unit 9</option>
+      </select>
+
+      <label>❓ Вопросов:</label>
+      <select class="fc-select" id="testCountSelect" onchange="startTest()">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="all">Все (179)</option>
+      </select>
+
+      <label>🔄 Направление:</label>
+      <select class="fc-select" id="testDirection" onchange="startTest()">
+        <option value="en-ru">EN → RU (выбери перевод)</option>
+        <option value="ru-en">RU → EN (выбери слово)</option>
+      </select>
+
+      <button class="fc-btn" onclick="startTest()">🔄 Новый тест</button>
+
+      <div class="fc-progress">
+        Вопрос <b id="testCurIdx">0</b> / <b id="testTotalIdx">0</b>
+      </div>
+    </div>
+
+    <div class="fc-stats">
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="testCorrect">0</span>
+        <span class="fc-stat-label">✓ Правильно</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="testWrong">0</span>
+        <span class="fc-stat-label">✗ Ошибок</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="testScore">0%</span>
+        <span class="fc-stat-label">📊 Результат</span>
+      </div>
+      <div class="fc-stat">
+        <span class="fc-stat-num" id="testBestScore">—</span>
+        <span class="fc-stat-label">🏆 Лучший</span>
+      </div>
+    </div>
+
+    <div id="testContainer">
+      <div class="fc-test-question" id="testQuestion">
+        <div class="fc-test-emoji" id="testEmoji">📝</div>
+        <div class="fc-test-word" id="testWord">Нажми «Новый тест», чтобы начать</div>
+        <div class="fc-test-prompt" id="testPrompt">Выбери правильный перевод</div>
+        <div class="fc-test-options" id="testOptions"></div>
+      </div>
+
+      <div class="fc-test-result" id="testResult"></div>
+    </div>
+
+    <div class="fc-test-final" id="testFinal">
+      <h2 style="color: var(--c-header); margin: 0 0 8px;">🎉 Тест завершён!</h2>
+      <div class="fc-test-final-score" id="testFinalScore">0 / 0</div>
+      <div class="fc-test-final-stars" id="testFinalStars">⭐⭐⭐</div>
+      <p style="color: var(--c-text-muted); margin: 12px 0 20px;" id="testFinalMsg"></p>
+      <button class="fc-btn" onclick="startTest()">🔄 Пройти ещё раз</button>
+      <button class="fc-btn secondary" onclick="setMode('cards', event)">🃏 Вернуться к карточкам</button>
+    </div>
+
+    <div class="fc-instructions">
+      <b>Как проходит тест:</b>
+      <ul style="margin: 8px 0 0; padding-left: 18px;">
+        <li>Выбери юнит и количество вопросов</li>
+        <li>Прочитай слово (или перевод), выбери правильный ответ из 4 вариантов</li>
+        <li>Сразу увидишь результат: зелёный — правильно, красный — ошибка</li>
+        <li>В конце теста — итоговый счёт и звёзды (⭐⭐⭐ за 90%+)</li>
+        <li>Лучший результат сохраняется для каждого режима</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fc-saved" id="savedIndicator">💾 Прогресс сохранён</div>
+
+</main>
+
+<footer class="footer">
+  <p>Flashcards · Get ready for Movers · Cambridge YLE Movers</p>
+  <p><a href="index.html">← Вернуться к годовому плану</a></p>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────
+// Data
+// ─────────────────────────────────────────────────────────
+const ALL_CARDS = [{"id": 0, "en": "ten", "ru": "10 (десять)", "unit": "Intro", "cat": "Numbers", "emoji": "🔟"}, {"id": 1, "en": "twenty", "ru": "20 (двадцать)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 2, "en": "thirty", "ru": "30 (тридцать)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 3, "en": "forty", "ru": "40 (сорок)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 4, "en": "fifty", "ru": "50 (пятьдесят)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 5, "en": "sixty", "ru": "60 (шестьдесят)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 6, "en": "seventy", "ru": "70 (семьдесят)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 7, "en": "eighty", "ru": "80 (восемьдесят)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 8, "en": "ninety", "ru": "90 (девяносто)", "unit": "Intro", "cat": "Numbers", "emoji": "🔢"}, {"id": 9, "en": "one hundred", "ru": "100 (сто)", "unit": "Intro", "cat": "Numbers", "emoji": "💯"}, {"id": 10, "en": "first", "ru": "первый (1st)", "unit": "Intro", "cat": "Ordinals", "emoji": "🥇"}, {"id": 11, "en": "second", "ru": "второй (2nd)", "unit": "Intro", "cat": "Ordinals", "emoji": "🥈"}, {"id": 12, "en": "third", "ru": "третий (3rd)", "unit": "Intro", "cat": "Ordinals", "emoji": "🥉"}, {"id": 13, "en": "fourth", "ru": "четвёртый (4th)", "unit": "Intro", "cat": "Ordinals", "emoji": "4️⃣"}, {"id": 14, "en": "fifth", "ru": "пятый (5th)", "unit": "Intro", "cat": "Ordinals", "emoji": "5️⃣"}, {"id": 15, "en": "basement", "ru": "подвал", "unit": "Intro", "cat": "Building", "emoji": "地下"}, {"id": 16, "en": "ground floor", "ru": "цокольный этаж", "unit": "Intro", "cat": "Building", "emoji": "🏢"}, {"id": 17, "en": "hop", "ru": "прыгать на одной ноге", "unit": "Unit 1", "cat": "Park actions", "emoji": "🦘"}, {"id": 18, "en": "skip", "ru": "скакать", "unit": "Unit 1", "cat": "Park actions", "emoji": "⏭️"}, {"id": 19, "en": "walk", "ru": "гулять", "unit": "Unit 1", "cat": "Park actions", "emoji": "🚶"}, {"id": 20, "en": "climb", "ru": "лезть, взбираться", "unit": "Unit 1", "cat": "Park actions", "emoji": "🧗"}, {"id": 21, "en": "laugh", "ru": "смеяться", "unit": "Unit 1", "cat": "Park actions", "emoji": "😂"}, {"id": 22, "en": "roller skate", "ru": "кататься на роликах", "unit": "Unit 1", "cat": "Park actions", "emoji": "🛼"}, {"id": 23, "en": "dance", "ru": "танцевать", "unit": "Unit 1", "cat": "Park actions", "emoji": "💃"}, {"id": 24, "en": "cry", "ru": "плакать", "unit": "Unit 1", "cat": "Park actions", "emoji": "😢"}, {"id": 25, "en": "fish", "ru": "ловить рыбу", "unit": "Unit 1", "cat": "Park actions", "emoji": "🎣"}, {"id": 26, "en": "hide", "ru": "прятаться", "unit": "Unit 1", "cat": "Park actions", "emoji": "🙈"}, {"id": 27, "en": "orange", "ru": "оранжевый", "unit": "Unit 1", "cat": "Colours", "emoji": "🟠"}, {"id": 28, "en": "pink", "ru": "розовый", "unit": "Unit 1", "cat": "Colours", "emoji": "🩷"}, {"id": 29, "en": "yellow", "ru": "жёлтый", "unit": "Unit 1", "cat": "Colours", "emoji": "🟡"}, {"id": 30, "en": "green", "ru": "зелёный", "unit": "Unit 1", "cat": "Colours", "emoji": "🟢"}, {"id": 31, "en": "blue", "ru": "синий", "unit": "Unit 1", "cat": "Colours", "emoji": "🔵"}, {"id": 32, "en": "red", "ru": "красный", "unit": "Unit 1", "cat": "Colours", "emoji": "🔴"}, {"id": 33, "en": "Monday", "ru": "понедельник", "unit": "Unit 2", "cat": "Days", "emoji": "1️⃣"}, {"id": 34, "en": "Tuesday", "ru": "вторник", "unit": "Unit 2", "cat": "Days", "emoji": "2️⃣"}, {"id": 35, "en": "Wednesday", "ru": "среда", "unit": "Unit 2", "cat": "Days", "emoji": "3️⃣"}, {"id": 36, "en": "Thursday", "ru": "четверг", "unit": "Unit 2", "cat": "Days", "emoji": "4️⃣"}, {"id": 37, "en": "Friday", "ru": "пятница", "unit": "Unit 2", "cat": "Days", "emoji": "5️⃣"}, {"id": 38, "en": "Saturday", "ru": "суббота", "unit": "Unit 2", "cat": "Days", "emoji": "6️⃣"}, {"id": 39, "en": "Sunday", "ru": "воскресенье", "unit": "Unit 2", "cat": "Days", "emoji": "7️⃣"}, {"id": 40, "en": "Maths", "ru": "математика", "unit": "Unit 2", "cat": "Subjects", "emoji": "🔢"}, {"id": 41, "en": "English", "ru": "английский", "unit": "Unit 2", "cat": "Subjects", "emoji": "🇬🇧"}, {"id": 42, "en": "Art", "ru": "ИЗО", "unit": "Unit 2", "cat": "Subjects", "emoji": "🎨"}, {"id": 43, "en": "Music", "ru": "музыка", "unit": "Unit 2", "cat": "Subjects", "emoji": "🎵"}, {"id": 44, "en": "PE", "ru": "физкультура", "unit": "Unit 2", "cat": "Subjects", "emoji": "⚽"}, {"id": 45, "en": "Science", "ru": "естествознание", "unit": "Unit 2", "cat": "Subjects", "emoji": "🔬"}, {"id": 46, "en": "always", "ru": "всегда", "unit": "Unit 2", "cat": "Adverbs", "emoji": "♾️"}, {"id": 47, "en": "usually", "ru": "обычно", "unit": "Unit 2", "cat": "Adverbs", "emoji": "📊"}, {"id": 48, "en": "sometimes", "ru": "иногда", "unit": "Unit 2", "cat": "Adverbs", "emoji": "🎲"}, {"id": 49, "en": "never", "ru": "никогда", "unit": "Unit 2", "cat": "Adverbs", "emoji": "🚫"}, {"id": 50, "en": "bank", "ru": "банк", "unit": "Unit 3", "cat": "Town", "emoji": "🏦"}, {"id": 51, "en": "hospital", "ru": "больница", "unit": "Unit 3", "cat": "Town", "emoji": "🏥"}, {"id": 52, "en": "library", "ru": "библиотека", "unit": "Unit 3", "cat": "Town", "emoji": "📚"}, {"id": 53, "en": "café", "ru": "кафе", "unit": "Unit 3", "cat": "Town", "emoji": "☕"}, {"id": 54, "en": "supermarket", "ru": "супермаркет", "unit": "Unit 3", "cat": "Town", "emoji": "🛒"}, {"id": 55, "en": "bus stop", "ru": "автобусная остановка", "unit": "Unit 3", "cat": "Town", "emoji": "🚏"}, {"id": 56, "en": "post office", "ru": "почта", "unit": "Unit 3", "cat": "Town", "emoji": "📮"}, {"id": 57, "en": "train station", "ru": "вокзал", "unit": "Unit 3", "cat": "Town", "emoji": "🚉"}, {"id": 58, "en": "next to", "ru": "рядом", "unit": "Unit 3", "cat": "Prepositions", "emoji": "↔️"}, {"id": 59, "en": "opposite", "ru": "напротив", "unit": "Unit 3", "cat": "Prepositions", "emoji": "🔁"}, {"id": 60, "en": "behind", "ru": "за, позади", "unit": "Unit 3", "cat": "Prepositions", "emoji": "⬅️"}, {"id": 61, "en": "in front of", "ru": "перед", "unit": "Unit 3", "cat": "Prepositions", "emoji": "➡️"}, {"id": 62, "en": "between", "ru": "между", "unit": "Unit 3", "cat": "Prepositions", "emoji": "↔️"}, {"id": 63, "en": "kitchen", "ru": "кухня", "unit": "Unit 4", "cat": "Rooms", "emoji": "🍳"}, {"id": 64, "en": "bedroom", "ru": "спальня", "unit": "Unit 4", "cat": "Rooms", "emoji": "🛏️"}, {"id": 65, "en": "bathroom", "ru": "ванная", "unit": "Unit 4", "cat": "Rooms", "emoji": "🛁"}, {"id": 66, "en": "living room", "ru": "гостиная", "unit": "Unit 4", "cat": "Rooms", "emoji": "🛋️"}, {"id": 67, "en": "hall", "ru": "прихожая", "unit": "Unit 4", "cat": "Rooms", "emoji": "🚪"}, {"id": 68, "en": "dining room", "ru": "столовая", "unit": "Unit 4", "cat": "Rooms", "emoji": "🍽️"}, {"id": 69, "en": "garden", "ru": "сад", "unit": "Unit 4", "cat": "Rooms", "emoji": "🌷"}, {"id": 70, "en": "bed", "ru": "кровать", "unit": "Unit 4", "cat": "Furniture", "emoji": "🛏️"}, {"id": 71, "en": "table", "ru": "стол", "unit": "Unit 4", "cat": "Furniture", "emoji": "🪑"}, {"id": 72, "en": "chair", "ru": "стул", "unit": "Unit 4", "cat": "Furniture", "emoji": "💺"}, {"id": 73, "en": "sofa", "ru": "диван", "unit": "Unit 4", "cat": "Furniture", "emoji": "🛋️"}, {"id": 74, "en": "lamp", "ru": "лампа", "unit": "Unit 4", "cat": "Furniture", "emoji": "💡"}, {"id": 75, "en": "car", "ru": "машина", "unit": "Unit 5", "cat": "Transport", "emoji": "🚗"}, {"id": 76, "en": "bus", "ru": "автобус", "unit": "Unit 5", "cat": "Transport", "emoji": "🚌"}, {"id": 77, "en": "train", "ru": "поезд", "unit": "Unit 5", "cat": "Transport", "emoji": "🚂"}, {"id": 78, "en": "plane", "ru": "самолёт", "unit": "Unit 5", "cat": "Transport", "emoji": "✈️"}, {"id": 79, "en": "bike", "ru": "велосипед", "unit": "Unit 5", "cat": "Transport", "emoji": "🚲"}, {"id": 80, "en": "boat", "ru": "лодка", "unit": "Unit 5", "cat": "Transport", "emoji": "⛵"}, {"id": 81, "en": "ship", "ru": "корабль", "unit": "Unit 5", "cat": "Transport", "emoji": "🚢"}, {"id": 82, "en": "helicopter", "ru": "вертолёт", "unit": "Unit 5", "cat": "Transport", "emoji": "🚁"}, {"id": 83, "en": "suitcase", "ru": "чемодан", "unit": "Unit 5", "cat": "Travel", "emoji": "🧳"}, {"id": 84, "en": "holiday", "ru": "отпуск", "unit": "Unit 5", "cat": "Travel", "emoji": "🌴"}, {"id": 85, "en": "beach", "ru": "пляж", "unit": "Unit 5", "cat": "Travel", "emoji": "🏖️"}, {"id": 86, "en": "mountain", "ru": "гора", "unit": "Unit 5", "cat": "Travel", "emoji": "⛰️"}, {"id": 87, "en": "story", "ru": "история, рассказ", "unit": "Unit 6", "cat": "Books", "emoji": "📖"}, {"id": 88, "en": "comic", "ru": "комикс", "unit": "Unit 6", "cat": "Books", "emoji": "💬"}, {"id": 89, "en": "fairy tale", "ru": "сказка", "unit": "Unit 6", "cat": "Books", "emoji": "🧚"}, {"id": 90, "en": "adventure", "ru": "приключение", "unit": "Unit 6", "cat": "Books", "emoji": "🗺️"}, {"id": 91, "en": "fantasy", "ru": "фэнтези", "unit": "Unit 6", "cat": "Books", "emoji": "🐉"}, {"id": 92, "en": "character", "ru": "персонаж", "unit": "Unit 6", "cat": "Books", "emoji": "🎭"}, {"id": 93, "en": "hero", "ru": "герой", "unit": "Unit 6", "cat": "Books", "emoji": "🦸"}, {"id": 94, "en": "villain", "ru": "злодей", "unit": "Unit 6", "cat": "Books", "emoji": "🦹"}, {"id": 95, "en": "happy", "ru": "счастливый", "unit": "Unit 6", "cat": "Feelings", "emoji": "😊"}, {"id": 96, "en": "sad", "ru": "грустный", "unit": "Unit 6", "cat": "Feelings", "emoji": "😢"}, {"id": 97, "en": "scared", "ru": "испуганный", "unit": "Unit 6", "cat": "Feelings", "emoji": "😨"}, {"id": 98, "en": "excited", "ru": "взволнованный", "unit": "Unit 6", "cat": "Feelings", "emoji": "🤩"}, {"id": 99, "en": "mother", "ru": "мама", "unit": "Unit 7", "cat": "Family", "emoji": "👩"}, {"id": 100, "en": "father", "ru": "папа", "unit": "Unit 7", "cat": "Family", "emoji": "👨"}, {"id": 101, "en": "sister", "ru": "сестра", "unit": "Unit 7", "cat": "Family", "emoji": "👧"}, {"id": 102, "en": "brother", "ru": "брат", "unit": "Unit 7", "cat": "Family", "emoji": "👦"}, {"id": 103, "en": "grandmother", "ru": "бабушка", "unit": "Unit 7", "cat": "Family", "emoji": "👵"}, {"id": 104, "en": "grandfather", "ru": "дедушка", "unit": "Unit 7", "cat": "Family", "emoji": "👴"}, {"id": 105, "en": "aunt", "ru": "тётя", "unit": "Unit 7", "cat": "Family", "emoji": "👩‍🦰"}, {"id": 106, "en": "uncle", "ru": "дядя", "unit": "Unit 7", "cat": "Family", "emoji": "👨‍🦰"}, {"id": 107, "en": "cousin", "ru": "двоюродный брат/сестра", "unit": "Unit 7", "cat": "Family", "emoji": "👪"}, {"id": 108, "en": "parents", "ru": "родители", "unit": "Unit 7", "cat": "Family", "emoji": "👨‍👩‍👧"}, {"id": 109, "en": "bread", "ru": "хлеб", "unit": "Unit 8", "cat": "Food", "emoji": "🍞"}, {"id": 110, "en": "cheese", "ru": "сыр", "unit": "Unit 8", "cat": "Food", "emoji": "🧀"}, {"id": 111, "en": "meat", "ru": "мясо", "unit": "Unit 8", "cat": "Food", "emoji": "🥩"}, {"id": 112, "en": "fish", "ru": "рыба", "unit": "Unit 8", "cat": "Food", "emoji": "🐟"}, {"id": 113, "en": "rice", "ru": "рис", "unit": "Unit 8", "cat": "Food", "emoji": "🍚"}, {"id": 114, "en": "egg", "ru": "яйцо", "unit": "Unit 8", "cat": "Food", "emoji": "🥚"}, {"id": 115, "en": "cake", "ru": "торт", "unit": "Unit 8", "cat": "Food", "emoji": "🍰"}, {"id": 116, "en": "apple", "ru": "яблоко", "unit": "Unit 8", "cat": "Food", "emoji": "🍎"}, {"id": 117, "en": "banana", "ru": "банан", "unit": "Unit 8", "cat": "Food", "emoji": "🍌"}, {"id": 118, "en": "pizza", "ru": "пицца", "unit": "Unit 8", "cat": "Food", "emoji": "🍕"}, {"id": 119, "en": "water", "ru": "вода", "unit": "Unit 8", "cat": "Drinks", "emoji": "💧"}, {"id": 120, "en": "milk", "ru": "молоко", "unit": "Unit 8", "cat": "Drinks", "emoji": "🥛"}, {"id": 121, "en": "juice", "ru": "сок", "unit": "Unit 8", "cat": "Drinks", "emoji": "🧃"}, {"id": 122, "en": "tea", "ru": "чай", "unit": "Unit 8", "cat": "Drinks", "emoji": "🍵"}, {"id": 123, "en": "breakfast", "ru": "завтрак", "unit": "Unit 8", "cat": "Meals", "emoji": "🍳"}, {"id": 124, "en": "lunch", "ru": "обед", "unit": "Unit 8", "cat": "Meals", "emoji": "🍽️"}, {"id": 125, "en": "dinner", "ru": "ужин", "unit": "Unit 8", "cat": "Meals", "emoji": "🍲"}, {"id": 126, "en": "dog", "ru": "собака", "unit": "Unit 9", "cat": "Animals", "emoji": "🐕"}, {"id": 127, "en": "cat", "ru": "кошка", "unit": "Unit 9", "cat": "Animals", "emoji": "🐈"}, {"id": 128, "en": "rabbit", "ru": "кролик", "unit": "Unit 9", "cat": "Animals", "emoji": "🐇"}, {"id": 129, "en": "horse", "ru": "лошадь", "unit": "Unit 9", "cat": "Animals", "emoji": "🐎"}, {"id": 130, "en": "cow", "ru": "корова", "unit": "Unit 9", "cat": "Animals", "emoji": "🐄"}, {"id": 131, "en": "sheep", "ru": "овца", "unit": "Unit 9", "cat": "Animals", "emoji": "🐑"}, {"id": 132, "en": "pig", "ru": "свинья", "unit": "Unit 9", "cat": "Animals", "emoji": "🐖"}, {"id": 133, "en": "duck", "ru": "утка", "unit": "Unit 9", "cat": "Animals", "emoji": "🦆"}, {"id": 134, "en": "lion", "ru": "лев", "unit": "Unit 9", "cat": "Animals", "emoji": "🦁"}, {"id": 135, "en": "tiger", "ru": "тигр", "unit": "Unit 9", "cat": "Animals", "emoji": "🐅"}, {"id": 136, "en": "elephant", "ru": "слон", "unit": "Unit 9", "cat": "Animals", "emoji": "🐘"}, {"id": 137, "en": "monkey", "ru": "обезьяна", "unit": "Unit 9", "cat": "Animals", "emoji": "🐒"}, {"id": 138, "en": "snake", "ru": "змея", "unit": "Unit 9", "cat": "Animals", "emoji": "🐍"}, {"id": 139, "en": "bear", "ru": "медведь", "unit": "Unit 9", "cat": "Animals", "emoji": "🐻"}, {"id": 140, "en": "sunny", "ru": "солнечно", "unit": "Unit 10", "cat": "Weather", "emoji": "☀️"}, {"id": 141, "en": "rainy", "ru": "дождливо", "unit": "Unit 10", "cat": "Weather", "emoji": "🌧️"}, {"id": 142, "en": "cloudy", "ru": "облачно", "unit": "Unit 10", "cat": "Weather", "emoji": "☁️"}, {"id": 143, "en": "windy", "ru": "ветрено", "unit": "Unit 10", "cat": "Weather", "emoji": "💨"}, {"id": 144, "en": "snowy", "ru": "снежно", "unit": "Unit 10", "cat": "Weather", "emoji": "❄️"}, {"id": 145, "en": "hot", "ru": "жарко", "unit": "Unit 10", "cat": "Weather", "emoji": "🥵"}, {"id": 146, "en": "cold", "ru": "холодно", "unit": "Unit 10", "cat": "Weather", "emoji": "🥶"}, {"id": 147, "en": "warm", "ru": "тепло", "unit": "Unit 10", "cat": "Weather", "emoji": "🌤️"}, {"id": 148, "en": "spring", "ru": "весна", "unit": "Unit 10", "cat": "Seasons", "emoji": "🌱"}, {"id": 149, "en": "summer", "ru": "лето", "unit": "Unit 10", "cat": "Seasons", "emoji": "🌞"}, {"id": 150, "en": "autumn", "ru": "осень", "unit": "Unit 10", "cat": "Seasons", "emoji": "🍂"}, {"id": 151, "en": "winter", "ru": "зима", "unit": "Unit 10", "cat": "Seasons", "emoji": "⛄"}, {"id": 152, "en": "head", "ru": "голова", "unit": "Unit 11", "cat": "Body", "emoji": "😀"}, {"id": 153, "en": "arm", "ru": "рука", "unit": "Unit 11", "cat": "Body", "emoji": "💪"}, {"id": 154, "en": "leg", "ru": "нога", "unit": "Unit 11", "cat": "Body", "emoji": "🦵"}, {"id": 155, "en": "hand", "ru": "кисть", "unit": "Unit 11", "cat": "Body", "emoji": "✋"}, {"id": 156, "en": "foot", "ru": "стопа", "unit": "Unit 11", "cat": "Body", "emoji": "🦶"}, {"id": 157, "en": "eye", "ru": "глаз", "unit": "Unit 11", "cat": "Body", "emoji": "👁️"}, {"id": 158, "en": "ear", "ru": "ухо", "unit": "Unit 11", "cat": "Body", "emoji": "👂"}, {"id": 159, "en": "nose", "ru": "нос", "unit": "Unit 11", "cat": "Body", "emoji": "👃"}, {"id": 160, "en": "mouth", "ru": "рот", "unit": "Unit 11", "cat": "Body", "emoji": "👄"}, {"id": 161, "en": "tooth", "ru": "зуб", "unit": "Unit 11", "cat": "Body", "emoji": "🦷"}, {"id": 162, "en": "cold", "ru": "простуда", "unit": "Unit 11", "cat": "Illness", "emoji": "🤧"}, {"id": 163, "en": "fever", "ru": "температура", "unit": "Unit 11", "cat": "Illness", "emoji": "🤒"}, {"id": 164, "en": "cough", "ru": "кашель", "unit": "Unit 11", "cat": "Illness", "emoji": "😷"}, {"id": 165, "en": "headache", "ru": "головная боль", "unit": "Unit 11", "cat": "Illness", "emoji": "🤕"}, {"id": 166, "en": "tree", "ru": "дерево", "unit": "Unit 12", "cat": "Nature", "emoji": "🌳"}, {"id": 167, "en": "flower", "ru": "цветок", "unit": "Unit 12", "cat": "Nature", "emoji": "🌸"}, {"id": 168, "en": "river", "ru": "река", "unit": "Unit 12", "cat": "Nature", "emoji": "🏞️"}, {"id": 169, "en": "mountain", "ru": "гора", "unit": "Unit 12", "cat": "Nature", "emoji": "⛰️"}, {"id": 170, "en": "field", "ru": "поле", "unit": "Unit 12", "cat": "Nature", "emoji": "🌾"}, {"id": 171, "en": "forest", "ru": "лес", "unit": "Unit 12", "cat": "Nature", "emoji": "🌲"}, {"id": 172, "en": "hill", "ru": "холм", "unit": "Unit 12", "cat": "Nature", "emoji": "🏔️"}, {"id": 173, "en": "lake", "ru": "озеро", "unit": "Unit 12", "cat": "Nature", "emoji": "🏞️"}, {"id": 174, "en": "sea", "ru": "море", "unit": "Unit 12", "cat": "Nature", "emoji": "🌊"}, {"id": 175, "en": "bird", "ru": "птица", "unit": "Unit 12", "cat": "Animals", "emoji": "🐦"}, {"id": 176, "en": "butterfly", "ru": "бабочка", "unit": "Unit 12", "cat": "Animals", "emoji": "🦋"}, {"id": 177, "en": "frog", "ru": "лягушка", "unit": "Unit 12", "cat": "Animals", "emoji": "🐸"}, {"id": 178, "en": "bee", "ru": "пчела", "unit": "Unit 12", "cat": "Animals", "emoji": "🐝"}];
+
+// ─────────────────────────────────────────────────────────
+// State
+// ─────────────────────────────────────────────────────────
+let activeCards = ALL_CARDS.slice();
+let currentIndex = 0;
+let cardMode = 'en-ru';
+let pageMode = 'cards';
+
+// Load progress from localStorage
+function loadProgress() {
+  try {
+    const saved = localStorage.getItem('movers_fc_progress');
+    if (saved) return JSON.parse(saved);
+  } catch(e) {}
+  return {
+    known: [],
+    unknown: [],
+    seen: [],
+    lastUnit: 'all',
+    lastMode: 'en-ru',
+    testBestScore: {}
+  };
+}
+
+let progress = loadProgress();
+let known = new Set(progress.known);
+let unknown = new Set(progress.unknown);
+let seen = new Set(progress.seen);
+
+function saveProgress() {
+  progress.known = Array.from(known);
+  progress.unknown = Array.from(unknown);
+  progress.seen = Array.from(seen);
+  progress.lastUnit = document.getElementById('unitSelect').value;
+  progress.lastMode = cardMode;
+  try {
+    localStorage.setItem('movers_fc_progress', JSON.stringify(progress));
+    showSavedIndicator();
+  } catch(e) {}
+}
+
+function showSavedIndicator() {
+  const ind = document.getElementById('savedIndicator');
+  ind.classList.add('show');
+  setTimeout(() => ind.classList.remove('show'), 1500);
+}
+
+// ─────────────────────────────────────────────────────────
+// Page mode (cards / test)
+// ─────────────────────────────────────────────────────────
+function setMode(mode, event) {
+  pageMode = mode;
+  document.querySelectorAll('.fc-tab').forEach(t => t.classList.remove('active'));
+  if (event) event.target.classList.add('active');
+  document.getElementById('cardsMode').classList.toggle('active', mode === 'cards');
+  document.getElementById('testMode').classList.toggle('active', mode === 'test');
+  if (mode === 'test') startTest();
+}
+
+// ─────────────────────────────────────────────────────────
+// Cards mode functions
+// ─────────────────────────────────────────────────────────
+function updateCard() {
+  if (activeCards.length === 0) return;
+  const card = activeCards[currentIndex];
+  seen.add(card.id);
+
+  let frontWord, backWord, frontLabel, backLabel;
+  if (cardMode === 'en-ru') {
+    frontWord = card.en;
+    backWord = card.ru;
+    frontLabel = 'English';
+    backLabel = 'Перевод';
+  } else {
+    frontWord = card.ru;
+    backWord = card.en;
+    frontLabel = 'Перевод';
+    backLabel = 'English';
+  }
+
+  document.getElementById('frontWord').textContent = frontWord;
+  document.getElementById('frontEmoji').textContent = card.emoji;
+  document.getElementById('backWord').textContent = backWord;
+  document.getElementById('backEmoji').textContent = card.emoji;
+  document.getElementById('frontLabel').textContent = frontLabel;
+  document.getElementById('backLabel').textContent = backLabel;
+  document.getElementById('frontMeta').textContent = card.unit + ' · ' + card.cat;
+  document.getElementById('backMeta').textContent = card.unit + ' · ' + card.cat;
+
+  document.getElementById('curIdx').textContent = currentIndex + 1;
+  document.getElementById('totalIdx').textContent = activeCards.length;
+
+  document.getElementById('card').classList.remove('flipped');
+  document.getElementById('prevBtn').disabled = currentIndex === 0;
+  document.getElementById('nextBtn').disabled = currentIndex === activeCards.length - 1;
+
+  // Auto-speak English word when card loads
+  if (fc_autoSpeak) {
+    setTimeout(() => speakCurrentCard(), 400);
+  }
+
+  updateStats();
+  saveProgress();
+}
+
+// ─── TTS (Web Speech API) ───
+let fc_synth = window.speechSynthesis;
+let fc_voices = [];
+let fc_autoSpeak = true;  // auto-speak on card change
+
+function fcLoadVoices() {
+  fc_voices = fc_synth.getVoices().filter(v => v.lang.startsWith('en'));
+}
+
+if (fc_synth.onvoiceschanged !== undefined) {
+  fc_synth.onvoiceschanged = fcLoadVoices;
+}
+fcLoadVoices();
+
+function speakWord(word) {
+  if (!fc_synth) return;
+  if (fc_synth.speaking) fc_synth.cancel();
+  const utter = new SpeechSynthesisUtterance(word);
+  utter.lang = 'en-GB';
+  utter.rate = 0.85;
+  utter.pitch = 1.0;
+  // Prefer Google UK English Male voice if available
+  const preferred = fc_voices.find(v => v.name.includes('Google UK English Male')) 
+                  || fc_voices.find(v => v.name.includes('Google'))
+                  || fc_voices.find(v => v.lang === 'en-GB')
+                  || fc_voices[0];
+  if (preferred) utter.voice = preferred;
+  fc_synth.speak(utter);
+}
+
+function speakCurrentCard() {
+  if (activeCards.length === 0) return;
+  const card = activeCards[currentIndex];
+  // Speak the English word (always, regardless of mode)
+  speakWord(card.en);
+}
+
+function toggleAutoSpeak() {
+  fc_autoSpeak = !fc_autoSpeak;
+  const btn = document.getElementById('autoSpeakBtn');
+  btn.textContent = fc_autoSpeak ? '🔊 Авто-озвучка: ВКЛ' : '🔇 Авто-озвучка: ВЫКЛ';
+}
+
+function flipCard() {
+  document.getElementById('card').classList.toggle('flipped');
+  // Auto-speak when flipping to back (translation) - speak the English word again
+  const isFlipped = document.getElementById('card').classList.contains('flipped');
+  if (isFlipped && fc_autoSpeak) {
+    setTimeout(() => speakCurrentCard(), 300);
+  }
+}
+
+function nextCard() {
+  if (currentIndex < activeCards.length - 1) {
+    currentIndex++;
+    updateCard();
+  }
+}
+
+function prevCard() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCard();
+  }
+}
+
+function shuffleCards() {
+  for (let i = activeCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [activeCards[i], activeCards[j]] = [activeCards[j], activeCards[i]];
+  }
+  currentIndex = 0;
+  updateCard();
+}
+
+function filterUnit() {
+  const unit = document.getElementById('unitSelect').value;
+  if (unit === 'all') {
+    activeCards = ALL_CARDS.slice();
+  } else {
+    activeCards = ALL_CARDS.filter(c => c.unit === unit);
+  }
+  currentIndex = 0;
+  updateCard();
+}
+
+function changeMode() {
+  cardMode = document.getElementById('modeSelect').value;
+  updateCard();
+}
+
+function markKnown() {
+  if (activeCards.length > 0) {
+    known.add(activeCards[currentIndex].id);
+    unknown.delete(activeCards[currentIndex].id);
+    updateStats();
+    saveProgress();
+    if (currentIndex < activeCards.length - 1) {
+      setTimeout(nextCard, 200);
+    }
+  }
+}
+
+function markUnknown() {
+  if (activeCards.length > 0) {
+    unknown.add(activeCards[currentIndex].id);
+    known.delete(activeCards[currentIndex].id);
+    updateStats();
+    saveProgress();
+    if (currentIndex < activeCards.length - 1) {
+      setTimeout(nextCard, 200);
+    }
+  }
+}
+
+function resetProgress() {
+  if (!confirm('Сбросить весь прогресс? Это действие нельзя отменить.')) return;
+  known.clear();
+  unknown.clear();
+  seen.clear();
+  progress.testBestScore = {};
+  currentIndex = 0;
+  localStorage.removeItem('movers_fc_progress');
+  updateCard();
+}
+
+function updateStats() {
+  document.getElementById('knownCount').textContent = known.size;
+  document.getElementById('unknownCount').textContent = unknown.size;
+  document.getElementById('seenCount').textContent = seen.size;
+  const pct = ALL_CARDS.length > 0 ? Math.round((seen.size / ALL_CARDS.length) * 100) : 0;
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+// ─────────────────────────────────────────────────────────
+// Test mode functions
+// ─────────────────────────────────────────────────────────
+let testQuestions = [];
+let testCurrentIdx = 0;
+let testCorrectCount = 0;
+let testWrongCount = 0;
+let testAnswered = false;
+
+function startTest() {
+  const unit = document.getElementById('testUnitSelect').value;
+  const count = document.getElementById('testCountSelect').value;
+  const direction = document.getElementById('testDirection').value;
+
+  let pool = unit === 'all' ? ALL_CARDS.slice() : ALL_CARDS.filter(c => c.unit === unit);
+
+  // Shuffle pool
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  const numQ = count === 'all' ? pool.length : Math.min(parseInt(count), pool.length);
+  testQuestions = [];
+
+  for (let i = 0; i < numQ; i++) {
+    const card = pool[i];
+    // Generate 4 options (1 correct + 3 random wrong)
+    const wrongOptions = ALL_CARDS.filter(c => c.id !== card.id);
+    // Shuffle wrong options
+    for (let j = wrongOptions.length - 1; j > 0; j--) {
+      const k = Math.floor(Math.random() * (j + 1));
+      [wrongOptions[j], wrongOptions[k]] = [wrongOptions[k], wrongOptions[j]];
+    }
+    const options = wrongOptions.slice(0, 3);
+    options.push(card);
+    // Shuffle all 4 options
+    for (let j = options.length - 1; j > 0; j--) {
+      const k = Math.floor(Math.random() * (j + 1));
+      [options[j], options[k]] = [options[k], options[j]];
+    }
+
+    testQuestions.push({
+      card: card,
+      direction: direction,
+      options: options,
+    });
+  }
+
+  testCurrentIdx = 0;
+  testCorrectCount = 0;
+  testWrongCount = 0;
+  document.getElementById('testFinal').classList.remove('show');
+  document.getElementById('testContainer').style.display = 'block';
+  document.getElementById('testTotalIdx').textContent = testQuestions.length;
+  showTestQuestion();
+  updateTestStats();
+}
+
+function showTestQuestion() {
+  if (testCurrentIdx >= testQuestions.length) {
+    showTestFinal();
+    return;
+  }
+
+  testAnswered = false;
+  const q = testQuestions[testCurrentIdx];
+  const card = q.card;
+  const direction = q.direction;
+
+  document.getElementById('testCurIdx').textContent = testCurrentIdx + 1;
+
+  // Show word + emoji
+  let questionText, promptText;
+  if (direction === 'en-ru') {
+    questionText = card.en;
+    promptText = 'Выбери правильный перевод';
+  } else {
+    questionText = card.ru;
+    promptText = 'Выбери правильное английское слово';
+  }
+
+  document.getElementById('testEmoji').textContent = card.emoji;
+  document.getElementById('testWord').textContent = questionText;
+  document.getElementById('testPrompt').textContent = promptText;
+
+  // Auto-speak the English word when question shows
+  if (fc_autoSpeak) {
+    setTimeout(() => speakWord(card.en), 400);
+  }
+
+  // Render options
+  const optionsHtml = q.options.map((opt, idx) => {
+    const text = direction === 'en-ru' ? opt.ru : opt.en;
+    return `<div class="fc-test-option" data-idx="${idx}" data-correct="${opt.id === card.id}" onclick="answerTest(${idx})">${text}</div>`;
+  }).join('');
+  document.getElementById('testOptions').innerHTML = optionsHtml;
+
+  // Reset result
+  const result = document.getElementById('testResult');
+  result.classList.remove('show', 'correct-result', 'wrong-result');
+}
+
+function answerTest(idx) {
+  if (testAnswered) return;
+  testAnswered = true;
+
+  const q = testQuestions[testCurrentIdx];
+  const card = q.card;
+  const direction = q.direction;
+
+  const options = document.querySelectorAll('.fc-test-option');
+  options.forEach(o => o.classList.add('disabled'));
+
+  const selected = options[idx];
+  const isCorrect = selected.getAttribute('data-correct') === 'true';
+
+  if (isCorrect) {
+    selected.classList.add('correct');
+    testCorrectCount++;
+    known.add(card.id);
+    unknown.delete(card.id);
+  } else {
+    selected.classList.add('wrong');
+    // Highlight correct
+    options.forEach(o => {
+      if (o.getAttribute('data-correct') === 'true') {
+        o.classList.add('correct');
+      }
+    });
+    testWrongCount++;
+    unknown.add(card.id);
+  }
+
+  const result = document.getElementById('testResult');
+  result.classList.add('show');
+  if (isCorrect) {
+    result.classList.add('correct-result');
+    result.innerHTML = `✓ <b>Правильно!</b> ${direction === 'en-ru' ? card.en : card.ru} = ${direction === 'en-ru' ? card.ru : card.en}`;
+  } else {
+    result.classList.add('wrong-result');
+    const correctText = direction === 'en-ru' ? card.ru : card.en;
+    result.innerHTML = `✗ <b>Ошибка.</b> Правильный ответ: <b>${correctText}</b>`;
+  }
+
+  updateTestStats();
+  saveProgress();
+
+  // Auto-advance after 2 seconds
+  setTimeout(() => {
+    testCurrentIdx++;
+    showTestQuestion();
+  }, 2000);
+}
+
+function updateTestStats() {
+  document.getElementById('testCorrect').textContent = testCorrectCount;
+  document.getElementById('testWrong').textContent = testWrongCount;
+  const total = testCorrectCount + testWrongCount;
+  const pct = total > 0 ? Math.round((testCorrectCount / total) * 100) : 0;
+  document.getElementById('testScore').textContent = pct + '%';
+
+  // Best score for this test config
+  const unit = document.getElementById('testUnitSelect').value;
+  const count = document.getElementById('testCountSelect').value;
+  const direction = document.getElementById('testDirection').value;
+  const key = `${unit}_${count}_${direction}`;
+  const best = progress.testBestScore[key];
+  document.getElementById('testBestScore').textContent = best ? best + '%' : '—';
+}
+
+function showTestFinal() {
+  document.getElementById('testContainer').style.display = 'none';
+  const final = document.getElementById('testFinal');
+  final.classList.add('show');
+
+  const total = testQuestions.length;
+  const pct = total > 0 ? Math.round((testCorrectCount / total) * 100) : 0;
+
+  document.getElementById('testFinalScore').textContent = `${testCorrectCount} / ${total}`;
+
+  // Stars
+  let stars = '';
+  if (pct >= 90) stars = '⭐⭐⭐';
+  else if (pct >= 70) stars = '⭐⭐';
+  else if (pct >= 50) stars = '⭐';
+  else stars = '💪 Попробуй ещё!';
+  document.getElementById('testFinalStars').textContent = stars;
+
+  // Message
+  let msg = '';
+  if (pct >= 90) msg = 'Превосходно! Ты готов к экзамену!';
+  else if (pct >= 70) msg = 'Хорошо! Ещё немного повторения — и будет отлично.';
+  else if (pct >= 50) msg = 'Неплохо! Повтори слова, в которых ошибся.';
+  else msg = 'Не сдавайся! Прочитай Vocabulary и попробуй ещё раз.';
+  document.getElementById('testFinalMsg').textContent = msg;
+
+  // Save best score
+  const unit = document.getElementById('testUnitSelect').value;
+  const count = document.getElementById('testCountSelect').value;
+  const direction = document.getElementById('testDirection').value;
+  const key = `${unit}_${count}_${direction}`;
+  if (!progress.testBestScore[key] || pct > progress.testBestScore[key]) {
+    progress.testBestScore[key] = pct;
+    saveProgress();
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// Keyboard navigation
+// ─────────────────────────────────────────────────────────
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+  if (pageMode === 'cards') {
+    switch(e.key) {
+      case 'ArrowLeft': prevCard(); break;
+      case 'ArrowRight': nextCard(); break;
+      case ' ': case 'Enter': e.preventDefault(); flipCard(); break;
+      case 's': case 'S': shuffleCards(); break;
+      case 't': case 'T':
+        document.querySelector('.fc-tab:nth-child(2)').click();
+        break;
+    }
+  }
+});
+
+// ─────────────────────────────────────────────────────────
+// Initialize
+// ─────────────────────────────────────────────────────────
+function init() {
+  // Restore last session
+  if (progress.lastUnit) {
+    document.getElementById('unitSelect').value = progress.lastUnit;
+    filterUnit();
+  }
+  if (progress.lastMode) {
+    cardMode = progress.lastMode;
+    document.getElementById('modeSelect').value = progress.lastMode;
+  }
+  updateCard();
+}
+
+init();
+</script>
+
+</body>
+</html>
