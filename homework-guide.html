@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Навигатор по 34 печатным листам домашних заданий курса Movers: быстрый переход к любой неделе.">
+<title>Все листы домашних заданий · Movers · Навигатор</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-bg:#f4f9e8; --c-card:#ffffff; --c-section:#e8f5d8; --c-card-bg:#eaf3d6; --c-table-stripe:#f0f7e1;
+    --c-header:#4a6b3a; --c-border:#b8d090; --c-accent:#2E5CB8; --c-accent-dark:#24499a;
+    --c-text:#1a2818; --c-text-muted:#5a6b50; --c-mock:#f7e2bd;
+    --c-shadow:rgba(46,92,184,0.10); --radius:8px; --container:820px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:76px; }
+  body { margin:0; background:var(--c-bg); font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:16px; line-height:1.6; color:var(--c-text); -webkit-font-smoothing:antialiased; }
+
+  .toolbar { position:sticky; top:0; z-index:100; background:var(--c-header); color:#fff; box-shadow:0 2px 12px rgba(0,0,0,.12); }
+  .toolbar-inner { max-width:var(--container); margin:0 auto; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  .toolbar-brand { font-weight:600; font-size:14px; display:flex; align-items:center; }
+  .toolbar-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .toolbar-actions a, .toolbar-actions button { background:var(--c-accent); color:#fff; border:none; padding:8px 14px; border-radius:4px; text-decoration:none; font-size:13px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background:var(--c-accent-dark); }
+  .toolbar-actions a.secondary { background:rgba(255,255,255,.15); }
+
+  .hw-header { background:linear-gradient(135deg,#4a6b3a 0%,#5a7a4a 50%,#4a6b3a 100%); color:#fff; padding:36px 24px 30px; }
+  .hw-header-inner { max-width:var(--container); margin:0 auto; }
+  .hw-kicker { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.65); margin:0 0 12px; }
+  .hw-title { font-family:'Noto Serif',Georgia,serif; font-size:32px; font-weight:700; margin:0 0 10px; line-height:1.2; }
+  .hw-title .accent { color:var(--c-accent); }
+  .hw-subtitle { font-size:15px; color:rgba(255,255,255,.85); margin:0; }
+
+  .container { max-width:var(--container); margin:0 auto; padding:32px 24px 60px; }
+
+  .legend { display:flex; gap:16px; flex-wrap:wrap; margin:0 0 18px; font-size:13px; }
+  .legend-item { display:flex; align-items:center; gap:6px; }
+  .legend-color { width:14px; height:14px; border-radius:3px; border:1px solid var(--c-border); }
+
+  .table-wrap { overflow-x:auto; border-radius:var(--radius); box-shadow:0 1px 4px var(--c-shadow); }
+  table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  thead th { background:var(--c-header); color:#fff; text-align:left; padding:11px 13px; font-weight:600; font-size:12.5px; letter-spacing:.3px; white-space:nowrap; }
+  tbody td { padding:9px 13px; border-top:1px solid var(--c-border); vertical-align:top; }
+  tbody tr:nth-child(even) { background:var(--c-table-stripe); }
+  tbody tr.revision-row { background:var(--c-section); font-style:italic; }
+  tbody tr.mock-row { background:var(--c-mock); font-weight:600; }
+  td.num { color:var(--c-accent); font-weight:700; font-variant-numeric:tabular-nums; }
+  td.unit-cell { font-family:'Noto Serif',serif; font-weight:600; white-space:nowrap; }
+  td.focus b { color:var(--c-header); }
+  td.focus .focus-sub { display:block; font-size:12px; color:var(--c-text-muted); margin-top:2px; font-style:normal; }
+  td.pages { white-space:nowrap; color:var(--c-text-muted); }
+  .hw-link { display:inline-flex; align-items:center; gap:6px; background:var(--c-accent); color:#fff; text-decoration:none; padding:5px 10px; border-radius:4px; font-size:12px; font-weight:600; white-space:nowrap; transition:background .15s; }
+  .hw-link:hover { background:var(--c-accent-dark); }
+  .hw-link::before { content:'\1F5A8'; font-size:13px; }
+
+  .footer { background:var(--c-header); color:rgba(255,255,255,.9); padding:24px; text-align:center; font-size:13px; margin-top:40px; }
+  .footer a { color:#d7ecb8; text-decoration:none; }
+
+  @media print {
+    .toolbar, .footer, .legend, .hw-link { display:none !important; }
+    body { background:#fff; font-size:10.5pt; }
+    .hw-header { background:#fff !important; color:#000 !important; border-bottom:3px solid #000; padding:0 0 12px; }
+    .hw-title, .hw-title .accent { color:#000 !important; font-size:20pt; }
+    .hw-kicker, .hw-subtitle { color:#555 !important; }
+    .container { padding:12px 0; max-width:100%; }
+    .table-wrap { box-shadow:none; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    tbody tr.revision-row, tbody tr.mock-row { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+  @media (max-width:600px) { .container { padding:24px 16px 40px; } }
+</style>
+<link rel="icon" href="favicon.ico">
+</head>
+<body>
+<nav class="toolbar">
+  <div class="toolbar-inner">
+    <div class="toolbar-brand"><img class="brand-logo" src="logo.png" alt="МУДРО" style="width:20px;height:20px;object-fit:contain;border-radius:5px;vertical-align:middle;margin-right:8px">Домашние задания · Movers · 34 листа</div>
+    <div class="toolbar-actions">
+      <a href="index.html">← К плану</a>
+      <button onclick="window.print()">🖨 Печать списка</button>
+    </div>
+  </div>
+</nav>
+<header class="hw-header">
+  <div class="hw-header-inner">
+    <p class="hw-kicker">Homework guide · Get ready for Movers · 34 недели</p>
+    <h1 class="hw-title">Все листы ДЗ <span class="accent">— быстрый переход</span></h1>
+    <p class="hw-subtitle">К каждому уроку — отдельная печатная страница с упражнениями и скрытыми ответами (кнопка «🔑 Проверить ответы» внизу страницы листа, на печать не выводится).</p>
+  </div>
+</header>
+<main class="container">
+  <div class="legend">
+    <div class="legend-item"><span class="legend-color" style="background:#e8f5d8;"></span> Revision (точки контроля)</div>
+    <div class="legend-item"><span class="legend-color" style="background:#f7e2bd;"></span> Финальный mock-exam</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>№</th><th>Юнит</th><th>Фокус урока</th><th>Учебник</th><th>Лист ДЗ</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="unit-cell">Intro</td><td class="focus"><b>Where do you live?</b><span class="focus-sub">Домашнее задание по вводному юниту</span></td><td class="pages">SB стр. 2–3</td><td><a class="hw-link" href="homework.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">2</td><td class="unit-cell">Unit 1</td><td class="focus"><b>At the park</b><span class="focus-sub">Park actions and colours</span></td><td class="pages">SB стр. 4–5</td><td><a class="hw-link" href="hw-week2.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">3</td><td class="unit-cell">Unit 1</td><td class="focus"><b>At the park — be good at</b><span class="focus-sub">Story + Grammar: be good at + V-ing</span></td><td class="pages">SB стр. 6</td><td><a class="hw-link" href="hw-week3.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">4</td><td class="unit-cell">Unit 1</td><td class="focus"><b>At the park — comparatives</b><span class="focus-sub">Language practice: comparatives</span></td><td class="pages">SB стр. 7</td><td><a class="hw-link" href="hw-week4.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">5</td><td class="unit-cell">Unit 2</td><td class="focus"><b>A busy week</b><span class="focus-sub">Days of week and school subjects</span></td><td class="pages">SB стр. 12–13</td><td><a class="hw-link" href="hw-week5.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">6</td><td class="unit-cell">Unit 2</td><td class="focus"><b>A busy week — Present Simple</b><span class="focus-sub">Story + Grammar: Present Simple</span></td><td class="pages">SB стр. 14</td><td><a class="hw-link" href="hw-week6.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">7</td><td class="unit-cell">Unit 2</td><td class="focus"><b>A busy week — adverbs of frequency</b><span class="focus-sub">Language practice: always / usually / sometimes / never</span></td><td class="pages">SB стр. 15</td><td><a class="hw-link" href="hw-week7.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">8</td><td class="unit-cell">Unit 3</td><td class="focus"><b>In the town</b><span class="focus-sub">Places in town</span></td><td class="pages">SB стр. 20–21</td><td><a class="hw-link" href="hw-week8.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">9</td><td class="unit-cell">Unit 3</td><td class="focus"><b>In the town — must / mustn't</b><span class="focus-sub">Story + Grammar: must / mustn't (rules)</span></td><td class="pages">SB стр. 22</td><td><a class="hw-link" href="hw-week9.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">10</td><td class="unit-cell">Unit 3</td><td class="focus"><b>In the town — prepositions of place</b><span class="focus-sub">Language practice: prepositions of place</span></td><td class="pages">SB стр. 23</td><td><a class="hw-link" href="hw-week10.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">11</td><td class="unit-cell">Unit 4</td><td class="focus"><b>At home</b><span class="focus-sub">Rooms and furniture</span></td><td class="pages">SB стр. 28–29</td><td><a class="hw-link" href="hw-week11.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">12</td><td class="unit-cell">Unit 4</td><td class="focus"><b>At home — Pres. Cont. vs Pres. Simple</b><span class="focus-sub">Story + Grammar: Present Continuous vs Present Simple</span></td><td class="pages">SB стр. 30</td><td><a class="hw-link" href="hw-week12.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">13</td><td class="unit-cell">Unit 4</td><td class="focus"><b>At home — comparatives review</b><span class="focus-sub">Language practice: comparatives (review)</span></td><td class="pages">SB стр. 31</td><td><a class="hw-link" href="hw-week13.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr class="revision-row"><td class="num">14</td><td class="unit-cell">Revision 1</td><td class="focus"><b>Revision 1 — Units 1–4</b><span class="focus-sub">Доработка ошибок мини-теста + повторение</span></td><td class="pages">SB стр. 36–39 + Wordlist 112</td><td><a class="hw-link" href="hw-week14.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">15</td><td class="unit-cell">Unit 5</td><td class="focus"><b>Let's go on holiday!</b><span class="focus-sub">Transport and travel</span></td><td class="pages">SB стр. 40–41</td><td><a class="hw-link" href="hw-week15.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">16</td><td class="unit-cell">Unit 5</td><td class="focus"><b>Let's go on holiday! — be going to</b><span class="focus-sub">Story + Grammar: be going to (plans)</span></td><td class="pages">SB стр. 42</td><td><a class="hw-link" href="hw-week16.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">17</td><td class="unit-cell">Unit 5</td><td class="focus"><b>Let's go on holiday! — was / were</b><span class="focus-sub">Language practice: was / were</span></td><td class="pages">SB стр. 43</td><td><a class="hw-link" href="hw-week17.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">18</td><td class="unit-cell">Unit 6</td><td class="focus"><b>My favourite book</b><span class="focus-sub">Book genres and characters</span></td><td class="pages">SB стр. 48–49</td><td><a class="hw-link" href="hw-week18.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">19</td><td class="unit-cell">Unit 6</td><td class="focus"><b>My favourite book — Past Simple (regular)</b><span class="focus-sub">Story + Grammar: Past Simple regular verbs</span></td><td class="pages">SB стр. 50</td><td><a class="hw-link" href="hw-week19.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">20</td><td class="unit-cell">Unit 6</td><td class="focus"><b>My favourite book — irregular verbs</b><span class="focus-sub">Language practice: Past Simple irregular verbs</span></td><td class="pages">SB стр. 51</td><td><a class="hw-link" href="hw-week20.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">21</td><td class="unit-cell">Unit 7</td><td class="focus"><b>This is my family</b><span class="focus-sub">Family members</span></td><td class="pages">SB стр. 56–57</td><td><a class="hw-link" href="hw-week21.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">22</td><td class="unit-cell">Unit 7</td><td class="focus"><b>This is my family — possessive 's</b><span class="focus-sub">Story + Grammar: possessive 's</span></td><td class="pages">SB стр. 58</td><td><a class="hw-link" href="hw-week22.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">23</td><td class="unit-cell">Unit 7</td><td class="focus"><b>This is my family — superlatives</b><span class="focus-sub">Language practice: superlatives (the oldest, the youngest)</span></td><td class="pages">SB стр. 59</td><td><a class="hw-link" href="hw-week23.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">24</td><td class="unit-cell">Unit 8</td><td class="focus"><b>What's for lunch?</b><span class="focus-sub">Food and drinks</span></td><td class="pages">SB стр. 64–65</td><td><a class="hw-link" href="hw-week24.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">25</td><td class="unit-cell">Unit 8</td><td class="focus"><b>What's for lunch? — some / any</b><span class="focus-sub">Story + Grammar: some / any</span></td><td class="pages">SB стр. 66</td><td><a class="hw-link" href="hw-week25.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">26</td><td class="unit-cell">Unit 8</td><td class="focus"><b>What's for lunch? — would like</b><span class="focus-sub">Language practice: would like (polite request)</span></td><td class="pages">SB стр. 67</td><td><a class="hw-link" href="hw-week26.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr class="revision-row"><td class="num">27</td><td class="unit-cell">Revision 2</td><td class="focus"><b>Revision 2 — Units 5–8</b><span class="focus-sub">Доработка ошибок + повторение</span></td><td class="pages">SB стр. 72–75 + Wordlist 112</td><td><a class="hw-link" href="hw-week27.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">28</td><td class="unit-cell">Unit 9</td><td class="focus"><b>Do you like animals?</b><span class="focus-sub">Animals</span></td><td class="pages">SB стр. 76–77</td><td><a class="hw-link" href="hw-week28.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">29</td><td class="unit-cell">Unit 9</td><td class="focus"><b>Do you like animals?</b><span class="focus-sub">Story + Grammar: Present Simple questions (Do/Does)</span></td><td class="pages">SB стр. 78</td><td><a class="hw-link" href="hw-week29.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">30</td><td class="unit-cell">Unit 10</td><td class="focus"><b>The weather</b><span class="focus-sub">Weather and seasons</span></td><td class="pages">SB стр. 84–85</td><td><a class="hw-link" href="hw-week30.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">31</td><td class="unit-cell">Unit 11</td><td class="focus"><b>What's the matter?</b><span class="focus-sub">Body parts, illness, should/shouldn't</span></td><td class="pages">SB стр. 92–93</td><td><a class="hw-link" href="hw-week31.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr><td class="num">32</td><td class="unit-cell">Unit 12</td><td class="focus"><b>In the countryside</b><span class="focus-sub">Nature and Past Simple</span></td><td class="pages">SB стр. 100–101</td><td><a class="hw-link" href="hw-week32.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr class="revision-row"><td class="num">33</td><td class="unit-cell">Revision 3</td><td class="focus"><b>Revision 3 — Final review</b><span class="focus-sub">Финальное повторение перед mock-exam</span></td><td class="pages">SB стр. 108–111 + Wordlist 112</td><td><a class="hw-link" href="hw-week33.html" target="_blank">Печать ДЗ</a></td></tr>
+        <tr class="mock-row"><td class="num">34</td><td class="unit-cell">Final Mock</td><td class="focus"><b>Final Mock</b><span class="focus-sub">Подготовка вопросов и доработка слабых зон</span></td><td class="pages">Mock exam + revision</td><td><a class="hw-link" href="hw-week34.html" target="_blank">Печать ДЗ</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<footer class="footer">
+  <p>Навигатор домашних заданий · Get Ready for Movers (2nd ed.) · 34 листа</p>
+  <p><a href="index.html">← Годовой план</a> · <a href="vocabulary.html">Лексика</a> · <a href="grammar.html">Грамматика</a> · <a href="irregular-verbs.html">Неправильные глаголы</a></p>
+<p class="footer-legal" style="margin:10px 0 0;font-size:11.5px;opacity:0.75;line-height:1.5">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744<br>Лицензия № Л035-01218-23/01091451 Интерактивная школа «МУДРО»</p>
+</footer>
+</body>
+</html>
