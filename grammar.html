@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
   :root {
     --c-bg: #f4f9e8;
     --c-card: #ffffff;
@@ -27,7 +26,7 @@
     --container: 820px;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   body {
     margin: 0;
     padding: 0;
@@ -56,11 +55,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
   }
-  .toolbar-brand {
-    font-weight: 600;
-    font-size: 14px;
-  }
+  .toolbar-brand { font-weight: 600; font-size: 14px; }
   .toolbar-brand .dot {
     display: inline-block;
     width: 8px;
@@ -70,7 +67,7 @@
     margin-right: 8px;
     vertical-align: middle;
   }
-  .toolbar-actions { display: flex; gap: 8px; }
+  .toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .toolbar-actions a, .toolbar-actions button {
     background: var(--c-accent);
     color: #fff;
@@ -83,7 +80,7 @@
     cursor: pointer;
     font-family: 'Inter', sans-serif;
   }
-  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #2E5CB8; }
+  .toolbar-actions a:hover, .toolbar-actions button:hover { background: #24499a; }
   .toolbar-actions a.secondary, .toolbar-actions button.secondary {
     background: rgba(255,255,255,0.15);
   }
@@ -94,10 +91,7 @@
     color: #fff;
     padding: 36px 24px 30px;
   }
-  .hw-header-inner {
-    max-width: var(--container);
-    margin: 0 auto;
-  }
+  .hw-header-inner { max-width: var(--container); margin: 0 auto; }
   .hw-kicker {
     font-size: 12px;
     letter-spacing: 3px;
@@ -113,21 +107,14 @@
     line-height: 1.2;
   }
   .hw-title .accent { color: var(--c-accent); }
-  .hw-subtitle {
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    margin: 0;
-  }
+  .hw-subtitle { font-size: 15px; color: rgba(255,255,255,0.85); margin: 0; }
   .hw-meta {
     margin-top: 18px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
   }
-  .hw-meta-item {
-    border-left: 2px solid rgba(255,255,255,0.25);
-    padding-left: 12px;
-  }
+  .hw-meta-item { border-left: 2px solid rgba(255,255,255,0.25); padding-left: 12px; }
   .hw-meta-label {
     font-size: 10px;
     letter-spacing: 1.5px;
@@ -135,65 +122,33 @@
     color: rgba(255,255,255,0.55);
     margin-bottom: 2px;
   }
-  .hw-meta-value {
-    font-size: 14px;
-    font-weight: 500;
-  }
+  .hw-meta-value { font-size: 14px; font-weight: 500; }
 
   /* ── Container ── */
-  .container {
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 32px 24px 60px;
-  }
+  .container { max-width: var(--container); margin: 0 auto; padding: 32px 24px 60px; }
 
-  /* ── Intro ── */
-  .hw-intro {
+  /* ── Unit jump links (TOC) ── */
+  .toc {
     background: var(--c-card-bg);
     border-radius: var(--radius);
-    padding: 18px 22px;
+    padding: 16px 20px;
     margin: 0 0 24px;
+    font-size: 14px;
   }
-  .hw-intro p { margin: 0 0 8px; }
-  .hw-intro p:last-child { margin: 0; }
-  .hw-intro b { color: var(--c-header); }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 16px 0 0;
-    border-radius: var(--radius);
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    font-size: 13.5px;
-  }
-  thead th {
-    background: var(--c-header);
-    color: #fff;
-    text-align: left;
-    padding: 10px 12px;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.3px;
-  }
-  tbody td {
-    padding: 8px 12px;
-    border-top: 1px solid var(--c-border);
-    vertical-align: top;
-  }
-  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
-  .vocab-table td:first-child {
-    background: var(--c-section);
-    font-weight: 600;
+  .toc b { color: var(--c-header); }
+  .toc a {
     color: var(--c-header);
+    text-decoration: none;
+    margin-right: 10px;
     white-space: nowrap;
+    font-weight: 600;
   }
+  .toc a:hover { text-decoration: underline; color: var(--c-accent); }
 
+  /* ── Intro callouts ── */
   .callout {
     background: #fff;
-    border-left: 4px solid var(--c-accent);
+    border-left: 4px solid var(--c-header);
     padding: 12px 16px;
     margin: 16px 0;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -202,277 +157,107 @@
   }
   .callout strong { color: var(--c-text); }
 
-  /* ── Exercise ── */
-  .exercise {
+  /* ── Unit block ── */
+  .unit-block {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: var(--radius);
     padding: 22px 26px;
     margin: 20px 0;
     box-shadow: 0 2px 6px var(--c-shadow);
+    scroll-margin-top: 76px;
     break-inside: avoid;
     page-break-inside: avoid;
   }
-  .exercise-header {
+  .unit-block.revision { background: var(--c-section); border-style: dashed; }
+  .unit-header {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 14px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--c-border);
+    border-bottom: 2px solid var(--c-header);
   }
-  .exercise-num {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    background: var(--c-header);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
+  .unit-num {
     font-family: 'Noto Serif', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--c-header);
+    line-height: 1;
   }
-  .exercise-title {
-    font-size: 16px;
+  .unit-title {
+    font-family: 'Noto Serif', serif;
+    font-size: 19px;
     font-weight: 600;
     color: var(--c-header);
     margin: 0;
   }
-  .exercise-instr {
-    font-style: italic;
+  .unit-pages {
+    margin-left: auto;
+    font-size: 13px;
     color: var(--c-text-muted);
-    font-size: 14px;
-    margin: 0 0 14px;
+    font-style: italic;
   }
 
-  /* Exercise 1: matching */
-  .match-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px 24px;
-    max-width: 480px;
-    margin: 12px 0;
-  }
-  .match-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 10px;
-    background: var(--c-section);
-    border-radius: 4px;
-    font-family: 'Noto Serif', serif;
-    font-size: 15px;
-  }
-  .match-row .num {
-    font-weight: 700;
-    color: var(--c-accent);
-    min-width: 38px;
-  }
-  .match-line {
-    display: inline-block;
-    width: 50px;
-    height: 1px;
-    border-bottom: 1px dashed var(--c-border);
-    margin: 0 6px;
-  }
-
-  /* Exercise 2: door numbers */
-  .door-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 12px 0;
-  }
-  .door-item {
-    background: var(--c-section);
-    padding: 12px;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 13px;
-  }
-  .door-item .word { display: block; margin-bottom: 8px; font-family: 'Noto Serif', serif; }
-  .door-blank {
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    border-bottom: 2px solid var(--c-header);
-  }
-
-  /* Exercise 3: building */
-  .building {
-    display: inline-block;
-    border: 2px solid var(--c-header);
-    border-radius: 4px 4px 0 0;
-    margin: 12px 0;
-    overflow: hidden;
-  }
-  .floor {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    border-bottom: 1px solid var(--c-border);
-  }
-  .floor:last-child { border-bottom: none; }
-  .floor .floor-num {
-    flex-shrink: 0;
-    width: 40px;
-    height: 44px;
-    background: var(--c-card-bg);
-    color: var(--c-accent);
-    font-weight: 700;
-    font-family: 'Noto Serif', serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid var(--c-border);
-  }
-  .floor .floor-input {
-    flex: 1;
-    padding: 0 14px;
-    font-size: 14px;
-    min-height: 28px;
-    border-bottom: 1px dashed var(--c-border);
-  }
-  .floor.basement .floor-input { color: var(--c-text-muted); font-style: italic; border-bottom: none; }
-  .word-bank {
-    background: var(--c-section);
-    padding: 10px 14px;
-    border-radius: 4px;
-    font-size: 13px;
-    color: var(--c-header);
-    margin: 8px 0;
-  }
-  .word-bank b { color: var(--c-accent); }
-
-  /* Exercise 4: address */
-  .addr-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0;
-  }
-  .addr-list li {
-    padding: 12px 14px;
-    border: 1px solid var(--c-border);
-    border-radius: 4px;
-    margin-bottom: 8px;
-    background: var(--c-section);
-    font-family: 'Noto Serif', serif;
-    font-size: 14px;
-  }
-  .addr-list .example { background: #fff; border-color: var(--c-accent); }
-  .addr-list .example .answer { color: var(--c-accent); font-weight: 700; }
-  .addr-blank {
-    display: block;
-    width: 100%;
-    min-height: 28px;
-    margin-top: 6px;
-    border-bottom: 1px solid var(--c-border);
-  }
-
-  /* Exercise 5: there is/are */
-  .fill-blank-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0;
-    counter-reset: q;
-  }
-  .fill-blank-list li {
-    counter-increment: q;
-    padding: 8px 0 8px 28px;
-    font-family: 'Noto Serif', serif;
-    font-size: 15px;
+  /* ── Grammar topics ── */
+  .gram-topic {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
     border-bottom: 1px dotted var(--c-border);
-    position: relative;
   }
-  .fill-blank-list li::before {
-    content: counter(q) ".";
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: var(--c-accent);
-  }
-  .fill-blank-list li:last-child { border-bottom: none; }
-  .blank-line {
-    display: inline-block;
-    min-width: 140px;
-    border-bottom: 2px solid var(--c-accent);
-    margin: 0 4px;
-  }
-
-  /* Exercise 6: writing */
-  .q-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0;
-    counter-reset: q;
-  }
-  .q-list li {
-    counter-increment: q;
-    padding: 14px 0 14px 28px;
-    border-bottom: 1px solid var(--c-border);
-    position: relative;
-  }
-  .q-list li:last-child { border-bottom: none; }
-  .q-list li::before {
-    content: counter(q) ".";
-    position: absolute;
-    left: 0;
-    top: 14px;
-    font-weight: 700;
-    color: var(--c-accent);
-  }
-  .q-list .question {
-    display: block;
+  .gram-topic:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  h4.gram-title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 16px;
     font-weight: 600;
     color: var(--c-header);
-    margin-bottom: 6px;
-    font-size: 14px;
+    margin: 18px 0 6px;
+    text-decoration: underline;
+    text-decoration-color: var(--c-header);
+    text-underline-offset: 4px;
   }
-  .write-blank {
-    display: block;
-    width: 100%;
-    min-height: 36px;
-    border-bottom: 1px solid var(--c-border);
+  .gram-topic:first-child h4.gram-title { margin-top: 0; }
+  .gram-rule {
+    font-size: 13.5px;
+    color: var(--c-text-muted);
+    margin: 4px 0 8px;
   }
+  .gram-rule b { color: var(--c-text); }
 
-  /* Exercise 7: speaking */
-  .speaking-plan {
-    background: var(--c-section);
+  /* ── Rule tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
     border-radius: var(--radius);
-    padding: 16px 20px;
-    margin: 12px 0;
+    box-shadow: 0 1px 4px var(--c-shadow);
   }
-  .speaking-plan h5 {
-    margin: 0 0 10px;
-    color: var(--c-header);
-    font-size: 14px;
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+  thead th {
+    background: var(--c-header);
+    color: #fff;
+    text-align: left;
+    padding: 9px 12px;
     font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.3px;
   }
-  .speaking-plan ul { margin: 0; padding-left: 20px; }
-  .speaking-example {
-    background: #fff;
-    border-left: 3px solid var(--c-accent);
-    padding: 12px 16px;
-    margin: 12px 0;
-    border-radius: 0 4px 4px 0;
-    font-family: 'Noto Serif', serif;
-    font-size: 14px;
-  }
+  tbody td { padding: 7px 12px; border-top: 1px solid var(--c-border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+  td.ex { font-family: 'Noto Serif', serif; }
+  td.ex b { color: var(--c-header); }
+  td.ru { color: var(--c-text-muted); }
 
-  /* Stars note */
-  .stars-note {
-    background: #eaf3d6;
-    border: 1px solid var(--c-accent);
-    border-radius: var(--radius);
-    padding: 14px 18px;
-    margin: 24px 0;
-    font-size: 14px;
+  .gram-note {
+    background: #fff8e6;
+    border: 1px solid var(--c-header);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 13px;
   }
-  .stars-note b { color: var(--c-accent); }
+  .gram-note::before { content: '💡 '; }
 
+  /* ── Footer ── */
   .footer {
     background: var(--c-header);
     color: rgba(255,255,255,0.85);
@@ -481,12 +266,12 @@
     font-size: 13px;
     margin-top: 0;
   }
-  .footer a { color: var(--c-accent); text-decoration: none; }
+  .footer a { color: #d7ecb8; text-decoration: none; }
 
   /* ── Print styles ── */
   @media print {
-    .toolbar, .footer { display: none !important; }
-    body { background: #fff; font-size: 11pt; }
+    .toolbar, .footer, .toc, .callout { display: none !important; }
+    body { background: #fff; font-size: 10.5pt; }
     .hw-header {
       background: #fff !important;
       color: #000 !important;
@@ -494,150 +279,27 @@
       padding: 0 0 12px 0;
     }
     .hw-kicker, .hw-subtitle, .hw-meta-label { color: #555 !important; }
-    .hw-title { color: #000 !important; font-size: 22pt; }
-    .hw-title .accent { color: #2E5CB8 !important; }
+    .hw-title { color: #000 !important; font-size: 20pt; }
+    .hw-title .accent { color: #4a6b3a !important; }
     .hw-meta-item { border-left-color: #999 !important; }
     .hw-meta-value { color: #000 !important; }
-    .container { padding: 16px 0; max-width: 100%; }
-    .exercise {
-      box-shadow: none;
-      border: 1px solid #999;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-    .exercise-num {
-      background: #4a6b3a !important;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .word-bank, .match-row, .door-item, .floor .floor-num, .floor .floor-input,
-    .addr-list li, .speaking-plan, .speaking-example, .hw-intro, .vocab-table td:first-child {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .stars-note { background: #eaf3d6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .container { padding: 12px 0; max-width: 100%; }
+    .unit-block { box-shadow: none; border: 1px solid #ccc; margin: 16px 0 4px; }
+    .table-wrap { box-shadow: none; border: 1px solid #ccc; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
   @media (max-width: 600px) {
-    .door-grid, .match-grid { grid-template-columns: 1fr 1fr; }
-    .exercise { padding: 16px; }
+    .container { padding: 24px 16px 40px; }
+    .unit-block { padding: 16px; }
   }
-
-
-/* ── Reference-specific styles ── */
-.unit-block {
-  background: var(--c-card);
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius);
-  padding: 22px 26px;
-  margin: 20px 0;
-  box-shadow: 0 2px 6px var(--c-shadow);
-  break-inside: avoid;
-  page-break-inside: avoid;
-}
-.unit-block.revision { background: var(--c-section); border-style: dashed; }
-.unit-header {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--c-accent);
-}
-.unit-num {
-  font-family: 'Noto Serif', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--c-accent);
-  line-height: 1;
-}
-.unit-title {
-  font-family: 'Noto Serif', serif;
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--c-header);
-  margin: 0;
-}
-.unit-pages {
-  margin-left: auto;
-  font-size: 13px;
-  color: var(--c-text-muted);
-  font-style: italic;
-}
-.cat-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 16px;
-  padding: 10px 0;
-  border-bottom: 1px dotted var(--c-border);
-}
-.cat-row:last-child { border-bottom: none; }
-.cat-name {
-  font-weight: 600;
-  color: var(--c-header);
-  font-size: 14px;
-}
-.cat-words {
-  font-family: 'Noto Serif', serif;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--c-text);
-}
-.cat-words .ru { color: var(--c-text-muted); font-style: italic; font-family: 'Inter', sans-serif; font-size: 13px; }
-
-/* Grammar-specific */
-.grammar-topic {
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: 1px dotted var(--c-border);
-}
-.grammar-topic:last-child { border-bottom: none; }
-.grammar-topic h4 {
-  font-family: 'Noto Serif', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--c-accent);
-  margin: 0 0 8px;
-}
-.grammar-formula {
-  background: var(--c-card-bg);
-  border-left: 3px solid var(--c-accent);
-  padding: 10px 14px;
-  margin: 8px 0;
-  border-radius: 0 4px 4px 0;
-  font-family: 'Noto Serif', serif;
-  font-size: 14px;
-}
-.grammar-formula b { color: var(--c-header); }
-.grammar-examples {
-  margin: 8px 0;
-  padding-left: 18px;
-  font-size: 14px;
-  line-height: 1.7;
-}
-.grammar-examples li { margin-bottom: 4px; }
-.grammar-examples .ru { color: var(--c-text-muted); font-style: italic; font-size: 13px; }
-.grammar-note {
-  background: #fff8e6;
-  border: 1px solid var(--c-accent);
-  border-radius: 4px;
-  padding: 8px 12px;
-  margin: 8px 0;
-  font-size: 13px;
-}
-.grammar-note::before { content: '💡 '; }
-
-@media print {
-  .unit-block, .grammar-topic { break-inside: avoid; }
-}
 </style>
+<link rel="icon" href="favicon.ico">
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
 <nav class="toolbar">
   <div class="toolbar-inner">
-    <div class="toolbar-brand"><span class="dot"></span>Grammar · Movers</div>
+    <div class="toolbar-brand"><img class="brand-logo" src="logo.png" alt="МУДРО" style="width:20px;height:20px;object-fit:contain;border-radius:5px;vertical-align:middle;margin-right:8px">Grammar · Movers</div>
     <div class="toolbar-actions">
       <button onclick="window.print()">🖨 Печать / Сохранить в PDF</button>
       <a href="index.html" class="secondary">← К плану</a>
@@ -645,7 +307,6 @@
   </div>
 </nav>
 
-<!-- ── Header ── -->
 <header class="hw-header">
   <div class="hw-header-inner">
     <p class="hw-kicker">Reference · Get ready for Movers · All Grammar</p>
@@ -674,387 +335,622 @@
 
 <main class="container">
 
+  <nav class="toc">
+    <b>Разделы:</b>
+    <a href="#unit-I">Intro</a><a href="#unit-U1">U1</a><a href="#unit-U2">U2</a><a href="#unit-U3">U3</a><a href="#unit-U4">U4</a><a href="#unit-R1">R1</a><a href="#unit-U5">U5</a><a href="#unit-U6">U6</a><a href="#unit-U7">U7</a><a href="#unit-U8">U8</a><a href="#unit-R2">R2</a><a href="#unit-U9">U9</a><a href="#unit-U10">U10</a><a href="#unit-U11">U11</a><a href="#unit-U12">U12</a><a href="#unit-R3">R3</a>
+  </nav>
+
   <div class="callout">
     <strong>Как пользоваться:</strong> этот файл — полный справочник по грамматике всех 12 юнитов учебника Get ready for Movers (2nd Edition). Используй его для повторения перед каждым мини-тестом и финальным mock-exam. Для каждой темы: формула, примеры с переводом, важное правило (💡).
   </div>
-
   <div class="callout">
     <strong>Совет для печати:</strong> нажми кнопку «🖨 Печать / Сохранить в PDF» в верхней панели. В настройках печати выбери «Сохранить как PDF» — получится файл, который можно распечатать или открыть на телефоне.
   </div>
 
-  <!-- ── Intro: Where do you live? ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-I">
     <div class="unit-header">
       <div class="unit-num">I</div>
       <h3 class="unit-title">Where do you live?</h3>
       <div class="unit-pages">SB стр. 2–3, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Numbers 10–100</h4>
-        <div class="grammar-formula"><b>ten → one hundred</b>: 10 ten, 20 twenty, 30 thirty, 40 forty, 50 fifty, 60 sixty, 70 seventy, 80 eighty, 90 ninety, 100 one hundred</div>
-        <ul class="grammar-examples"><li>I live at number <b>thirty-eight</b> Swan Street. — Я живу в доме номер 38 на Сван-стрит.</li><li>There are <b>one hundred</b> children in the school. — В школе сто детей.</li></ul>
-        <div class="grammar-note">Обрати внимание: 40 пишется forty (без u), а не fourty!</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Numbers 10–100</h4>
+        <p class="gram-rule"><b>ten → one hundred</b>: 10 ten, 20 twenty, 30 thirty, 40 forty, 50 fifty, 60 sixty, 70 seventy, 80 eighty, 90 ninety, 100 one hundred</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I live at number <b>thirty-eight</b> Swan Street.</td><td class="ru">Я живу в доме номер 38 на Сван-стрит.</td></tr>
+        <tr><td class="ex">There are <b>one hundred</b> children in the school.</td><td class="ru">В школе сто детей.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Обрати внимание: 40 пишется forty (без u), а не fourty!</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Ordinal numbers (1st–5th)</h4>
-        <div class="grammar-formula"><b>1st — first, 2nd — second, 3rd — third, 4th — fourth, 5th — fifth</b></div>
-        <ul class="grammar-examples"><li>I live on the <b>third</b> floor. — Я живу на третьем этаже.</li><li>My flat is on the <b>fifth</b> floor. — Моя квартира на пятом этаже.</li></ul>
-        <div class="grammar-note">Fifth пишется без 'u' (не fifthe)! One → first, two → second, three → third — эти формы нужно запомнить.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Ordinal numbers (1st–5th)</h4>
+        <p class="gram-rule"><b>1st — first, 2nd — second, 3rd — third, 4th — fourth, 5th — fifth</b></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I live on the <b>third</b> floor.</td><td class="ru">Я живу на третьем этаже.</td></tr>
+        <tr><td class="ex">My flat is on the <b>fifth</b> floor.</td><td class="ru">Моя квартира на пятом этаже.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Fifth пишется без 'u' (не fifthe)! One → first, two → second, three → third — эти формы нужно запомнить.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>There is / There are</h4>
-        <div class="grammar-formula"><b>There is</b> + единственное число · <b>There are</b> + множественное число<br><b>Is there...?</b> / <b>Are there...?</b> — вопросы<br><b>There isn't</b> / <b>There aren't</b> — отрицания</div>
-        <ul class="grammar-examples"><li><b>There is</b> a cat in the basement. — В подвале есть кошка.</li><li><b>There are</b> two girls on the third floor. — На третьем этаже две девочки.</li><li><b>Is there</b> a lamp on the fifth floor? — На пятом этаже есть лампа?</li><li><b>There aren't</b> any toys in the kitchen. — На кухне нет игрушек.</li></ul>
-        <div class="grammar-note">There is — для одного предмета (a cat, a lamp). There are — для нескольких (two girls, some toys).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">There is / There are</h4>
+        <p class="gram-rule"><b>There is</b> + единственное число · <b>There are</b> + множественное число<br><b>Is there...?</b> / <b>Are there...?</b> — вопросы<br><b>There isn't</b> / <b>There aren't</b> — отрицания</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>There is</b> a cat in the basement.</td><td class="ru">В подвале есть кошка.</td></tr>
+        <tr><td class="ex"><b>There are</b> two girls on the third floor.</td><td class="ru">На третьем этаже две девочки.</td></tr>
+        <tr><td class="ex"><b>Is there</b> a lamp on the fifth floor?</td><td class="ru">На пятом этаже есть лампа?</td></tr>
+        <tr><td class="ex"><b>There aren't</b> any toys in the kitchen.</td><td class="ru">На кухне нет игрушек.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">There is — для одного предмета (a cat, a lamp). There are — для нескольких (two girls, some toys).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 1: At the park ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U1">
     <div class="unit-header">
       <div class="unit-num">U1</div>
       <h3 class="unit-title">At the park</h3>
       <div class="unit-pages">SB стр. 6–7, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Present Continuous (affirmative & question)</h4>
-        <div class="grammar-formula"><b>am / is / are + V-ing</b><br>I am playing · She is playing · We are playing<br><b>Am I playing? Is she playing? Are they playing?</b></div>
-        <ul class="grammar-examples"><li>Jack <b>is climbing</b> the tree. — Джек лезет на дерево (прямо сейчас).</li><li>They <b>are skipping</b> in the park. — Они скачут в парке.</li><li><b>Are you roller skating?</b> — Yes, I am. — Ты катаешься на роликах?</li></ul>
-        <div class="grammar-note">Present Continuous используем для действий, которые происходят прямо сейчас. Слова-подсказки: now, at the moment, look!</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Present Continuous (affirmative & question)</h4>
+        <p class="gram-rule"><b>am / is / are + V-ing</b><br>I am playing · She is playing · We are playing<br><b>Am I playing? Is she playing? Are they playing?</b></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">Jack <b>is climbing</b> the tree.</td><td class="ru">Джек лезет на дерево (прямо сейчас).</td></tr>
+        <tr><td class="ex">They <b>are skipping</b> in the park.</td><td class="ru">Они скачут в парке.</td></tr>
+        <tr><td class="ex"><b>Are you roller skating?</b> — Yes, I am.</td><td class="ru">Ты катаешься на роликах?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Present Continuous используем для действий, которые происходят прямо сейчас. Слова-подсказки: now, at the moment, look!</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>be good at + V-ing</h4>
-        <div class="grammar-formula"><b>be good at + V-ing</b> — быть хорошим в чём-то<br>I am good at <b>drawing</b>. · She is good at <b>climbing</b>.</div>
-        <ul class="grammar-examples"><li>I <b>am good at drawing</b>. — Я хорошо рисую.</li><li>My sister <b>is good at roller skating</b>. — Моя сестра хорошо катается на роликах.</li><li><b>Are you good at</b> tennis? — No, I'm not. — Ты хорошо играешь в теннис?</li></ul>
-        <div class="grammar-note">После "good at" всегда ставим глагол с окончанием -ing: good at swimming, good at playing football.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">be good at + V-ing</h4>
+        <p class="gram-rule"><b>be good at + V-ing</b> — быть хорошим в чём-то<br>I am good at <b>drawing</b>. · She is good at <b>climbing</b>.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>am good at drawing</b>.</td><td class="ru">Я хорошо рисую.</td></tr>
+        <tr><td class="ex">My sister <b>is good at roller skating</b>.</td><td class="ru">Моя сестра хорошо катается на роликах.</td></tr>
+        <tr><td class="ex"><b>Are you good at</b> tennis? — No, I'm not.</td><td class="ru">Ты хорошо играешь в теннис?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">После "good at" всегда ставим глагол с окончанием -ing: good at swimming, good at playing football.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Comparatives (сравнительная степень)</h4>
-        <div class="grammar-formula"><b>Short adj + -er</b>: tall → taller, big → bigger, happy → happier<br><b>Long adj: more + adj</b>: beautiful → more beautiful<br><b>Irregular</b>: good → better, bad → worse</div>
-        <ul class="grammar-examples"><li>The boy is <b>taller than</b> the girl. — Мальчик выше девочки.</li><li>My room is <b>bigger than</b> your room. — Моя комната больше твоей.</li><li>A sofa is <b>more comfortable than</b> a chair. — Диван удобнее стула.</li></ul>
-        <div class="grammar-note">После сравнительной степени часто идёт "than" (чем). Big → bigger (удваиваем g), happy → happier (y → i + er).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Comparatives (сравнительная степень)</h4>
+        <p class="gram-rule"><b>Short adj + -er</b>: tall → taller, big → bigger, happy → happier<br><b>Long adj: more + adj</b>: beautiful → more beautiful<br><b>Irregular</b>: good → better, bad → worse</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">The boy is <b>taller than</b> the girl.</td><td class="ru">Мальчик выше девочки.</td></tr>
+        <tr><td class="ex">My room is <b>bigger than</b> your room.</td><td class="ru">Моя комната больше твоей.</td></tr>
+        <tr><td class="ex">A sofa is <b>more comfortable than</b> a chair.</td><td class="ru">Диван удобнее стула.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">После сравнительной степени часто идёт "than" (чем). Big → bigger (удваиваем g), happy → happier (y → i + er).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 2: A busy week ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U2">
     <div class="unit-header">
       <div class="unit-num">U2</div>
       <h3 class="unit-title">A busy week</h3>
       <div class="unit-pages">SB стр. 14–15, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Present Simple (I/you/we/they)</h4>
-        <div class="grammar-formula"><b>I/you/we/they + V</b> (без окончания!)<br>Отрицание: <b>I don't + V</b><br>Вопрос: <b>Do you + V?</b> Yes, I do. / No, I don't.</div>
-        <ul class="grammar-examples"><li>I <b>play</b> football every Saturday. — Я играю в футбол каждую субботу.</li><li>We <b>go</b> to school on Monday. — Мы ходим в школу в понедельник.</li><li><b>Do you watch</b> TV in the evening? — Ты смотришь телевизор вечером?</li><li>They <b>don't read</b> books at night. — Они не читают книги ночью.</li></ul>
-        <div class="grammar-note">Present Simple — для регулярных действий (каждый день, обычно, всегда). Слова: always, usually, sometimes, never, every day.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Present Simple (I/you/we/they)</h4>
+        <p class="gram-rule"><b>I/you/we/they + V</b> (без окончания!)<br>Отрицание: <b>I don't + V</b><br>Вопрос: <b>Do you + V?</b> Yes, I do. / No, I don't.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>play</b> football every Saturday.</td><td class="ru">Я играю в футбол каждую субботу.</td></tr>
+        <tr><td class="ex">We <b>go</b> to school on Monday.</td><td class="ru">Мы ходим в школу в понедельник.</td></tr>
+        <tr><td class="ex"><b>Do you watch</b> TV in the evening?</td><td class="ru">Ты смотришь телевизор вечером?</td></tr>
+        <tr><td class="ex">They <b>don't read</b> books at night.</td><td class="ru">Они не читают книги ночью.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Present Simple — для регулярных действий (каждый день, обычно, всегда). Слова: always, usually, sometimes, never, every day.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Adverbs of frequency (наречия частотности)</h4>
-        <div class="grammar-formula"><b>always (100%) · usually (80%) · sometimes (40%) · never (0%)</b><br>Позиция: <b>перед главным глаголом</b>: I always play. · <b>после "to be"</b>: I am always happy.</div>
-        <ul class="grammar-examples"><li>I <b>always</b> brush my teeth in the morning. — Я всегда чищу зубы утром.</li><li>She <b>usually</b> walks to school. — Она обычно ходит в школу пешком.</li><li>We <b>sometimes</b> watch TV in the evening. — Мы иногда смотрим ТВ вечером.</li><li>They <b>never</b> eat pizza for breakfast. — Они никогда не едят пиццу на завтрак.</li></ul>
-        <div class="grammar-note">Наречие ставится ПЕРЕД главным глаголом (I always play), но ПОСЛЕ глагола "to be" (I am always happy).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Adverbs of frequency (наречия частотности)</h4>
+        <p class="gram-rule"><b>always (100%) · usually (80%) · sometimes (40%) · never (0%)</b><br>Позиция: <b>перед главным глаголом</b>: I always play. · <b>после "to be"</b>: I am always happy.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>always</b> brush my teeth in the morning.</td><td class="ru">Я всегда чищу зубы утром.</td></tr>
+        <tr><td class="ex">She <b>usually</b> walks to school.</td><td class="ru">Она обычно ходит в школу пешком.</td></tr>
+        <tr><td class="ex">We <b>sometimes</b> watch TV in the evening.</td><td class="ru">Мы иногда смотрим ТВ вечером.</td></tr>
+        <tr><td class="ex">They <b>never</b> eat pizza for breakfast.</td><td class="ru">Они никогда не едят пиццу на завтрак.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Наречие ставится ПЕРЕД главным глаголом (I always play), но ПОСЛЕ глагола "to be" (I am always happy).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 3: In the town ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U3">
     <div class="unit-header">
       <div class="unit-num">U3</div>
       <h3 class="unit-title">In the town</h3>
       <div class="unit-pages">SB стр. 22–23, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>must / mustn't (правила)</h4>
-        <div class="grammar-formula"><b>must + V</b> — должен (это важно сделать)<br><b>mustn't + V</b> — нельзя (это запрещено)</div>
-        <ul class="grammar-examples"><li>You <b>must</b> look both ways before crossing. — Ты должен посмотреть в обе стороны перед переходом.</li><li>You <b>must</b> wait for the green light. — Ты должен дождаться зелёного света.</li><li>Children <b>mustn't</b> play on the road. — Детям нельзя играть на дороге.</li><li>You <b>mustn't</b> run near the traffic. — Нельзя бегать рядом с дорогой.</li></ul>
-        <div class="grammar-note">Must = правило/закон/важно. Mustn't = строго запрещено. После must/mustn't глагол всегда в начальной форме (без to, без -s, без -ing).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">must / mustn't (правила)</h4>
+        <p class="gram-rule"><b>must + V</b> — должен (это важно сделать)<br><b>mustn't + V</b> — нельзя (это запрещено)</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">You <b>must</b> look both ways before crossing.</td><td class="ru">Ты должен посмотреть в обе стороны перед переходом.</td></tr>
+        <tr><td class="ex">You <b>must</b> wait for the green light.</td><td class="ru">Ты должен дождаться зелёного света.</td></tr>
+        <tr><td class="ex">Children <b>mustn't</b> play on the road.</td><td class="ru">Детям нельзя играть на дороге.</td></tr>
+        <tr><td class="ex">You <b>mustn't</b> run near the traffic.</td><td class="ru">Нельзя бегать рядом с дорогой.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Must = правило/закон/важно. Mustn't = строго запрещено. После must/mustn't глагол всегда в начальной форме (без to, без -s, без -ing).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Prepositions of place (предлоги места)</h4>
-        <div class="grammar-formula"><b>next to</b> (рядом) · <b>opposite</b> (напротив) · <b>behind</b> (за) · <b>in front of</b> (перед) · <b>between</b> (между) · <b>on the corner of</b> (на углу)</div>
-        <ul class="grammar-examples"><li>The bank is <b>next to</b> the post office. — Банк рядом с почтой.</li><li>The library is <b>opposite</b> the school. — Библиотека напротив школы.</li><li>The café is <b>behind</b> the park. — Кафе за парком.</li><li>The bus stop is <b>in front of</b> the supermarket. — Автобусная остановка перед супермаркетом.</li></ul>
-        <div class="grammar-note">Between — для двух объектов (between A and B). Among — для нескольких, но в Movers встречается редко.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Prepositions of place (предлоги места)</h4>
+        <p class="gram-rule"><b>next to</b> (рядом) · <b>opposite</b> (напротив) · <b>behind</b> (за) · <b>in front of</b> (перед) · <b>between</b> (между) · <b>on the corner of</b> (на углу)</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">The bank is <b>next to</b> the post office.</td><td class="ru">Банк рядом с почтой.</td></tr>
+        <tr><td class="ex">The library is <b>opposite</b> the school.</td><td class="ru">Библиотека напротив школы.</td></tr>
+        <tr><td class="ex">The café is <b>behind</b> the park.</td><td class="ru">Кафе за парком.</td></tr>
+        <tr><td class="ex">The bus stop is <b>in front of</b> the supermarket.</td><td class="ru">Автобусная остановка перед супермаркетом.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Between — для двух объектов (between A and B). Among — для нескольких, но в Movers встречается редко.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 4: At home ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U4">
     <div class="unit-header">
       <div class="unit-num">U4</div>
       <h3 class="unit-title">At home</h3>
       <div class="unit-pages">SB стр. 30–31, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Present Continuous vs Present Simple</h4>
-        <div class="grammar-formula"><b>Present Continuous</b> (сейчас): am/is/are + V-ing · слова: now, at the moment, look!<br><b>Present Simple</b> (обычно): V / V-s · слова: always, usually, every day, on Mondays</div>
-        <ul class="grammar-examples"><li>I <b>usually play</b> football on Saturday. (обычно) — Я обычно играю в футбол в субботу.</li><li>Look! I <b>am playing</b> football now. (сейчас) — Смотри! Я сейчас играю в футбол.</li><li>Mum <b>cooks</b> dinner every day. (обычно) — Мама готовит ужин каждый день.</li><li>Mum <b>is cooking</b> dinner at the moment. (сейчас) — Мама готовит ужин в данный момент.</li></ul>
-        <div class="grammar-note">Present Continuous — действие происходит прямо сейчас, в момент речи. Present Simple — регулярное, привычное действие.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Present Continuous vs Present Simple</h4>
+        <p class="gram-rule"><b>Present Continuous</b> (сейчас): am/is/are + V-ing · слова: now, at the moment, look!<br><b>Present Simple</b> (обычно): V / V-s · слова: always, usually, every day, on Mondays</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>usually play</b> football on Saturday. (обычно)</td><td class="ru">Я обычно играю в футбол в субботу.</td></tr>
+        <tr><td class="ex">Look! I <b>am playing</b> football now. (сейчас)</td><td class="ru">Смотри! Я сейчас играю в футбол.</td></tr>
+        <tr><td class="ex">Mum <b>cooks</b> dinner every day. (обычно)</td><td class="ru">Мама готовит ужин каждый день.</td></tr>
+        <tr><td class="ex">Mum <b>is cooking</b> dinner at the moment. (сейчас)</td><td class="ru">Мама готовит ужин в данный момент.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Present Continuous — действие происходит прямо сейчас, в момент речи. Present Simple — регулярное, привычное действие.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Comparatives (review)</h4>
-        <div class="grammar-formula"><b>Short adj + -er + than</b>: bigger than, smaller than, taller than<br><b>more + long adj + than</b>: more comfortable than, more modern than<br><b>Irregular</b>: good → better than, bad → worse than</div>
-        <ul class="grammar-examples"><li>The kitchen is <b>bigger than</b> the bathroom. — Кухня больше ванной.</li><li>A sofa is <b>more comfortable than</b> a chair. — Диван удобнее стула.</li><li>My new house is <b>better than</b> the old one. — Мой новый дом лучше старого.</li></ul>
-        <div class="grammar-note">После сравнительной степени часто идёт "than" (чем). Сравниваем два объекта.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Comparatives (review)</h4>
+        <p class="gram-rule"><b>Short adj + -er + than</b>: bigger than, smaller than, taller than<br><b>more + long adj + than</b>: more comfortable than, more modern than<br><b>Irregular</b>: good → better than, bad → worse than</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">The kitchen is <b>bigger than</b> the bathroom.</td><td class="ru">Кухня больше ванной.</td></tr>
+        <tr><td class="ex">A sofa is <b>more comfortable than</b> a chair.</td><td class="ru">Диван удобнее стула.</td></tr>
+        <tr><td class="ex">My new house is <b>better than</b> the old one.</td><td class="ru">Мой новый дом лучше старого.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">После сравнительной степени часто идёт "than" (чем). Сравниваем два объекта.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Revision 1: Review Units 1–4 ── -->
-  <div class="unit-block revision">
+  <section class="unit-block revision" id="unit-R1">
     <div class="unit-header">
       <div class="unit-num">R1</div>
       <h3 class="unit-title">Review Units 1–4</h3>
       <div class="unit-pages">SB стр. 36–39</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Grammar recap Units 1–4</h4>
-        <div class="grammar-formula"><b>Unit 1:</b> Present Continuous, be good at + V-ing, comparatives<br><b>Unit 2:</b> Present Simple (I/you/we/they), adverbs of frequency<br><b>Unit 3:</b> must/mustn't, prepositions of place<br><b>Unit 4:</b> Present Continuous vs Present Simple, comparatives (review)</div>
-        <ul class="grammar-examples"><li>She <b>is climbing</b> the tree now. (Pres. Cont.) — Она сейчас лезет на дерево.</li><li>I <b>always walk</b> to school. (Pres. Simple + adv.) — Я всегда хожу в школу пешком.</li><li>You <b>mustn't</b> run on the road. (mustn't) — Нельзя бегать по дороге.</li><li>The kitchen is <b>bigger than</b> the bathroom. (comparative) — Кухня больше ванной.</li></ul>
-        <div class="grammar-note">Перед мини-тестом повтори все 4 юнита. Самые частые ошибки: путаница Pres. Simple / Pres. Cont., забывают "than" после comparative.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Grammar recap Units 1–4</h4>
+        <p class="gram-rule"><b>Unit 1:</b> Present Continuous, be good at + V-ing, comparatives<br><b>Unit 2:</b> Present Simple (I/you/we/they), adverbs of frequency<br><b>Unit 3:</b> must/mustn't, prepositions of place<br><b>Unit 4:</b> Present Continuous vs Present Simple, comparatives (review)</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">She <b>is climbing</b> the tree now. (Pres. Cont.)</td><td class="ru">Она сейчас лезет на дерево.</td></tr>
+        <tr><td class="ex">I <b>always walk</b> to school. (Pres. Simple + adv.)</td><td class="ru">Я всегда хожу в школу пешком.</td></tr>
+        <tr><td class="ex">You <b>mustn't</b> run on the road. (mustn't)</td><td class="ru">Нельзя бегать по дороге.</td></tr>
+        <tr><td class="ex">The kitchen is <b>bigger than</b> the bathroom. (comparative)</td><td class="ru">Кухня больше ванной.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Перед мини-тестом повтори все 4 юнита. Самые частые ошибки: путаница Pres. Simple / Pres. Cont., забывают "than" после comparative.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 5: Let's go on holiday! ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U5">
     <div class="unit-header">
       <div class="unit-num">U5</div>
       <h3 class="unit-title">Let's go on holiday!</h3>
       <div class="unit-pages">SB стр. 42–43, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>be going to (планы на будущее)</h4>
-        <div class="grammar-formula"><b>am / is / are + going to + V</b><br>I am going to play. · She is going to swim. · We are going to travel.<br><b>Are you going to...? Yes, I am. / No, I'm not.</b></div>
-        <ul class="grammar-examples"><li>I <b>am going to visit</b> my grandma next week. — Я собираюсь навестить бабушку на следующей неделе.</li><li>She <b>is going to travel</b> by plane. — Она собирается путешествовать на самолёте.</li><li><b>Are they going to take</b> photos? — Yes, they are. — Они будут фотографировать?</li></ul>
-        <div class="grammar-note">be going to — для планов и намерений на будущее. После "going to" глагол всегда в начальной форме (без to, без -ing).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">be going to (планы на будущее)</h4>
+        <p class="gram-rule"><b>am / is / are + going to + V</b><br>I am going to play. · She is going to swim. · We are going to travel.<br><b>Are you going to...? Yes, I am. / No, I'm not.</b></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>am going to visit</b> my grandma next week.</td><td class="ru">Я собираюсь навестить бабушку на следующей неделе.</td></tr>
+        <tr><td class="ex">She <b>is going to travel</b> by plane.</td><td class="ru">Она собирается путешествовать на самолёте.</td></tr>
+        <tr><td class="ex"><b>Are they going to take</b> photos? — Yes, they are.</td><td class="ru">Они будут фотографировать?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">be going to — для планов и намерений на будущее. После "going to" глагол всегда в начальной форме (без to, без -ing).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>was / were (Past Simple of "to be")</h4>
-        <div class="grammar-formula"><b>I/he/she/it + was</b> · <b>we/you/they + were</b><br>Отрицание: <b>wasn't / weren't</b><br>Вопрос: <b>Was I? Were you?</b></div>
-        <ul class="grammar-examples"><li>I <b>was</b> at the beach yesterday. — Я был на пляже вчера.</li><li>They <b>were</b> at the airport two hours ago. — Они были в аэропорту два часа назад.</li><li>The weather <b>was</b> sunny and warm. — Погода была солнечной и тёплой.</li><li><b>Were you</b> happy on the trip? — Yes, I was. — Ты был счастлив в поездке?</li></ul>
-        <div class="grammar-note">Was — для I, he, she, it. Were — для we, you, they. Слова-подсказки: yesterday, last week, last summer, two days ago.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">was / were (Past Simple of "to be")</h4>
+        <p class="gram-rule"><b>I/he/she/it + was</b> · <b>we/you/they + were</b><br>Отрицание: <b>wasn't / weren't</b><br>Вопрос: <b>Was I? Were you?</b></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>was</b> at the beach yesterday.</td><td class="ru">Я был на пляже вчера.</td></tr>
+        <tr><td class="ex">They <b>were</b> at the airport two hours ago.</td><td class="ru">Они были в аэропорту два часа назад.</td></tr>
+        <tr><td class="ex">The weather <b>was</b> sunny and warm.</td><td class="ru">Погода была солнечной и тёплой.</td></tr>
+        <tr><td class="ex"><b>Were you</b> happy on the trip? — Yes, I was.</td><td class="ru">Ты был счастлив в поездке?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Was — для I, he, she, it. Were — для we, you, they. Слова-подсказки: yesterday, last week, last summer, two days ago.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 6: My favourite book ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U6">
     <div class="unit-header">
       <div class="unit-num">U6</div>
       <h3 class="unit-title">My favourite book</h3>
       <div class="unit-pages">SB стр. 50–51, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Past Simple — regular verbs (правильные глаголы)</h4>
-        <div class="grammar-formula"><b>V + -ed</b>: play → played, watch → watched, listen → listened<br><b>Особые случаи:</b><br>· V + e → +d: live → lived, dance → danced<br>· согласная + y → i + ed: study → studied, cry → cried<br>· короткий + удвоение: stop → stopped, skip → skipped</div>
-        <ul class="grammar-examples"><li>Yesterday I <b>played</b> football. — Вчера я играл в футбол.</li><li>She <b>watched</b> a film last night. — Она смотрела фильм вчера вечером.</li><li>They <b>listened</b> to music. — Они слушали музыку.</li><li>He <b>studied</b> English every day. — Он учил английский каждый день.</li></ul>
-        <div class="grammar-note">Past Simple — для действий в прошлом. Слова: yesterday, last week, two days ago, in 2024.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Past Simple — regular verbs (правильные глаголы)</h4>
+        <p class="gram-rule"><b>V + -ed</b>: play → played, watch → watched, listen → listened<br><b>Особые случаи:</b><br>· V + e → +d: live → lived, dance → danced<br>· согласная + y → i + ed: study → studied, cry → cried<br>· короткий + удвоение: stop → stopped, skip → skipped</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">Yesterday I <b>played</b> football.</td><td class="ru">Вчера я играл в футбол.</td></tr>
+        <tr><td class="ex">She <b>watched</b> a film last night.</td><td class="ru">Она смотрела фильм вчера вечером.</td></tr>
+        <tr><td class="ex">They <b>listened</b> to music.</td><td class="ru">Они слушали музыку.</td></tr>
+        <tr><td class="ex">He <b>studied</b> English every day.</td><td class="ru">Он учил английский каждый день.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Past Simple — для действий в прошлом. Слова: yesterday, last week, two days ago, in 2024.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Past Simple — irregular verbs (неправильные глаголы)</h4>
-        <div class="grammar-formula"><b>Top 10:</b> go → went · see → saw · eat → ate · take → took · have → had · make → made · come → came · give → gave · find → found · run → ran<br><b>Вопрос:</b> Did + you + V (начальная форма!) · <b>Отрицание:</b> didn't + V</div>
-        <ul class="grammar-examples"><li>Yesterday I <b>went</b> to the park. — Вчера я ходил в парк.</li><li>She <b>saw</b> a film last night. — Она видела фильм вчера.</li><li><b>Did you go</b> to the park? (НЕ Did you went!) — Ты ходил в парк?</li><li>I <b>didn't see</b> him. (НЕ didn't saw!) — Я его не видел.</li></ul>
-        <div class="grammar-note">Важное правило: в вопросе и отрицании глагол возвращается в начальную форму! Did you GO? (не went). I didn't SEE (не saw).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Past Simple — irregular verbs (неправильные глаголы)</h4>
+        <p class="gram-rule"><b>Top 10:</b> go → went · see → saw · eat → ate · take → took · have → had · make → made · come → came · give → gave · find → found · run → ran<br><b>Вопрос:</b> Did + you + V (начальная форма!) · <b>Отрицание:</b> didn't + V</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">Yesterday I <b>went</b> to the park.</td><td class="ru">Вчера я ходил в парк.</td></tr>
+        <tr><td class="ex">She <b>saw</b> a film last night.</td><td class="ru">Она видела фильм вчера.</td></tr>
+        <tr><td class="ex"><b>Did you go</b> to the park? (НЕ Did you went!)</td><td class="ru">Ты ходил в парк?</td></tr>
+        <tr><td class="ex">I <b>didn't see</b> him. (НЕ didn't saw!)</td><td class="ru">Я его не видел.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Важное правило: в вопросе и отрицании глагол возвращается в начальную форму! Did you GO? (не went). I didn't SEE (не saw).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 7: This is my family ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U7">
     <div class="unit-header">
       <div class="unit-num">U7</div>
       <h3 class="unit-title">This is my family</h3>
       <div class="unit-pages">SB стр. 58–59, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Possessive 's (притяжательный падеж)</h4>
-        <div class="grammar-formula"><b>Name + 's</b>: Anna's mother, Tom's brother, my friend's sister<br><b>Plural + '</b>: my parents' car (если слово уже на -s — только апостроф)</div>
-        <ul class="grammar-examples"><li><b>Anna's</b> sister is tall. — Сестра Анны высокая.</li><li><b>Tom's</b> brother is five. — Брат Тому пять лет.</li><li>This is <b>my friend's</b> book. — Это книга моего друга.</li><li>These are <b>my parents'</b> keys. — Это ключи моих родителей.</li></ul>
-        <div class="grammar-note">'s показывает принадлежность: чей? кого? Если имя заканчивается на -s (как мн.ч.), ставим только апостроф в конце.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Possessive 's (притяжательный падеж)</h4>
+        <p class="gram-rule"><b>Name + 's</b>: Anna's mother, Tom's brother, my friend's sister<br><b>Plural + '</b>: my parents' car (если слово уже на -s — только апостроф)</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>Anna's</b> sister is tall.</td><td class="ru">Сестра Анны высокая.</td></tr>
+        <tr><td class="ex"><b>Tom's</b> brother is five.</td><td class="ru">Брат Тому пять лет.</td></tr>
+        <tr><td class="ex">This is <b>my friend's</b> book.</td><td class="ru">Это книга моего друга.</td></tr>
+        <tr><td class="ex">These are <b>my parents'</b> keys.</td><td class="ru">Это ключи моих родителей.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">'s показывает принадлежность: чей? кого? Если имя заканчивается на -s (как мн.ч.), ставим только апостроф в конце.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Superlatives (превосходная степень)</h4>
-        <div class="grammar-formula"><b>the + short adj + -est</b>: the oldest, the youngest, the tallest, the kindest<br><b>the most + long adj</b>: the most beautiful, the most comfortable<br><b>Irregular</b>: good → the best, bad → the worst</div>
-        <ul class="grammar-examples"><li>My grandpa is <b>the oldest</b> in my family. — Мой дедушка самый старший в семье.</li><li>Lily is <b>the funniest</b> — she always makes us laugh! — Лили самая смешная.</li><li>This book is <b>the best</b>. — Эта книга самая лучшая.</li><li>My mum is <b>the most careful</b> driver. — Моя мама самый осторожный водитель.</li></ul>
-        <div class="grammar-note">Превосходная степень — для самого-самого (один из многих). Перед ней всегда "the".</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Superlatives (превосходная степень)</h4>
+        <p class="gram-rule"><b>the + short adj + -est</b>: the oldest, the youngest, the tallest, the kindest<br><b>the most + long adj</b>: the most beautiful, the most comfortable<br><b>Irregular</b>: good → the best, bad → the worst</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">My grandpa is <b>the oldest</b> in my family.</td><td class="ru">Мой дедушка самый старший в семье.</td></tr>
+        <tr><td class="ex">Lily is <b>the funniest</b> — she always makes us laugh!</td><td class="ru">Лили самая смешная.</td></tr>
+        <tr><td class="ex">This book is <b>the best</b>.</td><td class="ru">Эта книга самая лучшая.</td></tr>
+        <tr><td class="ex">My mum is <b>the most careful</b> driver.</td><td class="ru">Моя мама самый осторожный водитель.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Превосходная степень — для самого-самого (один из многих). Перед ней всегда "the".</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 8: What's for lunch? ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U8">
     <div class="unit-header">
       <div class="unit-num">U8</div>
       <h3 class="unit-title">What's for lunch?</h3>
       <div class="unit-pages">SB стр. 66–67, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>some / any</h4>
-        <div class="grammar-formula"><b>some</b> — в утверждениях (There is some bread.)<br><b>any</b> — в отрицаниях и вопросах (Is there any milk? / There isn't any water.)</div>
-        <ul class="grammar-examples"><li>There is <b>some</b> bread on the table. — На столе есть хлеб.</li><li>Is there <b>any</b> milk in the fridge? — В холодильнике есть молоко?</li><li>I don't want <b>any</b> cheese. — Я не хочу сыр.</li><li>We need <b>some</b> apples for the cake. — Нам нужны яблоки для торта.</li></ul>
-        <div class="grammar-note">Some — для утвердительных предложений. Any — для отрицаний и вопросов. В Movers часто встречается в заданиях на fill-in-the-blank.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">some / any</h4>
+        <p class="gram-rule"><b>some</b> — в утверждениях (There is some bread.)<br><b>any</b> — в отрицаниях и вопросах (Is there any milk? / There isn't any water.)</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">There is <b>some</b> bread on the table.</td><td class="ru">На столе есть хлеб.</td></tr>
+        <tr><td class="ex">Is there <b>any</b> milk in the fridge?</td><td class="ru">В холодильнике есть молоко?</td></tr>
+        <tr><td class="ex">I don't want <b>any</b> cheese.</td><td class="ru">Я не хочу сыр.</td></tr>
+        <tr><td class="ex">We need <b>some</b> apples for the cake.</td><td class="ru">Нам нужны яблоки для торта.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Some — для утвердительных предложений. Any — для отрицаний и вопросов. В Movers часто встречается в заданиях на fill-in-the-blank.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>would like (вежливая просьба)</h4>
-        <div class="grammar-formula"><b>would like + существительное</b>: I would like some water.<br><b>Краткая форма:</b> I'd like, She'd like, We'd like<br><b>Вопрос:</b> Would you like...? Yes, please. / No, thank you.</div>
-        <ul class="grammar-examples"><li>I <b>would like</b> some water, please. — Я бы хотел воды, пожалуйста.</li><li>She <b>would like</b> an apple. — Она бы хотела яблоко.</li><li><b>Would you like</b> some tea? — Yes, please. — Хотите чаю?</li><li><b>Would you like</b> a sandwich? — No, thank you. — Хотите бутерброд?</li></ul>
-        <div class="grammar-note">would like — это вежливая форма "хотеть" (вместо want). Используется в ресторанах, магазинах, при просьбах.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">would like (вежливая просьба)</h4>
+        <p class="gram-rule"><b>would like + существительное</b>: I would like some water.<br><b>Краткая форма:</b> I'd like, She'd like, We'd like<br><b>Вопрос:</b> Would you like...? Yes, please. / No, thank you.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>would like</b> some water, please.</td><td class="ru">Я бы хотел воды, пожалуйста.</td></tr>
+        <tr><td class="ex">She <b>would like</b> an apple.</td><td class="ru">Она бы хотела яблоко.</td></tr>
+        <tr><td class="ex"><b>Would you like</b> some tea? — Yes, please.</td><td class="ru">Хотите чаю?</td></tr>
+        <tr><td class="ex"><b>Would you like</b> a sandwich? — No, thank you.</td><td class="ru">Хотите бутерброд?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">would like — это вежливая форма "хотеть" (вместо want). Используется в ресторанах, магазинах, при просьбах.</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Countable / Uncountable nouns</h4>
-        <div class="grammar-formula"><b>Countable</b> (можно посчитать): apple → apples, egg → eggs, book → books<br><b>Uncountable</b> (нельзя посчитать): bread, milk, water, rice, cheese, meat<br>С неисчисляемыми: <b>some</b> bread, <b>a piece of</b> bread, <b>a glass of</b> water</div>
-        <ul class="grammar-examples"><li>I have <b>three apples</b>. (countable) — У меня три яблока.</li><li>I have <b>some bread</b>. (uncountable) — У меня есть хлеб.</li><li><b>A glass of</b> water, please. — Стакан воды, пожалуйста.</li><li><b>A piece of</b> cake, please. — Кусочек торта, пожалуйста.</li></ul>
-        <div class="grammar-note">Неисчисляемые существительные не имеют множественного числа! Нельзя сказать "breads" или "milks". Используем some, a piece of, a glass of.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Countable / Uncountable nouns</h4>
+        <p class="gram-rule"><b>Countable</b> (можно посчитать): apple → apples, egg → eggs, book → books<br><b>Uncountable</b> (нельзя посчитать): bread, milk, water, rice, cheese, meat<br>С неисчисляемыми: <b>some</b> bread, <b>a piece of</b> bread, <b>a glass of</b> water</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I have <b>three apples</b>. (countable)</td><td class="ru">У меня три яблока.</td></tr>
+        <tr><td class="ex">I have <b>some bread</b>. (uncountable)</td><td class="ru">У меня есть хлеб.</td></tr>
+        <tr><td class="ex"><b>A glass of</b> water, please.</td><td class="ru">Стакан воды, пожалуйста.</td></tr>
+        <tr><td class="ex"><b>A piece of</b> cake, please.</td><td class="ru">Кусочек торта, пожалуйста.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Неисчисляемые существительные не имеют множественного числа! Нельзя сказать "breads" или "milks". Используем some, a piece of, a glass of.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Revision 2: Review Units 5–8 ── -->
-  <div class="unit-block revision">
+  <section class="unit-block revision" id="unit-R2">
     <div class="unit-header">
       <div class="unit-num">R2</div>
       <h3 class="unit-title">Review Units 5–8</h3>
       <div class="unit-pages">SB стр. 72–75</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Grammar recap Units 5–8</h4>
-        <div class="grammar-formula"><b>Unit 5:</b> be going to (plans), was/were<br><b>Unit 6:</b> Past Simple (regular + irregular verbs)<br><b>Unit 7:</b> Possessive 's, superlatives<br><b>Unit 8:</b> some/any, would like, countable/uncountable</div>
-        <ul class="grammar-examples"><li>I <b>am going to travel</b> to London. (be going to) — Я собираюсь поехать в Лондон.</li><li>Yesterday I <b>went</b> to the park. (Past Simple irregular) — Вчера я ходил в парк.</li><li><b>Anna's</b> sister is tall. (possessive 's) — Сестра Анны высокая.</li><li>There is <b>some</b> milk in the fridge. (some/any) — В холодильнике есть молоко.</li></ul>
-        <div class="grammar-note">Перед мини-тестом повтори все 4 юнита. Самые частые ошибки: Past Simple (путают правильные и неправильные), some/any.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Grammar recap Units 5–8</h4>
+        <p class="gram-rule"><b>Unit 5:</b> be going to (plans), was/were<br><b>Unit 6:</b> Past Simple (regular + irregular verbs)<br><b>Unit 7:</b> Possessive 's, superlatives<br><b>Unit 8:</b> some/any, would like, countable/uncountable</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>am going to travel</b> to London. (be going to)</td><td class="ru">Я собираюсь поехать в Лондон.</td></tr>
+        <tr><td class="ex">Yesterday I <b>went</b> to the park. (Past Simple irregular)</td><td class="ru">Вчера я ходил в парк.</td></tr>
+        <tr><td class="ex"><b>Anna's</b> sister is tall. (possessive 's)</td><td class="ru">Сестра Анны высокая.</td></tr>
+        <tr><td class="ex">There is <b>some</b> milk in the fridge. (some/any)</td><td class="ru">В холодильнике есть молоко.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Перед мини-тестом повтори все 4 юнита. Самые частые ошибки: Past Simple (путают правильные и неправильные), some/any.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 9: Do you like animals? ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U9">
     <div class="unit-header">
       <div class="unit-num">U9</div>
       <h3 class="unit-title">Do you like animals?</h3>
       <div class="unit-pages">SB стр. 78, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Present Simple questions (Do / Does)</h4>
-        <div class="grammar-formula"><b>Do + I/you/we/they + V?</b> Yes, I do. / No, I don't.<br><b>Does + he/she/it + V?</b> Yes, he does. / No, he doesn't.<br>В вопросе глагол НЕ меняется (без -s)!</div>
-        <ul class="grammar-examples"><li><b>Do you like</b> animals? — Yes, I do. — Ты любишь животных?</li><li><b>Does she have</b> a pet? — No, she doesn't. — У неё есть питомец?</li><li><b>Does it eat</b> meat? — Yes, it does. — Оно ест мясо?</li><li><b>Do they live</b> in the zoo? — Yes, they do. — Они живут в зоопарке?</li></ul>
-        <div class="grammar-note">Does — для he/she/it. В вопросе с Does глагол остаётся в начальной форме (без -s)! Does she LIKE? (не likes).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Present Simple questions (Do / Does)</h4>
+        <p class="gram-rule"><b>Do + I/you/we/they + V?</b> Yes, I do. / No, I don't.<br><b>Does + he/she/it + V?</b> Yes, he does. / No, he doesn't.<br>В вопросе глагол НЕ меняется (без -s)!</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>Do you like</b> animals? — Yes, I do.</td><td class="ru">Ты любишь животных?</td></tr>
+        <tr><td class="ex"><b>Does she have</b> a pet? — No, she doesn't.</td><td class="ru">У неё есть питомец?</td></tr>
+        <tr><td class="ex"><b>Does it eat</b> meat? — Yes, it does.</td><td class="ru">Оно ест мясо?</td></tr>
+        <tr><td class="ex"><b>Do they live</b> in the zoo? — Yes, they do.</td><td class="ru">Они живут в зоопарке?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Does — для he/she/it. В вопросе с Does глагол остаётся в начальной форме (без -s)! Does she LIKE? (не likes).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>like / don't like</h4>
-        <div class="grammar-formula"><b>I like + существительное/V-ing</b>: I like cats. I like swimming.<br><b>I don't like + существительное/V-ing</b>: I don't like snakes. I don't like running.</div>
-        <ul class="grammar-examples"><li>I <b>like</b> dogs. — Я люблю собак.</li><li>I <b>don't like</b> snakes. — Я не люблю змей.</li><li>She <b>likes</b> swimming. — Она любит плавать.</li><li>He <b>doesn't like</b> running. — Он не любит бегать.</li></ul>
-        <div class="grammar-note">После like можно ставить как существительное (cats), так и глагол с -ing (swimming).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">like / don't like</h4>
+        <p class="gram-rule"><b>I like + существительное/V-ing</b>: I like cats. I like swimming.<br><b>I don't like + существительное/V-ing</b>: I don't like snakes. I don't like running.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>like</b> dogs.</td><td class="ru">Я люблю собак.</td></tr>
+        <tr><td class="ex">I <b>don't like</b> snakes.</td><td class="ru">Я не люблю змей.</td></tr>
+        <tr><td class="ex">She <b>likes</b> swimming.</td><td class="ru">Она любит плавать.</td></tr>
+        <tr><td class="ex">He <b>doesn't like</b> running.</td><td class="ru">Он не любит бегать.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">После like можно ставить как существительное (cats), так и глагол с -ing (swimming).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 10: The weather ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U10">
     <div class="unit-header">
       <div class="unit-num">U10</div>
       <h3 class="unit-title">The weather</h3>
       <div class="unit-pages">SB стр. 84–85, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>What's the weather like? / It is + weather</h4>
-        <div class="grammar-formula"><b>What's the weather like?</b> — Какая погода?<br><b>It is + adjective:</b> It is sunny. / It is rainy. / It is cloudy. / It is windy. / It is hot. / It is cold.</div>
-        <ul class="grammar-examples"><li><b>What's the weather like</b> today? — It is sunny. — Какая сегодня погода? — Солнечно.</li><li>It <b>is rainy</b> and <b>cold</b>. — Дождливо и холодно.</li><li>It <b>was snowy</b> yesterday. (Past: was + weather) — Вчера было снежно.</li></ul>
-        <div class="grammar-note">It — безличное подлежащее для описания погоды. Можно использовать в Present (It is) и Past (It was).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">What's the weather like? / It is + weather</h4>
+        <p class="gram-rule"><b>What's the weather like?</b> — Какая погода?<br><b>It is + adjective:</b> It is sunny. / It is rainy. / It is cloudy. / It is windy. / It is hot. / It is cold.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>What's the weather like</b> today? — It is sunny. — Какая сегодня погода?</td><td class="ru">Солнечно.</td></tr>
+        <tr><td class="ex">It <b>is rainy</b> and <b>cold</b>.</td><td class="ru">Дождливо и холодно.</td></tr>
+        <tr><td class="ex">It <b>was snowy</b> yesterday. (Past: was + weather)</td><td class="ru">Вчера было снежно.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">It — безличное подлежащее для описания погоды. Можно использовать в Present (It is) и Past (It was).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>Seasons and activities</h4>
-        <div class="grammar-formula"><b>In + season</b>: in spring, in summer, in autumn, in winter<br><b>Present Simple for habits</b>: In summer I swim. In winter I ski.</div>
-        <ul class="grammar-examples"><li><b>In summer</b> children swim in the sea. — Летом дети плавают в море.</li><li><b>In winter</b> we make snowmen. — Зимой мы лепим снеговиков.</li><li><b>In spring</b> flowers grow. — Весной растут цветы.</li><li><b>In autumn</b> leaves fall from the trees. — Осенью листья падают с деревьев.</li></ul>
-        <div class="grammar-note">In + season = в какое время года. Слова-подсказки: always, usually (в Pres. Simple).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Seasons and activities</h4>
+        <p class="gram-rule"><b>In + season</b>: in spring, in summer, in autumn, in winter<br><b>Present Simple for habits</b>: In summer I swim. In winter I ski.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>In summer</b> children swim in the sea.</td><td class="ru">Летом дети плавают в море.</td></tr>
+        <tr><td class="ex"><b>In winter</b> we make snowmen.</td><td class="ru">Зимой мы лепим снеговиков.</td></tr>
+        <tr><td class="ex"><b>In spring</b> flowers grow.</td><td class="ru">Весной растут цветы.</td></tr>
+        <tr><td class="ex"><b>In autumn</b> leaves fall from the trees.</td><td class="ru">Осенью листья падают с деревьев.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">In + season = в какое время года. Слова-подсказки: always, usually (в Pres. Simple).</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 11: What's the matter? ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U11">
     <div class="unit-header">
       <div class="unit-num">U11</div>
       <h3 class="unit-title">What's the matter?</h3>
       <div class="unit-pages">SB стр. 92–93, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>should / shouldn't (совет)</h4>
-        <div class="grammar-formula"><b>should + V</b> — следует (совет)<br><b>shouldn't + V</b> — не следует<br>Вопрос: <b>Should I...?</b></div>
-        <ul class="grammar-examples"><li>You <b>should</b> drink a lot of water. — Тебе следует пить много воды.</li><li>You <b>should</b> stay in bed. — Тебе следует лежать в постели.</li><li>You <b>shouldn't</b> eat ice cream. — Тебе не следует есть мороженое.</li><li>You <b>shouldn't</b> watch TV all day. — Не следует смотреть телевизор весь день.</li></ul>
-        <div class="grammar-note">Should = совет. После should/shouldn't глагол в начальной форме. Отсутствие to: should drink (не should to drink).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">should / shouldn't (совет)</h4>
+        <p class="gram-rule"><b>should + V</b> — следует (совет)<br><b>shouldn't + V</b> — не следует<br>Вопрос: <b>Should I...?</b></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">You <b>should</b> drink a lot of water.</td><td class="ru">Тебе следует пить много воды.</td></tr>
+        <tr><td class="ex">You <b>should</b> stay in bed.</td><td class="ru">Тебе следует лежать в постели.</td></tr>
+        <tr><td class="ex">You <b>shouldn't</b> eat ice cream.</td><td class="ru">Тебе не следует есть мороженое.</td></tr>
+        <tr><td class="ex">You <b>shouldn't</b> watch TV all day.</td><td class="ru">Не следует смотреть телевизор весь день.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Should = совет. После should/shouldn't глагол в начальной форме. Отсутствие to: should drink (не should to drink).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>have got (illness)</h4>
-        <div class="grammar-formula"><b>I have got a + illness</b>: I have got a cold. / I have got a headache.<br><b>Краткая форма:</b> I've got. / She's got.<br><b>Вопрос:</b> Have you got a...?</div>
-        <ul class="grammar-examples"><li>I <b>have got a</b> cold. — У меня простуда.</li><li>She <b>has got a</b> headache. — У неё болит голова.</li><li>He <b>has got a</b> fever. — У него температура.</li><li><b>Have you got a</b> cough? — Yes, I have. — У тебя кашель?</li></ul>
-        <div class="grammar-note">Have got = иметь (болезнь). I/you/we/they have got. He/she/it has got. Краткая форма: I've got, She's got.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">have got (illness)</h4>
+        <p class="gram-rule"><b>I have got a + illness</b>: I have got a cold. / I have got a headache.<br><b>Краткая форма:</b> I've got. / She's got.<br><b>Вопрос:</b> Have you got a...?</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex">I <b>have got a</b> cold.</td><td class="ru">У меня простуда.</td></tr>
+        <tr><td class="ex">She <b>has got a</b> headache.</td><td class="ru">У неё болит голова.</td></tr>
+        <tr><td class="ex">He <b>has got a</b> fever.</td><td class="ru">У него температура.</td></tr>
+        <tr><td class="ex"><b>Have you got a</b> cough? — Yes, I have.</td><td class="ru">У тебя кашель?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Have got = иметь (болезнь). I/you/we/they have got. He/she/it has got. Краткая форма: I've got, She's got.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Unit 12: In the countryside ── -->
-  <div class="unit-block">
+  <section class="unit-block" id="unit-U12">
     <div class="unit-header">
       <div class="unit-num">U12</div>
       <h3 class="unit-title">In the countryside</h3>
       <div class="unit-pages">SB стр. 100–101, Grammar стр. 119</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Past Simple questions (Did + V?)</h4>
-        <div class="grammar-formula"><b>Did + subject + V (base form!)?</b><br>Did you go...? Yes, I did. / No, I didn't.<br>Did they see...? Yes, they did. / No, they didn't.<br>В вопросе глагол НЕ меняется!</div>
-        <ul class="grammar-examples"><li><b>Did you go</b> to the countryside? — Yes, I did. — Ты ездил за город?</li><li><b>Did they see</b> many animals? — No, they didn't. — Они видели много животных?</li><li><b>Did she take</b> photos? — Yes, she did. — Она фотографировала?</li><li><b>Did you have</b> a picnic? — Yes, we did. — У вас был пикник?</li></ul>
-        <div class="grammar-note">Did + подлежащее + начальная форма глагола! Did you GO? (не went, не goes).</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Past Simple questions (Did + V?)</h4>
+        <p class="gram-rule"><b>Did + subject + V (base form!)?</b><br>Did you go...? Yes, I did. / No, I didn't.<br>Did they see...? Yes, they did. / No, they didn't.<br>В вопросе глагол НЕ меняется!</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>Did you go</b> to the countryside? — Yes, I did.</td><td class="ru">Ты ездил за город?</td></tr>
+        <tr><td class="ex"><b>Did they see</b> many animals? — No, they didn't.</td><td class="ru">Они видели много животных?</td></tr>
+        <tr><td class="ex"><b>Did she take</b> photos? — Yes, she did.</td><td class="ru">Она фотографировала?</td></tr>
+        <tr><td class="ex"><b>Did you have</b> a picnic? — Yes, we did.</td><td class="ru">У вас был пикник?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Did + подлежащее + начальная форма глагола! Did you GO? (не went, не goes).</div>
       </div>
 
-      <div class="grammar-topic">
-        <h4>there was / there were (Past of There is/are)</h4>
-        <div class="grammar-formula"><b>There was</b> + единственное число: There was a tree.<br><b>There were</b> + множественное число: There were many flowers.<br><b>Was there...? / Were there...?</b> — вопросы<br><b>There wasn't / There weren't</b> — отрицания</div>
-        <ul class="grammar-examples"><li><b>There was</b> a beautiful lake. — Там было красивое озеро.</li><li><b>There were</b> many birds in the forest. — В лесу было много птиц.</li><li><b>Was there</b> a river? — Yes, there was. — Там была река?</li><li><b>There weren't</b> any people. — Людей не было.</li></ul>
-        <div class="grammar-note">Past форма от There is/are. Was — для одного, were — для нескольких. Слова: yesterday, last week, two days ago.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">there was / there were (Past of There is/are)</h4>
+        <p class="gram-rule"><b>There was</b> + единственное число: There was a tree.<br><b>There were</b> + множественное число: There were many flowers.<br><b>Was there...? / Were there...?</b> — вопросы<br><b>There wasn't / There weren't</b> — отрицания</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>There was</b> a beautiful lake.</td><td class="ru">Там было красивое озеро.</td></tr>
+        <tr><td class="ex"><b>There were</b> many birds in the forest.</td><td class="ru">В лесу было много птиц.</td></tr>
+        <tr><td class="ex"><b>Was there</b> a river? — Yes, there was.</td><td class="ru">Там была река?</td></tr>
+        <tr><td class="ex"><b>There weren't</b> any people.</td><td class="ru">Людей не было.</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Past форма от There is/are. Was — для одного, were — для нескольких. Слова: yesterday, last week, two days ago.</div>
       </div>
-  </div>
+  </section>
 
-  <!-- ── Revision 3: Review Units 9–12 ── -->
-  <div class="unit-block revision">
+  <section class="unit-block revision" id="unit-R3">
     <div class="unit-header">
       <div class="unit-num">R3</div>
       <h3 class="unit-title">Review Units 9–12</h3>
       <div class="unit-pages">SB стр. 108–111</div>
     </div>
 
-      <div class="grammar-topic">
-        <h4>Grammar recap Units 9–12</h4>
-        <div class="grammar-formula"><b>Unit 9:</b> Present Simple questions (Do/Does), like/don't like<br><b>Unit 10:</b> What's the weather like?, It is + weather<br><b>Unit 11:</b> should/shouldn't, have got (illness)<br><b>Unit 12:</b> Past Simple questions (Did + V?), there was/there were</div>
-        <ul class="grammar-examples"><li><b>Do you like</b> animals? — Yes, I do. (Pres. Simple question) — Ты любишь животных?</li><li>It <b>is sunny</b> today. (weather) — Сегодня солнечно.</li><li>You <b>should</b> drink water. (should) — Тебе следует пить воду.</li><li><b>Did you go</b> to the countryside? (Past question) — Ты ездил за город?</li></ul>
-        <div class="grammar-note">Перед mock-exam повтори ВСЕ грамматические темы. Самые частые ошибки: Do/Does, Past Simple (irregular), there was/were.</div>
+      <div class="gram-topic">
+        <h4 class="gram-title">Grammar recap Units 9–12</h4>
+        <p class="gram-rule"><b>Unit 9:</b> Present Simple questions (Do/Does), like/don't like<br><b>Unit 10:</b> What's the weather like?, It is + weather<br><b>Unit 11:</b> should/shouldn't, have got (illness)<br><b>Unit 12:</b> Past Simple questions (Did + V?), there was/there were</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Пример</th><th>Перевод</th></tr></thead>
+          <tbody>
+        <tr><td class="ex"><b>Do you like</b> animals? — Yes, I do. (Pres. Simple question)</td><td class="ru">Ты любишь животных?</td></tr>
+        <tr><td class="ex">It <b>is sunny</b> today. (weather)</td><td class="ru">Сегодня солнечно.</td></tr>
+        <tr><td class="ex">You <b>should</b> drink water. (should)</td><td class="ru">Тебе следует пить воду.</td></tr>
+        <tr><td class="ex"><b>Did you go</b> to the countryside? (Past question)</td><td class="ru">Ты ездил за город?</td></tr>
+          </tbody>
+        </table></div>
+      <div class="gram-note">Перед mock-exam повтори ВСЕ грамматические темы. Самые частые ошибки: Do/Does, Past Simple (irregular), there was/were.</div>
       </div>
-  </div>
+  </section>
 
 </main>
 
 <footer class="footer">
   <p>Grammar · Movers · Get ready for Movers (2nd ed.) · Cambridge YLE Movers</p>
   <p><a href="index.html">← Вернуться к годовому плану</a></p>
+<p class="footer-legal" style="margin:10px 0 0;font-size:11.5px;opacity:0.75;line-height:1.5">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744<br>Лицензия № Л035-01218-23/01091451 Интерактивная школа «МУДРО»</p>
 </footer>
 
 </body>
