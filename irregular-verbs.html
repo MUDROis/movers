@@ -525,7 +525,7 @@
 
 
 /* Irregular verbs page styles */
-.iv-search {{
+.iv-search {
   width: 100%;
   padding: 12px 16px;
   font-size: 15px;
@@ -534,10 +534,10 @@
   background: #fff;
   font-family: 'Inter', sans-serif;
   margin-bottom: 16px;
-}}
-.iv-search:focus {{ outline: none; border-color: var(--c-accent); }}
+}
+.iv-search:focus { outline: none; border-color: var(--c-accent); }
 
-.iv-table {{
+.iv-table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
@@ -545,35 +545,35 @@
   box-shadow: 0 1px 4px var(--c-shadow);
   border-radius: var(--radius);
   overflow: hidden;
-}}
-.iv-table thead th {{
+}
+.iv-table thead th {
   background: var(--c-header);
   color: #fff;
   text-align: left;
   padding: 12px 14px;
   font-weight: 600;
   font-size: 13px;
-}}
-.iv-table tbody td {{
+}
+.iv-table tbody td {
   padding: 10px 14px;
   border-top: 1px solid var(--c-border);
   vertical-align: top;
-}}
-.iv-table tbody tr:nth-child(even) {{ background: var(--c-table-stripe); }}
-.iv-table .base {{ font-weight: 600; color: var(--c-accent); font-family: 'Noto Serif', serif; }}
-.iv-table .past {{ color: var(--c-header); font-family: 'Noto Serif', serif; }}
-.iv-table .past-part {{ color: var(--c-text-muted); font-family: 'Noto Serif', serif; font-style: italic; }}
-.iv-table .ru {{ color: var(--c-text-muted); font-size: 13px; }}
-.iv-table .example {{ font-size: 13px; color: var(--c-text); font-style: italic; }}
-.iv-table .example b {{ color: var(--c-accent); font-style: normal; }}
+}
+.iv-table tbody tr:nth-child(even) { background: var(--c-table-stripe); }
+.iv-table .base { font-weight: 600; color: var(--c-accent); font-family: 'Noto Serif', serif; }
+.iv-table .past { color: var(--c-header); font-family: 'Noto Serif', serif; }
+.iv-table .past-part { color: var(--c-text-muted); font-family: 'Noto Serif', serif; font-style: italic; }
+.iv-table .ru { color: var(--c-text-muted); font-size: 13px; }
+.iv-table .example { font-size: 13px; color: var(--c-text); font-style: italic; }
+.iv-table .example b { color: var(--c-accent); font-style: normal; }
 
-.iv-mode-buttons {{
+.iv-mode-buttons {
   display: flex;
   gap: 8px;
   margin-bottom: 20px;
   flex-wrap: wrap;
-}}
-.iv-mode-btn {{
+}
+.iv-mode-btn {
   padding: 8px 16px;
   border: 2px solid var(--c-border);
   background: #fff;
@@ -583,52 +583,52 @@
   font-family: 'Inter', sans-serif;
   color: var(--c-text);
   transition: all 0.2s;
-}}
-.iv-mode-btn.active {{
+}
+.iv-mode-btn.active {
   background: var(--c-accent);
   color: #fff;
   border-color: var(--c-accent);
-}}
+}
 
-.iv-cards {{
+.iv-cards {
   display: none;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 16px;
-}}
-.iv-cards.active {{ display: grid; }}
-.iv-card {{
+}
+.iv-cards.active { display: grid; }
+.iv-card {
   background: #fff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   padding: 16px;
   box-shadow: 0 1px 4px var(--c-shadow);
   transition: transform 0.15s;
-}}
-.iv-card:hover {{ transform: translateY(-2px); border-color: var(--c-accent); }}
-.iv-card .base {{ font-size: 18px; font-weight: 700; color: var(--c-accent); font-family: 'Noto Serif', serif; }}
-.iv-card .forms {{ margin: 8px 0; font-family: 'Noto Serif', serif; font-size: 14px; }}
-.iv-card .forms div {{ margin: 4px 0; }}
-.iv-card .past {{ color: var(--c-header); }}
-.iv-card .past-part {{ color: var(--c-text-muted); font-style: italic; }}
-.iv-card .ru {{ color: var(--c-text-muted); font-size: 13px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--c-border); }}
-.iv-card .example {{ font-size: 12px; color: var(--c-text); margin-top: 6px; font-style: italic; }}
+}
+.iv-card:hover { transform: translateY(-2px); border-color: var(--c-accent); }
+.iv-card .base { font-size: 18px; font-weight: 700; color: var(--c-accent); font-family: 'Noto Serif', serif; }
+.iv-card .forms { margin: 8px 0; font-family: 'Noto Serif', serif; font-size: 14px; }
+.iv-card .forms div { margin: 4px 0; }
+.iv-card .past { color: var(--c-header); }
+.iv-card .past-part { color: var(--c-text-muted); font-style: italic; }
+.iv-card .ru { color: var(--c-text-muted); font-size: 13px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--c-border); }
+.iv-card .example { font-size: 12px; color: var(--c-text); margin-top: 6px; font-style: italic; }
 
-.iv-table-wrap {{ display: block; }}
-.iv-table-wrap.hidden {{ display: none; }}
+.iv-table-wrap { display: block; }
+.iv-table-wrap.hidden { display: none; }
 
-.iv-stats {{
+.iv-stats {
   background: var(--c-card-bg);
   border-radius: var(--radius);
   padding: 14px 18px;
   margin-bottom: 20px;
   font-size: 14px;
-}}
-.iv-stats b {{ color: var(--c-accent); }}
+}
+.iv-stats b { color: var(--c-accent); }
 
-@media print {{
-  .toolbar, .iv-search, .iv-mode-buttons, .iv-cards {{ display: none !important; }}
-  .iv-table-wrap {{ display: block !important; }}
-}}
+@media print {
+  .toolbar, .iv-search, .iv-mode-buttons, .iv-cards { display: none !important; }
+  .iv-table-wrap { display: block !important; }
+}
 </style>
 <link rel="icon" href="favicon.ico">
 </head>
@@ -1855,35 +1855,35 @@
 </footer>
 
 <script>
-function showTable() {{
+function showTable() {
   document.getElementById('tableWrap').classList.remove('hidden');
   document.getElementById('cardsWrap').classList.remove('active');
   document.getElementById('tableBtn').classList.add('active');
   document.getElementById('cardsBtn').classList.remove('active');
-}}
+}
 
-function showCards() {{
+function showCards() {
   document.getElementById('tableWrap').classList.add('hidden');
   document.getElementById('cardsWrap').classList.add('active');
   document.getElementById('cardsBtn').classList.add('active');
   document.getElementById('tableBtn').classList.remove('active');
-}}
+}
 
-function filterVerbs(q) {{
+function filterVerbs(q) {
   q = q.toLowerCase().trim();
   // Filter table rows
   var rows = document.querySelectorAll('#ivBody tr');
-  for (var i = 0; i < rows.length; i++) {{
+  for (var i = 0; i < rows.length; i++) {
     var text = rows[i].textContent.toLowerCase();
     rows[i].style.display = text.indexOf(q) !== -1 ? '' : 'none';
-  }}
+  }
   // Filter cards
   var cards = document.querySelectorAll('#cardsWrap .iv-card');
-  for (var j = 0; j < cards.length; j++) {{
+  for (var j = 0; j < cards.length; j++) {
     var cardText = cards[j].textContent.toLowerCase();
     cards[j].style.display = cardText.indexOf(q) !== -1 ? '' : 'none';
-  }}
-}}
+  }
+}
 </script>
 
 </body>
